@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "title": "Modelo de proyecto finalizado - Seminario de Programacion",
+  "referenceStudentId": "jeronimo-rodriguez-pena",
+  "referenceRule": "El proyecto con mayor evidencia tecnica se usa como base de comparacion. Solo se considera finalizado cuando su concepto es pertinente, el flujo principal funciona, no hay bloqueos de ejecucion y el estudiante demuestra comprension y autoria.",
+  "completionRule": {
+    "minimumPercent": 80,
+    "essentialSkillIds": ["html", "javascript", "domEvents", "validation", "integration"],
+    "requiredEvidence": ["runs", "explains", "liveChange", "authorship"],
+    "blockingConditions": [
+      "Error sintactico en un archivo necesario para la actividad",
+      "Pagina principal vacia o sin interfaz util",
+      "Referencias locales esenciales rotas",
+      "Flujo principal que no produce una salida visible"
+    ]
+  },
+  "skills": [
+    {
+      "id": "html",
+      "label": "HTML e interfaz",
+      "weight": 15,
+      "finalEvidence": "Existe una pagina principal visible, organizada con etiquetas semanticas, campos y botones suficientes para completar la actividad.",
+      "teacherQuestion": "Explica que informacion recibe cada campo y que sucede al usar cada boton.",
+      "liveTask": "Agregar o corregir un campo con label y conectarlo al flujo real."
+    },
+    {
+      "id": "javascript",
+      "label": "JavaScript y logica",
+      "weight": 20,
+      "finalEvidence": "La logica esta organizada en funciones, usa condiciones y modela datos con arreglos u objetos cuando corresponde.",
+      "teacherQuestion": "Senala la funcion principal, sus entradas, su proceso y su resultado.",
+      "liveTask": "Extraer una parte repetida a una funcion o corregir una condicion."
+    },
+    {
+      "id": "domEvents",
+      "label": "DOM, eventos y salida",
+      "weight": 15,
+      "finalEvidence": "Los eventos leen la interfaz, ejecutan la logica y muestran resultados dentro de la pagina sin depender exclusivamente de prompt o consola.",
+      "teacherQuestion": "Muestra el recorrido desde el evento hasta el elemento donde aparece el resultado.",
+      "liveTask": "Conectar un boton o formulario y renderizar una salida visible."
+    },
+    {
+      "id": "css",
+      "label": "CSS y presentacion",
+      "weight": 15,
+      "finalEvidence": "La hoja CSS esta conectada, usa Flexbox o Grid, presenta jerarquia visual, estados interactivos y responde a pantallas pequenas.",
+      "teacherQuestion": "Explica que regla controla la distribucion y como cambia en una pantalla pequena.",
+      "liveTask": "Crear o mejorar un componente con hover, focus y comportamiento responsive."
+    },
+    {
+      "id": "storage",
+      "label": "Navegacion y persistencia",
+      "weight": 10,
+      "finalEvidence": "Cuando el concepto lo requiere, los datos sobreviven a la navegacion o recarga mediante localStorage y JSON.",
+      "teacherQuestion": "Que dato se guarda, con que clave y en que momento se recupera?",
+      "liveTask": "Guardar y recuperar un objeto o arreglo con JSON.stringify y JSON.parse."
+    },
+    {
+      "id": "validation",
+      "label": "Validacion y errores",
+      "weight": 10,
+      "finalEvidence": "Se controlan campos vacios, tipos, rangos y casos invalidos, con mensajes visibles y sin detener la aplicacion.",
+      "teacherQuestion": "Prueba un caso invalido y explica por que el programa lo rechaza.",
+      "liveTask": "Agregar una validacion y un mensaje claro de error."
+    },
+    {
+      "id": "integration",
+      "label": "Flujo completo",
+      "weight": 10,
+      "finalEvidence": "La actividad completa entrada, procesamiento y salida de principio a fin y todas las rutas locales esenciales funcionan.",
+      "teacherQuestion": "Ejecuta el caso principal completo sin abrir el editor ni usar la consola.",
+      "liveTask": "Cerrar el paso faltante que impide terminar el flujo."
+    },
+    {
+      "id": "gitDocs",
+      "label": "Git, README y autoria",
+      "weight": 5,
+      "finalEvidence": "El README explica objetivo, integrantes, roles, ejecucion, estado y pendientes; los commits son pequenos y descriptivos.",
+      "teacherQuestion": "Que cambio corresponde al ultimo commit y que parte hiciste personalmente?",
+      "liveTask": "Actualizar README y crear un commit con prefijo feat, fix, style o docs."
+    }
+  ]
+}
