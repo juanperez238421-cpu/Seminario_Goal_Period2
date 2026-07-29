@@ -1,6 +1,123 @@
 {
-  "generatedAt": null,
-  "repositoriesChecked": 0,
+  "generatedAt": "2026-07-29T01:06:49Z",
+  "repositoriesChecked": 4,
   "updatesDetected": 0,
-  "students": {}
+  "students": {
+    "juan-pablo-arango-giraldo": {
+      "studentId": "juan-pablo-arango-giraldo",
+      "name": "Juan Pablo Arango Giraldo",
+      "group": "11-A",
+      "repository": "jp0705git/SeminarioProgramacion2",
+      "status": "ok",
+      "changed": false,
+      "firstObservation": true,
+      "previousSha": null,
+      "latestCommit": {
+        "sha": "0245023324037e02b318d4aaa014caf5725f8552",
+        "shortSha": "0245023",
+        "message": "Add files via upload",
+        "author": "jp0705git",
+        "date": "2026-07-08T19:40:47Z",
+        "url": "https://github.com/jp0705git/SeminarioProgramacion2/commit/0245023324037e02b318d4aaa014caf5725f8552"
+      },
+      "checkedAt": "2026-07-29T01:06:49Z"
+    },
+    "jeronimo-mazo-lopez": {
+      "studentId": "jeronimo-mazo-lopez",
+      "name": "Jerónimo Mazo López",
+      "group": "11-A",
+      "repository": "",
+      "status": "pending",
+      "checkedAt": "2026-07-29T01:06:49Z"
+    },
+    "jeronimo-rodriguez-pena": {
+      "studentId": "jeronimo-rodriguez-pena",
+      "name": "Jerónimo Rodríguez Peña",
+      "group": "11-A",
+      "repository": "jrod917/Carrito",
+      "status": "ok",
+      "changed": false,
+      "firstObservation": true,
+      "previousSha": null,
+      "latestCommit": {
+        "sha": "aa78f2883714e0883e33810707c07305503417e5",
+        "shortSha": "aa78f28",
+        "message": "Add files via upload",
+        "author": "jrod917",
+        "date": "2026-07-08T19:42:17Z",
+        "url": "https://github.com/jrod917/Carrito/commit/aa78f2883714e0883e33810707c07305503417e5"
+      },
+      "checkedAt": "2026-07-29T01:06:49Z"
+    },
+    "pedro-pablo-arbelaez-escobar": {
+      "studentId": "pedro-pablo-arbelaez-escobar",
+      "name": "Pedro Pablo Arbeláez Escobar",
+      "group": "11-B",
+      "repository": "Pedropae07/practice_seminario",
+      "status": "ok",
+      "changed": false,
+      "firstObservation": true,
+      "previousSha": null,
+      "latestCommit": {
+        "sha": "2b4300f11504c6f3de6cb59f53ecb5c949ddc539",
+        "shortSha": "2b4300f",
+        "message": "Finally",
+        "author": "Pedropae07",
+        "date": "2026-05-13T19:58:32Z",
+        "url": "https://github.com/Pedropae07/practice_seminario/commit/2b4300f11504c6f3de6cb59f53ecb5c949ddc539"
+      },
+      "checkedAt": "2026-07-29T01:06:49Z"
+    },
+    "samuel-chavarriaga-avendano": {
+      "studentId": "samuel-chavarriaga-avendano",
+      "name": "Samuel Chavarriaga Avendaño",
+      "group": "11-B",
+      "repository": "",
+      "status": "pending",
+      "checkedAt": "2026-07-29T01:06:49Z"
+    },
+    "pablo-jaramillo-palacio": {
+      "studentId": "pablo-jaramillo-palacio",
+      "name": "Pablo Jaramillo Palacio",
+      "group": "11-B",
+      "repository": "pablitojarita2008-oss/pablitoSeminario",
+      "status": "ok",
+      "changed": false,
+      "firstObservation": true,
+      "previousSha": null,
+      "latestCommit": {
+        "sha": "5b8125d0959565b10e438ae662e0686efdaee372",
+        "shortSha": "5b8125d",
+        "message": "Add files via upload",
+        "author": "pablitojarita2008-oss",
+        "date": "2026-07-08T19:45:38Z",
+        "url": "https://github.com/pablitojarita2008-oss/pablitoSeminario/commit/5b8125d0959565b10e438ae662e0686efdaee372"
+      },
+      "checkedAt": "2026-07-29T01:06:49Z"
+    },
+    "alejandro-rico-paramo": {
+      "studentId": "alejandro-rico-paramo",
+      "name": "Alejandro Rico Páramo",
+      "group": "11-B",
+      "repository": "",
+      "status": "pending",
+      "checkedAt": "2026-07-29T01:06:49Z"
+    },
+    "tomas-gonzalez-giraldo": {
+      "studentId": "tomas-gonzalez-giraldo",
+      "name": "Tomás González Giraldo",
+      "group": "11-C",
+      "repository": "",
+      "status": "pending",
+      "checkedAt": "2026-07-29T01:06:49Z"
+    },
+    "alejandro-rincon-torres": {
+      "studentId": "alejandro-rincon-torres",
+      "name": "Alejandro Rincón Torres",
+      "group": "11-C",
+      "repository": "",
+      "status": "pending",
+      "checkedAt": "2026-07-29T01:06:49Z"
+    }
+  }
 }
