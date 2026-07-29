@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -43,25 +43,51 @@ jobs:
             texlive-fonts-recommended \
             zip
 
-      - name: Remove previous generated archive
-        run: rm -f guides/seminario_guias_2026_07_29.zip
-
-      - name: Generate general and individual LaTeX guides
-        run: python scripts/generate-pdf-guides.py
-
-      - name: Generate focused interview sheets and rebuild archive
-        run: python scripts/generate-session-guides.py
-
-      - name: Commit generated guides
+      - name: Generate guides and capture diagnostic
+        id: build
+        shell: bash
         run: |
-          CHANGES="$(git status --porcelain -- guides)"
-          if [ -z "$CHANGES" ]; then
-            echo "No guide changes to commit."
-            exit 0
-          fi
+          set +e
+          mkdir -p data/diagnostics
+          rm -f guides/seminario_guias_2026_07_29.zip
+          {
+            echo "Run: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo
+            echo "== General guides =="
+            python scripts/generate-pdf-guides.py
+            GENERAL_STATUS=$?
+            echo "general_status=$GENERAL_STATUS"
+            echo
+            echo "== Focused interview sheets =="
+            if [ "$GENERAL_STATUS" -eq 0 ]; then
+              python scripts/generate-session-guides.py
+              SESSION_STATUS=$?
+            else
+              SESSION_STATUS=99
+              echo "Focused generation skipped because general generation failed."
+            fi
+            echo "session_status=$SESSION_STATUS"
+            echo "general_status=$GENERAL_STATUS" >> "$GITHUB_OUTPUT"
+            echo "session_status=$SESSION_STATUS" >> "$GITHUB_OUTPUT"
+          } 2>&1 | tee data/diagnostics/guides-latest.txt
+          exit 0
 
+      - name: Commit diagnostic and generated guides
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add guides
-          git commit -m "docs(guides): refresh focused interview PDF sheets"
+          git add data/diagnostics/guides-latest.txt
+          if [ "${{ steps.build.outputs.general_status }}" = "0" ] && [ "${{ steps.build.outputs.session_status }}" = "0" ]; then
+            git add guides
+          fi
+          if git diff --cached --quiet; then
+            echo "No guide or diagnostic changes to commit."
+            exit 0
+          fi
+          git commit -m "docs(guides): refresh focused interview sheets and diagnostic [skip ci]"
+          git pull --rebase origin main
           git push
+
+      - name: Fail when generation fails
+        if: steps.build.outputs.general_status != '0' || steps.build.outputs.session_status != '0'
+        run: exit 1
