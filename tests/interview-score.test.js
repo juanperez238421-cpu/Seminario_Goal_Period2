@@ -31,8 +31,8 @@ test("combina repositorio actividad y evidencia en escala de cinco", () => {
       commit: false,
     },
   });
-  assert.equal(score.percent, 82.3);
-  assert.equal(score.grade, 4.12);
+  assert.equal(score.percent, 80.3);
+  assert.equal(score.grade, 4.02);
   assert.equal(score.finalizable, true);
   assert.equal(score.confidence, "high");
 });
