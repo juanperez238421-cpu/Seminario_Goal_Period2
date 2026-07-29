@@ -63,9 +63,13 @@ jobs:
 
           session = Path("session.html")
           session_html = session.read_text(encoding="utf-8")
-          guide_script = '<script type="module" src="js/session-guide-link.js"></script>'
-          if guide_script not in session_html:
-              session_html = session_html.replace("</body>", f"  {guide_script}\n</body>")
+          session_scripts = [
+              '<script type="module" src="js/session-guide-link.js"></script>',
+              '<script type="module" src="js/session-priority.js"></script>',
+          ]
+          for script in session_scripts:
+              if script not in session_html:
+                  session_html = session_html.replace("</body>", f"  {script}\n</body>")
           session.write_text(session_html, encoding="utf-8")
           PY
 
