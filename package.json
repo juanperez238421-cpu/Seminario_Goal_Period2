@@ -1,14 +1,14 @@
 {
   "name": "seminario-goal-period2",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
-  "description": "Página maestra docente para seguimiento, ejecución y auditoría de proyectos de Seminario de Programación, grado 11.",
+  "description": "Página maestra docente para seguimiento, equipos, ejecución y auditoría de proyectos de Seminario de Programación, grado 11.",
   "scripts": {
     "start": "python -m http.server 8000",
     "test": "node --test tests/*.test.js",
     "monitor": "node scripts/monitor-repos-v2.mjs",
-    "check": "node --check js/app.js && node --check js/core.js && node --check js/project-review-local.js && node --check scripts/project-audit.mjs && node --check scripts/monitor-repos-v2.mjs"
+    "check": "node --check js/app.js && node --check js/core.js && node --check js/portfolio.js && node --check js/project-review-local.js && node --check js/project-review-bootstrap.js && node --check scripts/project-audit.mjs && node --check scripts/monitor-repos-v2.mjs"
   },
   "engines": {
     "node": ">=20"
