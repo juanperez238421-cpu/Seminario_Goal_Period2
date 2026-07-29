@@ -1,0 +1,28 @@
+name: Validate master dashboard
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check JavaScript syntax
+        run: |
+          node --check js/app.js
+          node --check js/core.js
+          node --check js/project-review.js
+          node --check scripts/monitor-repos.mjs
+      - name: Run unit tests
+        run: npm test
