@@ -1,4 +1,4 @@
-name: Monitor and mirror student repositories
+name: Monitor mirror and score student repositories
 
 on:
   schedule:
@@ -8,7 +8,9 @@ on:
     branches: [main]
     paths:
       - "data/students.json"
-      - "scripts/monitor-repos.mjs"
+      - "scripts/project-audit.mjs"
+      - "scripts/monitor-repos-v2.mjs"
+      - "package.json"
       - ".github/workflows/monitor.yml"
 
 permissions:
@@ -30,21 +32,24 @@ jobs:
         with:
           node-version: 20
 
-      - name: Consult and copy public student repositories
+      - name: Validate monitoring code
+        run: npm run check
+
+      - name: Consult copy and score public student repositories
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run monitor
 
-      - name: Commit monitoring data and local project mirrors
+      - name: Commit monitoring audits and local project mirrors
         run: |
           CHANGES="$(git status --porcelain -- data/monitor student-projects)"
           if [ -z "$CHANGES" ]; then
-            echo "No monitoring or local project changes to commit."
+            echo "No monitoring, audit or local project changes to commit."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/monitor student-projects
-          git commit -m "chore(monitor): refresh local student project mirrors"
+          git commit -m "chore(monitor): refresh project mirrors and technical scores"
           git push
