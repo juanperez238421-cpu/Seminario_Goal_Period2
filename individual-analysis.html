@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Análisis individual de cada estudiante, su proyecto, conceptos demostrados, faltantes y siguiente acuerdo de Seminario de Programación.">
+  <meta name="description" content="Ruta común y simplificada de proyectos para revisar el avance de cada estudiante de Seminario de Programación.">
   <meta name="theme-color" content="#123b63">
-  <title>Análisis individual | Seminario Goal</title>
+  <title>Ruta común de proyectos | Seminario Goal</title>
   <link rel="stylesheet" href="css/session.css">
-  <link rel="stylesheet" href="css/individual-analysis.css">
-  <script type="module" src="js/individual-analysis.js"></script>
+  <link rel="stylesheet" href="css/common-path.css">
+  <script type="module" src="js/common-path.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#mainContent">Saltar al contenido</a>
@@ -18,23 +18,24 @@
       <span class="brand-mark" aria-hidden="true">SG</span>
       <div>
         <p class="eyebrow">Instituto Jorge Robledo · Seminario de Programación</p>
-        <h1>Análisis individual de proyectos</h1>
-        <p>Estado real del repositorio, conceptos demostrados, elementos incompletos y acuerdo puntual para cada estudiante.</p>
+        <h1>Ruta común de proyectos</h1>
+        <p>Tres proyectos, cinco criterios y una sola meta por entrevista.</p>
       </div>
     </div>
     <div class="topbar-actions">
-      <button class="button secondary" id="refreshButton" type="button">Actualizar análisis</button>
+      <button class="button secondary" id="refreshButton" type="button">Actualizar</button>
       <button class="button secondary" id="printButton" type="button">Imprimir ficha</button>
-      <a class="button secondary" href="session.html">Entrevista puntual</a>
+      <button class="button secondary" id="linkTeamButton" type="button">Vincular pareja</button>
+      <a class="button secondary" href="portfolio.html">Proyectos y equipos</a>
       <a class="button primary" href="index.html">Página maestra</a>
     </div>
   </header>
 
-  <main id="mainContent" class="analysis-workspace">
-    <aside class="student-panel panel analysis-student-panel" aria-labelledby="studentListTitle">
+  <main id="mainContent" class="common-workspace">
+    <aside class="student-panel panel common-student-panel" aria-labelledby="studentListTitle">
       <div class="panel-heading">
         <div>
-          <p class="section-kicker">Curso completo</p>
+          <p class="section-kicker">Curso</p>
           <h2 id="studentListTitle">Estudiantes</h2>
         </div>
         <span class="count-pill" id="studentCount">0</span>
@@ -54,12 +55,12 @@
         </select>
       </label>
       <label class="field">
-        <span>Estado</span>
-        <select id="statusFilter">
+        <span>Modalidad</span>
+        <select id="modeFilter">
           <option value="all">Todos</option>
-          <option value="audited">Con repositorio auditado</option>
+          <option value="individual">Individual</option>
+          <option value="team">Pareja</option>
           <option value="pending">Sin repositorio</option>
-          <option value="team">En pareja</option>
         </select>
       </label>
 
@@ -67,176 +68,169 @@
       <p class="empty-state" id="studentEmpty" hidden>No hay estudiantes para estos filtros.</p>
     </aside>
 
-    <section class="analysis-main">
-      <section class="student-summary panel analysis-summary">
-        <div class="summary-main">
-          <p class="section-kicker">Ficha para conversación</p>
-          <h2 id="studentName">Selecciona un estudiante</h2>
-          <p id="studentMeta">Se cargará su proyecto, repositorio, equipo, commit, diagnóstico y ruta de trabajo.</p>
-          <div class="member-list" id="memberList"></div>
-          <div class="analysis-actions">
-            <a class="button primary" id="openInterviewButton" href="session.html">Abrir entrevista</a>
-            <a class="button secondary" id="openRunnerButton" href="project-review.html">Ejecutar proyecto</a>
-            <a class="button secondary" id="openRepositoryButton" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir GitHub</a>
-            <button class="button ghost" id="copyAnalysisButton" type="button" disabled>Copiar análisis</button>
+    <section class="common-main">
+      <section class="panel pathway-intro">
+        <div class="panel-heading split">
+          <div>
+            <p class="section-kicker">Temática unificada</p>
+            <h2 id="pathwayTitle">Aplicaciones web de gestión</h2>
+            <p id="pathwayDescription">Todos trabajan las mismas capacidades; el contexto del proyecto puede cambiar.</p>
+          </div>
+          <div class="reference-box">
+            <span>Regla simple</span>
+            <strong>5 criterios × 20 %</strong>
+            <small>Completo = 100 %</small>
           </div>
         </div>
-        <div class="summary-score analysis-score">
-          <span>Diagnóstico técnico</span>
-          <strong id="technicalGrade">—</strong>
-          <small id="technicalStatus">Sin auditoría</small>
+        <div class="common-project-overview" id="commonProjectOverview"></div>
+      </section>
+
+      <section class="student-summary panel common-summary">
+        <div class="summary-main">
+          <p class="section-kicker">Estudiante seleccionado</p>
+          <h2 id="studentName">Selecciona un estudiante</h2>
+          <p id="studentMeta">Se mostrará su ruta, equipo, repositorio y siguiente proyecto.</p>
+          <div class="member-list" id="memberList"></div>
+          <div class="analysis-actions">
+            <a class="button primary" id="openRunnerButton" href="project-review.html">Ejecutar repositorio</a>
+            <a class="button secondary" id="openInterviewButton" href="session.html">Entrevista por actividad</a>
+            <a class="button secondary" id="openRepositoryButton" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir GitHub</a>
+          </div>
+        </div>
+        <div class="summary-score common-score">
+          <span>Ruta común</span>
+          <strong id="routePercent">0%</strong>
+          <small id="routeStatus">Sin iniciar</small>
           <div class="summary-badges" id="summaryBadges"></div>
         </div>
       </section>
 
-      <section class="panel teacher-opening">
-        <div class="panel-heading split">
-          <div>
-            <p class="section-kicker">Qué decir al sentarse</p>
-            <h2>Comentario inicial sugerido</h2>
-          </div>
-          <span class="sync-label" id="auditDate">Sin diagnóstico</span>
+      <section class="panel simple-instruction">
+        <div>
+          <p class="section-kicker">Qué decir hoy</p>
+          <h2>Comentario breve para la entrevista</h2>
         </div>
-        <blockquote id="teacherOpening">Selecciona un estudiante para generar el comentario.</blockquote>
+        <blockquote id="teacherOpening">Selecciona un estudiante para generar la instrucción.</blockquote>
       </section>
 
-      <section class="overview-cards" aria-label="Resumen del proyecto">
-        <article class="panel compact-card">
-          <span>Modalidad</span>
-          <strong id="modeValue">—</strong>
-          <small id="modeDetail">Individual o pareja</small>
-        </article>
-        <article class="panel compact-card">
-          <span>Repositorio</span>
-          <strong id="repositoryValue">—</strong>
-          <small id="repositoryDetail">Pendiente de vinculación</small>
-        </article>
-        <article class="panel compact-card">
-          <span>Actividad principal</span>
-          <strong id="entryValue">—</strong>
-          <small id="entryDetail">Archivo de entrada</small>
-        </article>
-        <article class="panel compact-card attention-card">
-          <span>Prioridad</span>
-          <strong id="priorityValue">—</strong>
-          <small id="priorityDetail">Primer faltante a intervenir</small>
-        </article>
-      </section>
-
-      <section class="panel project-state-panel">
-        <div class="panel-heading split">
-          <div>
-            <p class="section-kicker">Estado real</p>
-            <h2>Qué existe actualmente en el proyecto</h2>
-            <p>La evidencia proviene de la copia del último SHA monitoreado; no reemplaza la ejecución frente al estudiante.</p>
-          </div>
-          <div class="reference-box">
-            <span>Referencia del curso</span>
-            <strong id="benchmarkName">—</strong>
-            <small id="benchmarkDetail">—</small>
-          </div>
-        </div>
-
-        <div class="project-stat-grid" id="projectStats"></div>
-        <div class="project-flow" id="projectFlow"></div>
-      </section>
-
-      <section class="panel criteria-panel">
-        <div class="panel-heading split">
-          <div>
-            <p class="section-kicker">Mapa de competencias</p>
-            <h2>Estado por criterio</h2>
-            <p>Verde indica una base funcional; amarillo requiere consolidación; rojo representa evidencia insuficiente.</p>
-          </div>
-          <div class="gap-box">
-            <span>Distancia al referente</span>
-            <strong id="benchmarkGap">—</strong>
-          </div>
-        </div>
-        <div class="criteria-grid" id="criteriaGrid"></div>
-      </section>
-
-      <section class="analysis-columns">
-        <article class="panel evidence-panel">
-          <p class="section-kicker">Fortalezas actuales</p>
-          <h2>Conceptos y elementos demostrados</h2>
-          <ul class="analysis-list success" id="currentConcepts"></ul>
-        </article>
-        <article class="panel evidence-panel">
-          <p class="section-kicker">Brecha técnica</p>
-          <h2>Conceptos que faltan</h2>
-          <ul class="analysis-list warning" id="missingConcepts"></ul>
-        </article>
-        <article class="panel evidence-panel">
-          <p class="section-kicker">Deuda del repositorio</p>
-          <h2>Elementos incompletos o riesgos</h2>
-          <ul class="analysis-list danger" id="incompleteElements"></ul>
-        </article>
-      </section>
-
-      <section class="panel files-panel">
-        <div class="panel-heading split">
-          <div>
-            <p class="section-kicker">Actividades subidas</p>
-            <h2>Páginas y prácticas encontradas</h2>
-            <p>La página principal está resaltada. Las demás deben revisarse solo si aportan al proyecto consolidado.</p>
-          </div>
-          <a class="button secondary" id="openDetailedSessionButton" href="session.html">Ver análisis por actividad</a>
-        </div>
-        <div class="file-list" id="htmlFiles"></div>
-      </section>
-
-      <section class="panel expected-panel">
+      <section class="panel criteria-strip-panel">
         <div class="panel-heading">
           <div>
-            <p class="section-kicker">Resultado esperado</p>
-            <h2>Cómo debe quedar el proyecto</h2>
+            <p class="section-kicker">Mismos criterios para todos</p>
+            <h2>Criterios mínimos de cada proyecto</h2>
+            <p>No se usan ocho rúbricas distintas. Cada criterio vale 20 % y se confirma frente al estudiante.</p>
           </div>
         </div>
-        <p class="expected-summary" id="expectedProject"></p>
-        <ol class="flow-list" id="completionFlow"></ol>
+        <div class="criteria-strip" id="criteriaStrip"></div>
       </section>
 
-      <section class="intervention-grid">
-        <article class="panel intervention-card">
-          <p class="section-kicker">Comprobación oral</p>
-          <h2>Preguntas para el estudiante</h2>
-          <ol id="teacherQuestions"></ol>
-        </article>
-        <article class="panel intervention-card">
-          <p class="section-kicker">Prueba frente al docente</p>
-          <h2>Secuencia de ejecución</h2>
-          <ol id="liveTest"></ol>
-        </article>
-        <article class="panel intervention-card priority-intervention">
-          <p class="section-kicker">Una sola meta</p>
-          <h2>Acuerdo del siguiente commit</h2>
-          <p id="nextAgreement"></p>
-          <code id="expectedCommit"></code>
-        </article>
-      </section>
-
-      <section class="panel pending-panel" id="pendingPanel" hidden>
-        <div class="panel-heading">
+      <section class="panel student-route-panel">
+        <div class="panel-heading split">
           <div>
-            <p class="section-kicker">Sin evidencia técnica</p>
-            <h2>Ruta inicial para vincular el proyecto</h2>
+            <p class="section-kicker">Proyectos del estudiante</p>
+            <h2>Qué tiene, qué falta y qué sigue</h2>
+            <p>Marca un criterio solamente cuando puedas demostrarlo en el repositorio o durante la entrevista.</p>
           </div>
+          <span class="sync-label" id="auditLabel">Sin auditoría</span>
         </div>
-        <p>No se asigna nota de cero. Primero se debe identificar el repositorio o la pareja y dejar una evidencia mínima revisable.</p>
-        <div class="pending-grid">
-          <article><strong>1. Confirmar</strong><span>Usuario, repositorio, proyecto y pareja.</span></article>
-          <article><strong>2. Crear</strong><span>HTML, CSS, JavaScript y README.</span></article>
-          <article><strong>3. Demostrar</strong><span>Entrada, evento, función y salida visible.</span></article>
-          <article><strong>4. Publicar</strong><span>Commit descriptivo y repositorio público.</span></article>
+        <div class="student-project-grid" id="studentProjectGrid"></div>
+      </section>
+
+      <section class="panel next-step-panel">
+        <div class="next-step-heading">
+          <div>
+            <p class="section-kicker">Una sola meta</p>
+            <h2 id="nextProjectTitle">Siguiente proyecto</h2>
+          </div>
+          <span class="next-project-chip" id="nextProjectStatus">Pendiente</span>
+        </div>
+        <div class="next-step-grid">
+          <article>
+            <span>Qué debe completar</span>
+            <strong id="nextCriterion">Selecciona un estudiante</strong>
+            <p id="nextCriterionEvidence"></p>
+          </article>
+          <article>
+            <span>Proyecto o variante</span>
+            <strong id="nextVariant">—</strong>
+            <p id="nextMinimum"></p>
+          </article>
+          <article>
+            <span>Commit recomendado</span>
+            <code id="nextCommit">—</code>
+            <p id="nextInterviewTask"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel advanced-track" id="advancedTrackPanel" hidden>
+        <div>
+          <p class="section-kicker">Profundización</p>
+          <h2>Aplicar CSS a todos los proyectos</h2>
+          <p id="advancedTrackDescription"></p>
+        </div>
+        <div class="advanced-checklist">
+          <span>Variables CSS</span>
+          <span>Flexbox o Grid</span>
+          <span>Responsive</span>
+          <span>Estados visuales</span>
+          <span>Componentes reutilizables</span>
         </div>
       </section>
     </section>
   </main>
 
+  <dialog class="team-dialog" id="teamDialog">
+    <form method="dialog" id="teamForm">
+      <div class="dialog-heading">
+        <div>
+          <p class="section-kicker">Proyecto compartido</p>
+          <h2 id="teamDialogTitle">Vincular pareja</h2>
+        </div>
+        <button class="icon-button" id="closeTeamDialogButton" type="button" aria-label="Cerrar">×</button>
+      </div>
+      <input id="teamIdInput" type="hidden">
+      <div class="dialog-grid">
+        <label class="field">
+          <span>Estudiante principal</span>
+          <select id="primaryStudentInput" required></select>
+        </label>
+        <label class="field">
+          <span>Pareja</span>
+          <select id="partnerStudentInput">
+            <option value="">Proyecto individual</option>
+          </select>
+        </label>
+      </div>
+      <label class="field">
+        <span>Repositorio compartido</span>
+        <input id="teamRepositoryInput" type="text" placeholder="usuario/repositorio">
+      </label>
+      <fieldset class="shared-projects-fieldset">
+        <legend>Proyectos compartidos</legend>
+        <div id="sharedProjectChecks"></div>
+      </fieldset>
+      <div class="dialog-grid">
+        <label class="field">
+          <span>Responsabilidad del estudiante principal</span>
+          <input id="primaryRoleInput" type="text" placeholder="Ej.: estructura, formularios y CSS">
+        </label>
+        <label class="field">
+          <span>Responsabilidad de la pareja</span>
+          <input id="partnerRoleInput" type="text" placeholder="Ej.: JavaScript, DOM y almacenamiento">
+        </label>
+      </div>
+      <div class="dialog-actions">
+        <button class="button ghost" id="unlinkTeamButton" type="button">Dejar individual</button>
+        <button class="button secondary" id="cancelTeamButton" type="button">Cancelar</button>
+        <button class="button primary" type="submit">Guardar vínculo</button>
+      </div>
+    </form>
+  </dialog>
+
   <footer class="site-footer">
-    <p><strong>Uso docente:</strong> el análisis automatizado orienta la conversación. La nota definitiva depende de ejecución, explicación, autoría y modificación en vivo.</p>
-    <p id="pageStatus">Datos listos.</p>
+    <p><strong>Regla del periodo:</strong> el proyecto puede ser compartido, pero explicación, modificación en vivo y autoría se verifican por estudiante.</p>
+    <p id="pageStatus">Ruta común lista.</p>
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
