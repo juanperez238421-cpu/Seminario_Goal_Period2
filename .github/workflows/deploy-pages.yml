@@ -22,6 +22,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Add live project review entry point
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          page = Path("index.html")
+          html = page.read_text(encoding="utf-8")
+          marker = '<div class="topbar-actions">'
+          link = '<a class="button secondary" href="project-review.html">Revisar proyectos</a>'
+          if link not in html and marker in html:
+              html = html.replace(marker, f"{marker}\n      {link}", 1)
+              page.write_text(html, encoding="utf-8")
+          PY
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
