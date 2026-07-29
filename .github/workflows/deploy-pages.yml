@@ -60,6 +60,13 @@ jobs:
               "la automatizacion copia cada repositorio web vinculado dentro de student-projects/. Python, Java, servidores y bases de datos deben ejecutarse en el computador del estudiante."
           )
           review.write_text(review_html, encoding="utf-8")
+
+          session = Path("session.html")
+          session_html = session.read_text(encoding="utf-8")
+          guide_script = '<script type="module" src="js/session-guide-link.js"></script>'
+          if guide_script not in session_html:
+              session_html = session_html.replace("</body>", f"  {guide_script}\n</body>")
+          session.write_text(session_html, encoding="utf-8")
           PY
 
       - uses: actions/configure-pages@v5
