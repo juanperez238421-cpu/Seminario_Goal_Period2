@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Configure master project portfolio and review entry points
+      - name: Configure master project portfolio interview and review entry points
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -32,10 +32,11 @@ jobs:
           html = master.read_text(encoding="utf-8")
           marker = '<div class="topbar-actions">'
           links = [
+              '<a class="button primary" href="session.html">Entrevista puntual</a>',
               '<a class="button secondary" href="portfolio.html">Proyectos y equipos</a>',
               '<a class="button secondary" href="project-review.html">Revisar proyectos locales</a>',
           ]
-          html = html.replace('<a class="button secondary" href="project-review.html">Revisar proyectos</a>', links[1])
+          html = html.replace('<a class="button secondary" href="project-review.html">Revisar proyectos</a>', links[2])
           for link in reversed(links):
               if link not in html and marker in html:
                   html = html.replace(marker, f"{marker}\n      {link}", 1)
@@ -46,17 +47,17 @@ jobs:
           review_html = review_html.replace('src="js/project-review.js"', 'src="js/project-review-bootstrap.js"')
           review_html = review_html.replace('src="js/project-review-local.js"', 'src="js/project-review-bootstrap.js"')
           review_html = review_html.replace(
-              "El modo commit carga una copia estática del SHA seleccionado. No modifica el repositorio del estudiante.",
-              "La página abre la copia completa almacenada en este repositorio maestro y asociada al SHA monitoreado."
+              "El modo commit carga una copia estatica del SHA seleccionado. No modifica el repositorio del estudiante.",
+              "La pagina abre la copia completa almacenada en este repositorio maestro y asociada al SHA monitoreado."
           )
           review_html = review_html.replace("Detectar y ejecutar", "Abrir copia local")
           review_html = review_html.replace(
-              "Selecciona un estudiante y pulsa <strong>Abrir copia local</strong>. Podrás escoger cualquiera de sus páginas HTML.",
-              "Selecciona un estudiante y abre su copia central. Podrás escoger cualquiera de las páginas HTML guardadas en el repositorio maestro."
+              "Selecciona un estudiante y pulsa <strong>Abrir copia local</strong>. Podras escoger cualquiera de sus paginas HTML.",
+              "Selecciona un estudiante y abre su copia central. Podras escoger cualquiera de las paginas HTML guardadas en el repositorio maestro."
           )
           review_html = review_html.replace(
-              "funciona para proyectos web públicos de HTML, CSS y JavaScript. Los programas de Python, Java, servidores o bases de datos necesitan ejecutarse en el computador del estudiante.",
-              "la automatización copia cada repositorio web vinculado dentro de student-projects/. Python, Java, servidores y bases de datos deben ejecutarse en el computador del estudiante."
+              "funciona para proyectos web publicos de HTML, CSS y JavaScript. Los programas de Python, Java, servidores o bases de datos necesitan ejecutarse en el computador del estudiante.",
+              "la automatizacion copia cada repositorio web vinculado dentro de student-projects/. Python, Java, servidores y bases de datos deben ejecutarse en el computador del estudiante."
           )
           review.write_text(review_html, encoding="utf-8")
           PY
