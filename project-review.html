@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Laboratorio docente para ejecutar y revisar los proyectos web de los estudiantes de Seminario de Programación.">
+  <meta name="theme-color" content="#102f52">
+  <title>Revisión en vivo | Seminario Goal</title>
+  <link rel="stylesheet" href="css/project-review.css">
+  <script type="module" src="js/project-review.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#reviewWorkspace">Saltar al laboratorio</a>
+
+  <header class="review-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">PR</span>
+      <div>
+        <p class="eyebrow">Instituto Jorge Robledo · Seminario de Programación</p>
+        <h1>Revisión en vivo de proyectos</h1>
+        <p>Ejecuta el estado exacto del último commit, conversa con el estudiante y registra la evidencia de la sesión.</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <span class="security-pill">Vista aislada y segura</span>
+      <button class="button secondary" id="refreshDataButton" type="button">Actualizar datos</button>
+      <a class="button primary" href="index.html">Volver a página maestra</a>
+    </div>
+  </header>
+
+  <main id="reviewWorkspace" class="workspace">
+    <aside class="student-sidebar" aria-labelledby="studentListTitle">
+      <div class="sidebar-heading">
+        <div>
+          <p class="section-kicker">Curso</p>
+          <h2 id="studentListTitle">Estudiantes</h2>
+        </div>
+        <span class="count-pill" id="studentCount">0</span>
+      </div>
+
+      <div class="sidebar-filters">
+        <label class="field">
+          <span>Buscar</span>
+          <input id="studentSearch" type="search" placeholder="Nombre, grupo o proyecto" autocomplete="off">
+        </label>
+        <label class="field">
+          <span>Grupo</span>
+          <select id="groupFilter">
+            <option value="all">Todos</option>
+            <option value="11-A">11-A</option>
+            <option value="11-B">11-B</option>
+            <option value="11-C">11-C</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="student-list" id="studentList" aria-live="polite"></div>
+      <p class="empty-state" id="studentEmptyState" hidden>No hay estudiantes para estos filtros.</p>
+    </aside>
+
+    <section class="review-main" aria-labelledby="selectedStudentName">
+      <section class="student-context panel">
+        <div class="student-context-copy">
+          <p class="section-kicker">Sesión individual</p>
+          <h2 id="selectedStudentName">Selecciona un estudiante</h2>
+          <p id="selectedStudentMeta">Elige una tarjeta para preparar su repositorio y proyecto.</p>
+        </div>
+        <div class="context-badges">
+          <span class="badge" id="repositoryStateBadge">Repositorio pendiente</span>
+          <span class="badge neutral" id="commitStateBadge">Sin commit</span>
+        </div>
+      </section>
+
+      <section class="runner-panel panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Proyecto actual</p>
+            <h3>Ejecutar aplicación web</h3>
+            <p>El modo commit carga una copia estática del SHA seleccionado. No modifica el repositorio del estudiante.</p>
+          </div>
+          <div class="runner-state" id="runnerState" data-state="idle">
+            <span class="runner-dot"></span>
+            <strong>Sin ejecutar</strong>
+          </div>
+        </div>
+
+        <div class="repository-summary">
+          <div>
+            <span>Repositorio</span>
+            <strong id="repositoryLabel">—</strong>
+          </div>
+          <div>
+            <span>Commit evaluado</span>
+            <strong id="commitLabel">—</strong>
+          </div>
+          <div>
+            <span>Proyecto</span>
+            <strong id="projectLabel">—</strong>
+          </div>
+        </div>
+
+        <div class="runner-controls">
+          <label class="field entry-field">
+            <span>Página de entrada detectada</span>
+            <select id="entryFileSelect" disabled>
+              <option value="">Detecta primero las páginas HTML</option>
+            </select>
+          </label>
+          <label class="field live-url-field">
+            <span>URL publicada opcional</span>
+            <input id="liveUrlInput" type="url" placeholder="https://usuario.github.io/proyecto/" autocomplete="off">
+          </label>
+          <div class="control-buttons">
+            <button class="button primary" id="detectAndRunButton" type="button" disabled>Detectar y ejecutar</button>
+            <button class="button secondary" id="runSelectedButton" type="button" disabled>Ejecutar página</button>
+            <button class="button secondary" id="runLiveUrlButton" type="button" disabled>Usar URL publicada</button>
+            <button class="button ghost" id="reloadPreviewButton" type="button" disabled>Recargar</button>
+          </div>
+        </div>
+
+        <div class="preview-toolbar">
+          <div class="preview-source">
+            <span>Fuente</span>
+            <strong id="previewSourceLabel">Ninguna</strong>
+          </div>
+          <div class="preview-actions">
+            <a class="text-button" id="openRepositoryLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir repositorio</a>
+            <a class="text-button" id="openCommitLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir commit</a>
+            <a class="text-button" id="openPreviewLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir proyecto en pantalla completa</a>
+          </div>
+        </div>
+
+        <div class="preview-shell" id="previewShell">
+          <div class="preview-placeholder" id="previewPlaceholder">
+            <span class="placeholder-icon" aria-hidden="true">▶</span>
+            <h3>Proyecto listo para revisar</h3>
+            <p>Selecciona un estudiante y pulsa <strong>Detectar y ejecutar</strong>. Podrás escoger cualquiera de sus páginas HTML.</p>
+          </div>
+          <iframe
+            id="projectFrame"
+            title="Vista previa del proyecto del estudiante"
+            loading="eager"
+            referrerpolicy="no-referrer"
+            hidden
+          ></iframe>
+        </div>
+
+        <div class="runner-notice">
+          <strong>Alcance:</strong>
+          <span>funciona para proyectos web públicos de HTML, CSS y JavaScript. Los programas de Python, Java, servidores o bases de datos necesitan ejecutarse en el computador del estudiante.</span>
+        </div>
+      </section>
+    </section>
+
+    <aside class="review-sidebar" aria-labelledby="sessionTitle">
+      <section class="session-panel panel">
+        <div class="panel-heading compact">
+          <div>
+            <p class="section-kicker">Evidencia docente</p>
+            <h2 id="sessionTitle">Revisión de la sesión</h2>
+          </div>
+        </div>
+
+        <label class="field">
+          <span>Resultado de ejecución</span>
+          <select id="executionStatus" disabled>
+            <option value="not-tested">No probado</option>
+            <option value="works">Funciona</option>
+            <option value="partial">Funciona parcialmente</option>
+            <option value="fails">No ejecuta</option>
+            <option value="blocked">Bloqueado por configuración</option>
+          </select>
+        </label>
+
+        <div class="session-checks">
+          <label><input id="checkLoads" type="checkbox" disabled> <span>La página carga</span></label>
+          <label><input id="checkInterface" type="checkbox" disabled> <span>La interfaz es visible</span></label>
+          <label><input id="checkFlow" type="checkbox" disabled> <span>Completa el flujo principal</span></label>
+          <label><input id="checkErrors" type="checkbox" disabled> <span>No presenta errores evidentes</span></label>
+          <label><input id="checkExplains" type="checkbox" disabled> <span>El estudiante explica el código</span></label>
+          <label><input id="checkLiveChange" type="checkbox" disabled> <span>Realiza una modificación en vivo</span></label>
+        </div>
+
+        <label class="field">
+          <span>Bloqueador principal</span>
+          <input id="blockerInput" type="text" maxlength="300" placeholder="Ej.: enlace de script incorrecto" disabled>
+        </label>
+
+        <label class="field">
+          <span>Observaciones de la revisión</span>
+          <textarea id="reviewNotes" rows="6" maxlength="1500" placeholder="Qué ejecutó, qué explicó, qué corrigió y cuál es el siguiente paso." disabled></textarea>
+        </label>
+
+        <div class="session-meta">
+          <span>Última revisión</span>
+          <strong id="lastReviewLabel">Sin registro</strong>
+        </div>
+
+        <button class="button primary full" id="saveReviewButton" type="button" disabled>Guardar revisión</button>
+        <button class="button secondary full" id="copyToEvaluationButton" type="button" disabled>Enviar evidencia a la ficha maestra</button>
+      </section>
+
+      <section class="history-panel panel">
+        <div class="panel-heading compact">
+          <div>
+            <p class="section-kicker">Trazabilidad</p>
+            <h3>Historial del estudiante</h3>
+          </div>
+        </div>
+        <div class="review-history" id="reviewHistory">
+          <p class="empty-state small">Selecciona un estudiante.</p>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="review-footer">
+    <p><strong>Seminario Goal · Periodo 2.</strong> La ejecución ocurre en un marco aislado; la evaluación sigue requiriendo explicación y modificación en vivo.</p>
+    <p id="localStatus">Datos de revisión listos.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
