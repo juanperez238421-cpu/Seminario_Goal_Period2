@@ -5,6 +5,9 @@ on:
     branches: [main]
     paths-ignore:
       - "data/diagnostics/**"
+      - "data/monitor/**"
+      - "student-projects/**"
+      - "guides/**"
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -17,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -55,6 +60,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/diagnostics/quality-latest.txt
           git commit -m "chore(ci): record dashboard validation [skip ci]"
+          git pull --rebase origin main
           git push
 
       - name: Fail when validation fails
