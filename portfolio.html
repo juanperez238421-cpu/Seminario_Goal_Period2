@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel docente centrado en proyectos, equipos, repositorios, estado técnico y guías PDF de Seminario de Programación.">
+  <meta name="theme-color" content="#153d66">
+  <title>Proyectos y equipos | Seminario Goal</title>
+  <link rel="stylesheet" href="css/portfolio.css">
+  <script type="module" src="js/portfolio.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Saltar al contenido</a>
+
+  <header class="hero">
+    <div class="hero-brand">
+      <span class="brand-mark" aria-hidden="true">SG</span>
+      <div>
+        <p class="eyebrow">Instituto Jorge Robledo · Seminario de Programación</p>
+        <h1>Portafolio maestro de proyectos</h1>
+        <p>Estado real de los repositorios, equipos de máximo dos integrantes, comparación técnica y guías de trabajo.</p>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a class="button secondary" href="index.html">Página maestra</a>
+      <a class="button secondary" href="project-review.html">Ejecutar proyectos</a>
+      <button class="button primary" id="refreshButton" type="button">Actualizar estado</button>
+    </div>
+  </header>
+
+  <main id="mainContent" class="page-shell">
+    <section class="intro-panel panel">
+      <div>
+        <p class="section-kicker">Preparación de la clase</p>
+        <h2>Revisión centrada en el proyecto subido</h2>
+        <p>La nota técnica pertenece al estado observable del repositorio. Cuando dos estudiantes comparten proyecto, el puntaje técnico puede ser común, pero explicación, autoría y modificación en vivo deben verificarse individualmente.</p>
+      </div>
+      <div class="intro-actions">
+        <a class="button primary" id="teacherGuideLink" href="guides/pdf/guia_docente_preclase_2026_07_29.pdf" target="_blank" rel="noopener noreferrer">Guía docente de hoy</a>
+        <a class="button secondary" id="referenceGuideLink" href="guides/pdf/guia_proyecto_referencia_desde_cero.pdf" target="_blank" rel="noopener noreferrer">Guía del proyecto de referencia</a>
+      </div>
+    </section>
+
+    <section class="metrics-grid" aria-label="Indicadores del portafolio">
+      <article class="metric-card"><span>Proyectos visibles</span><strong id="metricProjects">0</strong><small>individuales o compartidos</small></article>
+      <article class="metric-card"><span>Copias ejecutables</span><strong id="metricReady">0</strong><small>repositorios ya auditados</small></article>
+      <article class="metric-card"><span>Parejas registradas</span><strong id="metricTeams">0</strong><small>máximo dos integrantes</small></article>
+      <article class="metric-card attention"><span>Repositorios pendientes</span><strong id="metricPending">0</strong><small>requieren vínculo durante la clase</small></article>
+      <article class="metric-card benchmark"><span>Proyecto de referencia</span><strong id="metricBenchmark">—</strong><small id="metricBenchmarkName">sin auditoría</small></article>
+    </section>
+
+    <section class="toolbar panel" aria-label="Controles de proyectos">
+      <label class="field grow">
+        <span>Buscar proyecto, estudiante o repositorio</span>
+        <input id="searchInput" type="search" placeholder="Nombre, grupo, proyecto o usuario GitHub" autocomplete="off">
+      </label>
+      <label class="field">
+        <span>Grupo</span>
+        <select id="groupFilter">
+          <option value="all">Todos</option>
+          <option value="11-A">11-A</option>
+          <option value="11-B">11-B</option>
+          <option value="11-C">11-C</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Estado</span>
+        <select id="statusFilter">
+          <option value="all">Todos</option>
+          <option value="ready">Con copia y auditoría</option>
+          <option value="pending">Repositorio pendiente</option>
+          <option value="team">Parejas</option>
+          <option value="individual">Individuales</option>
+        </select>
+      </label>
+      <button class="button primary" id="newTeamButton" type="button">Vincular pareja</button>
+      <button class="button secondary" id="exportTeamsButton" type="button">Exportar equipos</button>
+    </section>
+
+    <section class="benchmark-panel panel" aria-labelledby="benchmarkTitle">
+      <div class="benchmark-copy">
+        <p class="section-kicker">Criterio comparativo</p>
+        <h2 id="benchmarkTitle">Referencia técnica actual</h2>
+        <p id="benchmarkDescription">Cargando el proyecto con mayor evidencia técnica.</p>
+      </div>
+      <div class="benchmark-score">
+        <strong id="benchmarkScore">—</strong>
+        <span id="benchmarkPercent">—</span>
+      </div>
+    </section>
+
+    <section aria-labelledby="projectsTitle">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Estado antes de la clase</p>
+          <h2 id="projectsTitle">Proyectos y equipos</h2>
+          <p>Ordenados por prioridad de intervención. Cada tarjeta muestra el estado del repositorio, integrantes, puntaje técnico, faltantes y guías PDF.</p>
+        </div>
+        <span class="sync-label" id="generatedAtLabel">Sin actualización</span>
+      </div>
+      <div id="projectGrid" class="project-grid" aria-live="polite"></div>
+      <p id="emptyState" class="empty-state" hidden>No hay proyectos que coincidan con los filtros.</p>
+    </section>
+
+    <section class="policy-panel panel">
+      <div>
+        <p class="section-kicker">Regla del periodo</p>
+        <h2>Evaluación de proyectos compartidos</h2>
+      </div>
+      <div class="policy-grid">
+        <article><strong>Común</strong><p>Repositorio, funcionamiento, estructura, interfaz y puntaje técnico automatizado.</p></article>
+        <article><strong>Individual</strong><p>Explicación, autoría, modificación en vivo, commits y defensa de la responsabilidad asignada.</p></article>
+        <article><strong>Obligatorio</strong><p>README con integrantes, roles, instrucciones, estado actual y pendientes.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="teamDialog" class="team-dialog">
+    <form id="teamForm" method="dialog">
+      <div class="dialog-header">
+        <div>
+          <p class="section-kicker">Vínculo de colaboración</p>
+          <h2 id="teamDialogTitle">Crear pareja de proyecto</h2>
+          <p>La configuración se guarda en este navegador y organiza el portafolio por proyecto compartido.</p>
+        </div>
+        <button class="icon-button" id="closeTeamDialogButton" type="button" aria-label="Cerrar">×</button>
+      </div>
+
+      <input id="teamIdInput" type="hidden">
+      <div class="form-grid two-columns">
+        <label class="field">
+          <span>Integrante principal</span>
+          <select id="primaryStudentInput" required></select>
+        </label>
+        <label class="field">
+          <span>Segundo integrante</span>
+          <select id="partnerStudentInput">
+            <option value="">Proyecto individual</option>
+          </select>
+        </label>
+        <label class="field span-two">
+          <span>Nombre del proyecto</span>
+          <input id="teamProjectInput" type="text" maxlength="180" required>
+        </label>
+        <label class="field span-two">
+          <span>Repositorio compartido</span>
+          <input id="teamRepositoryInput" type="text" maxlength="180" placeholder="usuario/repositorio">
+        </label>
+        <label class="field">
+          <span>Rol del integrante principal</span>
+          <input id="primaryRoleInput" type="text" maxlength="180" placeholder="Ej.: HTML y CSS">
+        </label>
+        <label class="field">
+          <span>Rol del segundo integrante</span>
+          <input id="partnerRoleInput" type="text" maxlength="180" placeholder="Ej.: JavaScript y persistencia">
+        </label>
+        <label class="field span-two">
+          <span>Meta compartida de la semana</span>
+          <textarea id="teamGoalInput" rows="3" maxlength="600"></textarea>
+        </label>
+      </div>
+
+      <div class="dialog-actions">
+        <button class="button primary" type="submit">Guardar vínculo</button>
+        <button class="button secondary" id="deleteTeamButton" type="button" hidden>Desvincular equipo</button>
+        <button class="button ghost" id="cancelTeamButton" type="button">Cancelar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="site-footer">
+    <p><strong>Seminario Goal · Periodo 2.</strong> Portafolio de proyectos y equipos.</p>
+    <p id="saveStatus">Datos de equipos listos.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
