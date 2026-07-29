@@ -1,0 +1,98 @@
+{
+  "generatedAt": "2026-07-29T06:08:00-05:00",
+  "teacherGuide": "guides/pdf/guia_docente_preclase_2026_07_29.pdf",
+  "referenceGuide": "guides/pdf/guia_proyecto_referencia_desde_cero.pdf",
+  "students": [
+    {
+      "id": "juan-pablo-arango-giraldo",
+      "name": "Juan Pablo Arango Giraldo",
+      "group": "11-A",
+      "project": "Sistema de pedidos Delivery",
+      "repository": "jp0705git/SeminarioProgramacion2",
+      "grade": 2.11,
+      "percent": 42,
+      "pdf": "guides/pdf/guia_juan_pablo_arango_giraldo.pdf"
+    },
+    {
+      "id": "jeronimo-mazo-lopez",
+      "name": "Jerónimo Mazo López",
+      "group": "11-A",
+      "project": "Sistema de registro estudiantil",
+      "repository": "",
+      "grade": null,
+      "percent": null,
+      "pdf": "guides/pdf/guia_jeronimo_mazo_lopez.pdf"
+    },
+    {
+      "id": "jeronimo-rodriguez-pena",
+      "name": "Jerónimo Rodríguez Peña",
+      "group": "11-A",
+      "project": "Carrito de restaurante",
+      "repository": "jrod917/Carrito",
+      "grade": 3.55,
+      "percent": 71,
+      "pdf": "guides/pdf/guia_jeronimo_rodriguez_pena.pdf"
+    },
+    {
+      "id": "pedro-pablo-arbelaez-escobar",
+      "name": "Pedro Pablo Arbeláez Escobar",
+      "group": "11-B",
+      "project": "Cajero automático didáctico",
+      "repository": "Pedropae07/practice_seminario",
+      "grade": 1.4,
+      "percent": 28,
+      "pdf": "guides/pdf/guia_pedro_pablo_arbelaez_escobar.pdf"
+    },
+    {
+      "id": "samuel-chavarriaga-avendano",
+      "name": "Samuel Chavarriaga Avendaño",
+      "group": "11-B",
+      "project": "Formulario multipágina con persistencia",
+      "repository": "",
+      "grade": null,
+      "percent": null,
+      "pdf": "guides/pdf/guia_samuel_chavarriaga_avendano.pdf"
+    },
+    {
+      "id": "pablo-jaramillo-palacio",
+      "name": "Pablo Jaramillo Palacio",
+      "group": "11-B",
+      "project": "Registro de actividades",
+      "repository": "pablitojarita2008-oss/pablitoSeminario",
+      "grade": 2.09,
+      "percent": 42,
+      "pdf": "guides/pdf/guia_pablo_jaramillo_palacio.pdf"
+    },
+    {
+      "id": "alejandro-rico-paramo",
+      "name": "Alejandro Rico Páramo",
+      "group": "11-B",
+      "project": "Gestor de tareas académicas",
+      "repository": "",
+      "grade": null,
+      "percent": null,
+      "pdf": "guides/pdf/guia_alejandro_rico_paramo.pdf"
+    },
+    {
+      "id": "tomas-gonzalez-giraldo",
+      "name": "Tomás González Giraldo",
+      "group": "11-C",
+      "project": "Sistema de inventario escolar",
+      "repository": "",
+      "grade": null,
+      "percent": null,
+      "pdf": "guides/pdf/guia_tomas_gonzalez_giraldo.pdf"
+    },
+    {
+      "id": "alejandro-rincon-torres",
+      "name": "Alejandro Rincón Torres",
+      "group": "11-C",
+      "project": "Calculadora y panel de notas",
+      "repository": "",
+      "grade": null,
+      "percent": null,
+      "pdf": "guides/pdf/guia_alejandro_rincon_torres.pdf"
+    }
+  ],
+  "sourceArchive": "guides/seminario_guias_2026_07_29.zip"
+}
