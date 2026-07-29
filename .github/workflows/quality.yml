@@ -23,6 +23,7 @@ jobs:
           node --check js/app.js
           node --check js/core.js
           node --check js/project-review.js
+          node --check js/project-review-local.js
           node --check scripts/monitor-repos.mjs
       - name: Run unit tests
         run: npm test
