@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Laboratorio docente para ejecutar y revisar las copias locales de los proyectos de Seminario de Programación.">
+  <meta name="description" content="Laboratorio docente para ejecutar, comparar, puntuar y revisar las copias locales de los proyectos de Seminario de Programación.">
   <meta name="theme-color" content="#102f52">
-  <title>Revisión local | Seminario Goal</title>
+  <title>Revisión integral | Seminario Goal</title>
   <link rel="stylesheet" href="css/project-review.css">
   <script type="module" src="js/project-review-local.js"></script>
 </head>
@@ -14,19 +14,31 @@
 
   <header class="review-header">
     <div class="brand">
-      <span class="brand-mark" aria-hidden="true">PR</span>
+      <span class="brand-mark" aria-hidden="true">SG</span>
       <div>
         <p class="eyebrow">Instituto Jorge Robledo · Seminario de Programación</p>
-        <h1>Revisión local de proyectos</h1>
-        <p>Abre la copia completa del último SHA monitoreado, conversa con el estudiante y registra la evidencia de la sesión.</p>
+        <h1>Laboratorio maestro de proyectos</h1>
+        <p>Ejecuta el HTML real, observa el estado técnico, compara contra el proyecto de referencia y registra evidencia individual.</p>
       </div>
     </div>
     <div class="header-actions">
-      <span class="security-pill">Copias centrales · vista aislada</span>
+      <span class="security-pill">Copias centrales · SHA verificable</span>
       <button class="button secondary" id="refreshDataButton" type="button">Actualizar datos</button>
-      <a class="button primary" href="index.html">Volver a página maestra</a>
+      <a class="button primary" href="index.html">Página maestra</a>
     </div>
   </header>
+
+  <section class="benchmark-strip" aria-label="Proyecto de referencia del curso">
+    <div>
+      <span class="benchmark-label">Referencia técnica automática</span>
+      <strong id="globalBenchmarkName">Calculando proyecto de referencia…</strong>
+    </div>
+    <div class="benchmark-strip-metrics">
+      <span><small>Puntaje líder</small><strong id="globalBenchmarkPercent">—</strong></span>
+      <span><small>Proyecto</small><strong id="globalBenchmarkProject">—</strong></span>
+      <span><small>Actualización</small><strong id="globalBenchmarkDate">—</strong></span>
+    </div>
+  </section>
 
   <main id="reviewWorkspace" class="workspace">
     <aside class="student-sidebar" aria-labelledby="studentListTitle">
@@ -63,20 +75,113 @@
         <div class="student-context-copy">
           <p class="section-kicker">Sesión individual</p>
           <h2 id="selectedStudentName">Selecciona un estudiante</h2>
-          <p id="selectedStudentMeta">Elige una tarjeta para preparar su repositorio y proyecto.</p>
+          <p id="selectedStudentMeta">Elige una tarjeta para abrir el proyecto y revisar sus evidencias.</p>
         </div>
         <div class="context-badges">
           <span class="badge" id="repositoryStateBadge">Repositorio pendiente</span>
           <span class="badge neutral" id="commitStateBadge">Sin commit</span>
+          <span class="badge neutral" id="technicalLevelBadge">Sin auditoría</span>
         </div>
+      </section>
+
+      <section class="analytics-panel panel" aria-labelledby="analyticsTitle">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Diagnóstico técnico automatizado</p>
+            <h2 id="analyticsTitle">Estado visual del proyecto</h2>
+            <p>El puntaje proviene de evidencia observable en HTML, JavaScript, DOM, CSS, validación, integración, persistencia y documentación.</p>
+          </div>
+          <div class="analytics-actions">
+            <button class="button secondary" id="generateCoachButton" type="button" disabled>Analizar faltantes</button>
+            <button class="button ghost" id="copyAuditButton" type="button" disabled>Copiar informe</button>
+          </div>
+        </div>
+
+        <div class="analytics-grid">
+          <article class="score-card">
+            <div class="canvas-gauge-wrap">
+              <canvas id="progressGauge" width="260" height="170" aria-label="Porcentaje de avance técnico"></canvas>
+              <div class="gauge-center">
+                <strong id="technicalPercent">—</strong>
+                <span>avance técnico</span>
+              </div>
+            </div>
+            <div class="score-details">
+              <span>Nota técnica estimada</span>
+              <strong id="technicalGrade">— / 5,0</strong>
+              <small id="technicalStatus">Auditoría pendiente</small>
+              <div class="relative-progress">
+                <div><span>Respecto al referente</span><strong id="relativePercent">—</strong></div>
+                <div class="progress-track"><span id="relativeProgressBar" style="width:0%"></span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="benchmark-card">
+            <p class="section-kicker">Comparación</p>
+            <h3 id="benchmarkStudentName">Proyecto de referencia pendiente</h3>
+            <p id="benchmarkDescription">El sistema selecciona automáticamente el proyecto con mayor evidencia técnica disponible.</p>
+            <div class="benchmark-numbers">
+              <div><span>Referencia</span><strong id="benchmarkScore">—</strong></div>
+              <div><span>Distancia</span><strong id="benchmarkDistance">—</strong></div>
+              <div><span>SHA auditado</span><strong id="auditedSha">—</strong></div>
+            </div>
+            <p class="provisional-note">Puntaje diagnóstico: la nota definitiva requiere ejecución, explicación, modificación en vivo y autoría.</p>
+          </article>
+        </div>
+
+        <div class="criteria-dashboard">
+          <div class="criteria-heading">
+            <div>
+              <h3>Métricas por competencia</h3>
+              <p>Pasa el cursor sobre cada barra para ver evidencia, brecha y criterio de referencia.</p>
+            </div>
+            <span class="criteria-scale">0–100 %</span>
+          </div>
+          <div class="canvas-chart-wrap">
+            <canvas id="criteriaCanvas" width="1100" height="390" aria-label="Gráfico comparativo de competencias"></canvas>
+            <div class="canvas-tooltip" id="canvasTooltip" hidden></div>
+          </div>
+          <div class="criteria-list" id="criteriaList"></div>
+        </div>
+
+        <div class="audit-evidence-grid">
+          <article class="audit-column strengths-column">
+            <div class="audit-column-heading"><span class="audit-icon">✓</span><h3>Fortalezas detectadas</h3></div>
+            <ul id="auditStrengths"><li>Selecciona un proyecto con auditoría disponible.</li></ul>
+          </article>
+          <article class="audit-column missing-column">
+            <div class="audit-column-heading"><span class="audit-icon">+</span><h3>Elementos faltantes</h3></div>
+            <ul id="auditMissing"><li>La lista aparecerá después de la auditoría automática.</li></ul>
+          </article>
+          <article class="audit-column risks-column">
+            <div class="audit-column-heading"><span class="audit-icon">!</span><h3>Riesgos y errores</h3></div>
+            <ul id="auditRisks"><li>Sin riesgos analizados.</li></ul>
+          </article>
+        </div>
+
+        <article class="coach-panel" id="coachPanel" hidden>
+          <div class="coach-heading">
+            <div>
+              <p class="section-kicker">Asistente de mejora</p>
+              <h3>Ruta priorizada para la siguiente sesión</h3>
+            </div>
+            <span class="coach-badge">Basado en evidencia del repositorio</span>
+          </div>
+          <div id="coachSummary" class="coach-summary"></div>
+          <ol id="coachActions" class="coach-actions"></ol>
+          <p class="coach-disclaimer">Este análisis es automatizado y reproducible; no utiliza una clave privada de IA ni sustituye la revisión docente.</p>
+        </article>
+
+        <div class="indicator-grid" id="indicatorGrid"></div>
       </section>
 
       <section class="runner-panel panel">
         <div class="panel-heading">
           <div>
             <p class="section-kicker">Proyecto actual</p>
-            <h3>Ejecutar copia central</h3>
-            <p>La página abre la copia completa almacenada en este repositorio maestro y asociada al SHA monitoreado.</p>
+            <h2>Ejecutar resultado HTML real</h2>
+            <p>La vista abre una copia renderizada del último SHA monitoreado. Los errores que aparezcan corresponden al estado real del proyecto.</p>
           </div>
           <div class="runner-state" id="runnerState" data-state="idle">
             <span class="runner-dot"></span>
@@ -85,33 +190,22 @@
         </div>
 
         <div class="repository-summary">
-          <div>
-            <span>Repositorio original</span>
-            <strong id="repositoryLabel">—</strong>
-          </div>
-          <div>
-            <span>SHA copiado</span>
-            <strong id="commitLabel">—</strong>
-          </div>
-          <div>
-            <span>Proyecto</span>
-            <strong id="projectLabel">—</strong>
-          </div>
+          <div><span>Repositorio original</span><strong id="repositoryLabel">—</strong></div>
+          <div><span>SHA copiado</span><strong id="commitLabel">—</strong></div>
+          <div><span>Proyecto</span><strong id="projectLabel">—</strong></div>
         </div>
 
         <div class="runner-controls">
           <label class="field entry-field">
             <span>Página HTML guardada</span>
-            <select id="entryFileSelect" disabled>
-              <option value="">Copia local pendiente</option>
-            </select>
+            <select id="entryFileSelect" disabled><option value="">Copia local pendiente</option></select>
           </label>
           <label class="field live-url-field">
             <span>URL publicada opcional</span>
             <input id="liveUrlInput" type="url" placeholder="https://usuario.github.io/proyecto/" autocomplete="off">
           </label>
           <div class="control-buttons">
-            <button class="button primary" id="detectAndRunButton" type="button" disabled>Abrir copia local</button>
+            <button class="button primary" id="detectAndRunButton" type="button" disabled>Abrir proyecto real</button>
             <button class="button secondary" id="runSelectedButton" type="button" disabled>Ejecutar página</button>
             <button class="button secondary" id="runLiveUrlButton" type="button" disabled>Usar URL publicada</button>
             <button class="button ghost" id="reloadPreviewButton" type="button" disabled>Recargar</button>
@@ -119,10 +213,7 @@
         </div>
 
         <div class="preview-toolbar">
-          <div class="preview-source">
-            <span>Fuente</span>
-            <strong id="previewSourceLabel">Ninguna</strong>
-          </div>
+          <div class="preview-source"><span>Fuente</span><strong id="previewSourceLabel">Ninguna</strong></div>
           <div class="preview-actions">
             <a class="text-button" id="openRepositoryLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir repositorio original</a>
             <a class="text-button" id="openCommitLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir commit original</a>
@@ -134,20 +225,14 @@
           <div class="preview-placeholder" id="previewPlaceholder">
             <span class="placeholder-icon" aria-hidden="true">▶</span>
             <h3>Proyecto listo para revisar</h3>
-            <p>Selecciona un estudiante y abre su copia central. Podrás escoger cualquiera de las páginas HTML guardadas en el repositorio maestro.</p>
+            <p>Selecciona un estudiante y pulsa <strong>Abrir proyecto real</strong>. El sistema mostrará el HTML renderizado, no el código fuente.</p>
           </div>
-          <iframe
-            id="projectFrame"
-            title="Vista previa de la copia local del proyecto del estudiante"
-            loading="eager"
-            referrerpolicy="no-referrer"
-            hidden
-          ></iframe>
+          <iframe id="projectFrame" title="Vista previa renderizada del proyecto del estudiante" loading="eager" referrerpolicy="no-referrer" hidden></iframe>
         </div>
 
         <div class="runner-notice">
           <strong>Alcance:</strong>
-          <span>la automatización copia cada repositorio web vinculado dentro de <code>student-projects/</code>. Python, Java, servidores y bases de datos deben ejecutarse en el computador del estudiante.</span>
+          <span>la copia renderizada funciona para HTML, CSS y JavaScript de navegador. Python, Java, servidores, bases de datos o servicios privados deben ejecutarse en el equipo del estudiante.</span>
         </div>
       </section>
     </section>
@@ -155,10 +240,7 @@
     <aside class="review-sidebar" aria-labelledby="sessionTitle">
       <section class="session-panel panel">
         <div class="panel-heading compact">
-          <div>
-            <p class="section-kicker">Evidencia docente</p>
-            <h2 id="sessionTitle">Revisión de la sesión</h2>
-          </div>
+          <div><p class="section-kicker">Evidencia docente</p><h2 id="sessionTitle">Revisión de la sesión</h2></div>
         </div>
 
         <label class="field">
@@ -181,41 +263,23 @@
           <label><input id="checkLiveChange" type="checkbox" disabled> <span>Realiza una modificación en vivo</span></label>
         </div>
 
-        <label class="field">
-          <span>Bloqueador principal</span>
-          <input id="blockerInput" type="text" maxlength="300" placeholder="Ej.: enlace de script incorrecto" disabled>
-        </label>
+        <label class="field"><span>Bloqueador principal</span><input id="blockerInput" type="text" maxlength="300" placeholder="Ej.: enlace de script incorrecto" disabled></label>
+        <label class="field"><span>Observaciones de la revisión</span><textarea id="reviewNotes" rows="6" maxlength="1500" placeholder="Qué ejecutó, qué explicó, qué corrigió y cuál es el siguiente paso." disabled></textarea></label>
 
-        <label class="field">
-          <span>Observaciones de la revisión</span>
-          <textarea id="reviewNotes" rows="6" maxlength="1500" placeholder="Qué ejecutó, qué explicó, qué corrigió y cuál es el siguiente paso." disabled></textarea>
-        </label>
-
-        <div class="session-meta">
-          <span>Última revisión</span>
-          <strong id="lastReviewLabel">Sin registro</strong>
-        </div>
-
+        <div class="session-meta"><span>Última revisión</span><strong id="lastReviewLabel">Sin registro</strong></div>
         <button class="button primary full" id="saveReviewButton" type="button" disabled>Guardar revisión</button>
         <button class="button secondary full" id="copyToEvaluationButton" type="button" disabled>Enviar evidencia a la ficha maestra</button>
       </section>
 
       <section class="history-panel panel">
-        <div class="panel-heading compact">
-          <div>
-            <p class="section-kicker">Trazabilidad</p>
-            <h3>Historial del estudiante</h3>
-          </div>
-        </div>
-        <div class="review-history" id="reviewHistory">
-          <p class="empty-state small">Selecciona un estudiante.</p>
-        </div>
+        <div class="panel-heading compact"><div><p class="section-kicker">Trazabilidad</p><h3>Historial del estudiante</h3></div></div>
+        <div class="review-history" id="reviewHistory"><p class="empty-state small">Selecciona un estudiante.</p></div>
       </section>
     </aside>
   </main>
 
   <footer class="review-footer">
-    <p><strong>Seminario Goal · Periodo 2.</strong> La ejecución usa la copia central del repositorio; la evaluación sigue requiriendo explicación y modificación en vivo.</p>
+    <p><strong>Seminario Goal · Periodo 2.</strong> El puntaje técnico es automático y provisional; la calificación final debe integrar la defensa individual.</p>
     <p id="localStatus">Datos de revisión listos.</p>
   </footer>
 
