@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "title": "Ruta común: aplicaciones web de gestión",
+  "description": "Todos los estudiantes desarrollan las mismas capacidades mediante tres proyectos comunes. El contexto puede cambiar, pero la estructura de aprendizaje y los criterios son iguales.",
+  "criteria": [
+    {
+      "id": "interface",
+      "label": "Interfaz",
+      "weight": 20,
+      "evidence": "La página abre y presenta campos, botones, textos y una estructura comprensible."
+    },
+    {
+      "id": "functionality",
+      "label": "Funcionamiento",
+      "weight": 20,
+      "evidence": "Los eventos ejecutan la lógica y muestran un resultado visible mediante el DOM."
+    },
+    {
+      "id": "data",
+      "label": "Datos y validación",
+      "weight": 20,
+      "evidence": "Valida entradas y usa objetos, arreglos o persistencia cuando el proyecto lo requiere."
+    },
+    {
+      "id": "css",
+      "label": "Presentación CSS",
+      "weight": 20,
+      "evidence": "Tiene estilos propios, distribución clara, estados visuales y adaptación básica a pantalla."
+    },
+    {
+      "id": "evidence",
+      "label": "Explicación y Git",
+      "weight": 20,
+      "evidence": "El estudiante explica su aporte, realiza un cambio en vivo y deja un commit descriptivo."
+    }
+  ],
+  "projects": [
+    {
+      "id": "registration",
+      "order": 1,
+      "name": "Proyecto 1 · Registro interactivo",
+      "shortName": "Registro",
+      "theme": "Captura, validación y presentación de información",
+      "minimum": "Formulario con varios campos, validación, objeto de datos y resumen visible.",
+      "allowedVariants": [
+        "Registro estudiantil",
+        "Registro de actividades",
+        "Formulario de usuario",
+        "Inscripción a un servicio"
+      ],
+      "requiredSkills": [
+        "HTML semántico y labels",
+        "Lectura de inputs",
+        "Evento submit o click",
+        "Objeto de datos",
+        "Validación y mensajes",
+        "Salida visible con DOM"
+      ]
+    },
+    {
+      "id": "operations",
+      "order": 2,
+      "name": "Proyecto 2 · Gestión de operaciones",
+      "shortName": "Operaciones",
+      "theme": "Entrada, procesamiento, decisiones y actualización de resultados",
+      "minimum": "Aplicación que reciba datos, ejecute reglas del contexto y muestre resultados actualizados.",
+      "allowedVariants": [
+        "Carrito o Delivery",
+        "Cajero automático",
+        "Gestor de tareas",
+        "Inventario",
+        "Calculadora de notas"
+      ],
+      "requiredSkills": [
+        "Funciones reutilizables",
+        "Condicionales",
+        "Arreglos u objetos",
+        "Eventos",
+        "Renderizado dinámico",
+        "Casos válidos e inválidos"
+      ]
+    },
+    {
+      "id": "integration",
+      "order": 3,
+      "name": "Proyecto 3 · Aplicación integrada",
+      "shortName": "Integración",
+      "theme": "Flujo completo, persistencia, resumen y presentación final",
+      "minimum": "Proyecto multipágina o de una sola página con flujo completo, localStorage con JSON, resumen final, README y CSS responsive.",
+      "allowedVariants": [
+        "Recibo de compra",
+        "Panel de resultados",
+        "Resumen de registro",
+        "Historial o reporte"
+      ],
+      "requiredSkills": [
+        "Entrada → proceso → salida",
+        "JSON.stringify y JSON.parse",
+        "localStorage",
+        "Recuperación de datos",
+        "Manejo de ausencia o error",
+        "README y commits descriptivos"
+      ]
+    }
+  ],
+  "completionRule": {
+    "projectCompletePercent": 100,
+    "courseCompletePercent": 100,
+    "note": "Un proyecto solo se marca completo cuando cumple los cinco criterios. El análisis automático es orientador y debe confirmarse durante la entrevista."
+  },
+  "advancedTrack": {
+    "name": "Profundización CSS",
+    "description": "El estudiante que ya tiene un proyecto funcional debe aplicar una capa CSS consistente a los tres proyectos: variables, componentes, Flexbox o Grid, responsive y estados visuales.",
+    "appliesTo": ["registration", "operations", "integration"]
+  }
+}
