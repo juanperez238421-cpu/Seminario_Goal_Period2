@@ -1,0 +1,59 @@
+name: Generate student PDF guides
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/generate-pdf-guides.py"
+      - "data/students.json"
+      - "student-projects/index.json"
+      - "student-projects/**/manifest.json"
+      - ".github/workflows/guides.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: seminar-pdf-guides
+  cancel-in-progress: true
+
+jobs:
+  build-guides:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install LaTeX toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            latexmk \
+            texlive-latex-base \
+            texlive-latex-extra \
+            texlive-lang-spanish \
+            texlive-fonts-recommended \
+            zip
+
+      - name: Generate LaTeX sources PDFs and archive
+        run: python scripts/generate-pdf-guides.py
+
+      - name: Commit generated guides
+        run: |
+          CHANGES="$(git status --porcelain -- guides)"
+          if [ -z "$CHANGES" ]; then
+            echo "No guide changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add guides
+          git commit -m "docs(guides): refresh individual seminar PDF guides"
+          git push
