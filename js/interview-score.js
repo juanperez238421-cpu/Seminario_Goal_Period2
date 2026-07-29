@@ -30,7 +30,7 @@ function clamp(value, min = 0, max = 100) {
 
 function round(value, decimals = 2) {
   const factor = 10 ** decimals;
-  return Math.round(value * factor) / factor;
+  return Math.round((value + Number.EPSILON) * factor) / factor;
 }
 
 export function calculateEvidencePercent(evidence = {}) {
