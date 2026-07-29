@@ -1,8 +1,9 @@
 {
-  "generatedAt": "2026-07-29T02:29:54.105Z",
+  "generatedAt": "2026-07-29T03:24:01.426Z",
   "repositoriesChecked": 4,
   "updatesDetected": 0,
   "mirrorsReady": 4,
+  "auditsReady": 4,
   "students": {
     "juan-pablo-arango-giraldo": {
       "studentId": "juan-pablo-arango-giraldo",
@@ -26,21 +27,94 @@
         "manifestPath": "student-projects/juan-pablo-arango-giraldo/manifest.json",
         "localRoot": "student-projects/juan-pablo-arango-giraldo/current/",
         "htmlFiles": [
-          "index.html",
           "delivery.html",
+          "index.html",
           "Formulario.html",
           "gym.html",
           "print.html",
           "grades.html"
         ],
-        "defaultEntry": "index.html",
+        "defaultEntry": "delivery.html",
         "filesCount": 12,
         "totalBytes": 7865,
         "mirroredAt": "2026-07-29T02:29:54.950Z",
-        "reused": false,
-        "error": null
+        "auditScore": {
+          "grade": 2.11,
+          "percent": 42,
+          "status": "basic",
+          "statusLabel": "Básico",
+          "provisional": true
+        },
+        "reused": true,
+        "error": null,
+        "benchmark": {
+          "leaderStudentId": "jeronimo-rodriguez-pena",
+          "leaderName": "Jerónimo Rodríguez Peña",
+          "leaderProject": "Carrito de restaurante",
+          "leaderPercent": 71,
+          "relativePercent": 59,
+          "distancePoints": 29,
+          "gaps": [
+            {
+              "id": "css",
+              "label": "CSS y presentación",
+              "current": 0,
+              "benchmark": 3.6,
+              "gap": 3.6
+            },
+            {
+              "id": "domEvents",
+              "label": "DOM, funciones y eventos",
+              "current": 1.4,
+              "benchmark": 3.8,
+              "gap": 2.4
+            },
+            {
+              "id": "javascript",
+              "label": "JavaScript y lógica",
+              "current": 2.3,
+              "benchmark": 4.4,
+              "gap": 2.1
+            },
+            {
+              "id": "gitDocs",
+              "label": "Git y documentación",
+              "current": 0,
+              "benchmark": 1.8,
+              "gap": 1.8
+            },
+            {
+              "id": "integration",
+              "label": "Integración funcional",
+              "current": 3.4,
+              "benchmark": 5,
+              "gap": 1.6
+            },
+            {
+              "id": "html",
+              "label": "HTML y estructura",
+              "current": 2.5,
+              "benchmark": 3.4,
+              "gap": 0.9
+            },
+            {
+              "id": "storage",
+              "label": "Navegación y persistencia",
+              "current": 4,
+              "benchmark": 3,
+              "gap": 0
+            },
+            {
+              "id": "validation",
+              "label": "Validación y errores",
+              "current": 3.2,
+              "benchmark": 1.6,
+              "gap": 0
+            }
+          ]
+        }
       },
-      "checkedAt": "2026-07-29T02:29:54.105Z"
+      "checkedAt": "2026-07-29T03:24:01.426Z"
     },
     "jeronimo-mazo-lopez": {
       "studentId": "jeronimo-mazo-lopez",
@@ -51,7 +125,7 @@
       "mirror": {
         "status": "pending"
       },
-      "checkedAt": "2026-07-29T02:29:54.105Z"
+      "checkedAt": "2026-07-29T03:24:01.426Z"
     },
     "jeronimo-rodriguez-pena": {
       "studentId": "jeronimo-rodriguez-pena",
@@ -82,10 +156,83 @@
         "filesCount": 7,
         "totalBytes": 12167,
         "mirroredAt": "2026-07-29T02:29:55.513Z",
-        "reused": false,
-        "error": null
+        "auditScore": {
+          "grade": 3.55,
+          "percent": 71,
+          "status": "competent",
+          "statusLabel": "Competente",
+          "provisional": true
+        },
+        "reused": true,
+        "error": null,
+        "benchmark": {
+          "leaderStudentId": "jeronimo-rodriguez-pena",
+          "leaderName": "Jerónimo Rodríguez Peña",
+          "leaderProject": "Carrito de restaurante",
+          "leaderPercent": 71,
+          "relativePercent": 100,
+          "distancePoints": 0,
+          "gaps": [
+            {
+              "id": "html",
+              "label": "HTML y estructura",
+              "current": 3.4,
+              "benchmark": 3.4,
+              "gap": 0
+            },
+            {
+              "id": "javascript",
+              "label": "JavaScript y lógica",
+              "current": 4.4,
+              "benchmark": 4.4,
+              "gap": 0
+            },
+            {
+              "id": "domEvents",
+              "label": "DOM, funciones y eventos",
+              "current": 3.8,
+              "benchmark": 3.8,
+              "gap": 0
+            },
+            {
+              "id": "css",
+              "label": "CSS y presentación",
+              "current": 3.6,
+              "benchmark": 3.6,
+              "gap": 0
+            },
+            {
+              "id": "storage",
+              "label": "Navegación y persistencia",
+              "current": 3,
+              "benchmark": 3,
+              "gap": 0
+            },
+            {
+              "id": "validation",
+              "label": "Validación y errores",
+              "current": 1.6,
+              "benchmark": 1.6,
+              "gap": 0
+            },
+            {
+              "id": "integration",
+              "label": "Integración funcional",
+              "current": 5,
+              "benchmark": 5,
+              "gap": 0
+            },
+            {
+              "id": "gitDocs",
+              "label": "Git y documentación",
+              "current": 1.8,
+              "benchmark": 1.8,
+              "gap": 0
+            }
+          ]
+        }
       },
-      "checkedAt": "2026-07-29T02:29:54.105Z"
+      "checkedAt": "2026-07-29T03:24:01.426Z"
     },
     "pedro-pablo-arbelaez-escobar": {
       "studentId": "pedro-pablo-arbelaez-escobar",
@@ -109,10 +256,10 @@
         "manifestPath": "student-projects/pedro-pablo-arbelaez-escobar/manifest.json",
         "localRoot": "student-projects/pedro-pablo-arbelaez-escobar/current/",
         "htmlFiles": [
+          "09-04-26/Practica 2 Paginas/Primera.html",
           "13-05-26_ATM/index.html",
           "13-05-26_Concierto/index.html",
           "29-04-26_Reps/index.html",
-          "09-04-26/Practica 2 Paginas/Primera.html",
           "09-04-26/Practica 2 Paginas/segunda.html",
           "18-02-26/candies store/indexCandies.html",
           "11-03-26/En 4 te llega/indexEn4tellega.html",
@@ -120,14 +267,87 @@
           "25-02-26/The pixa deliweri/indexThePixaDeliweri.html",
           "18-03-26/Log-in y registro cuenta bancaria/indexCuentaBancaria.html"
         ],
-        "defaultEntry": "13-05-26_ATM/index.html",
+        "defaultEntry": "09-04-26/Practica 2 Paginas/Primera.html",
         "filesCount": 20,
         "totalBytes": 7429,
         "mirroredAt": "2026-07-29T02:29:56.034Z",
-        "reused": false,
-        "error": null
+        "auditScore": {
+          "grade": 1.4,
+          "percent": 28,
+          "status": "starting",
+          "statusLabel": "Inicial",
+          "provisional": true
+        },
+        "reused": true,
+        "error": null,
+        "benchmark": {
+          "leaderStudentId": "jeronimo-rodriguez-pena",
+          "leaderName": "Jerónimo Rodríguez Peña",
+          "leaderProject": "Carrito de restaurante",
+          "leaderPercent": 71,
+          "relativePercent": 39,
+          "distancePoints": 43,
+          "gaps": [
+            {
+              "id": "css",
+              "label": "CSS y presentación",
+              "current": 0,
+              "benchmark": 3.6,
+              "gap": 3.6
+            },
+            {
+              "id": "javascript",
+              "label": "JavaScript y lógica",
+              "current": 0.9,
+              "benchmark": 4.4,
+              "gap": 3.5
+            },
+            {
+              "id": "domEvents",
+              "label": "DOM, funciones y eventos",
+              "current": 0.7,
+              "benchmark": 3.8,
+              "gap": 3.1
+            },
+            {
+              "id": "integration",
+              "label": "Integración funcional",
+              "current": 2.9,
+              "benchmark": 5,
+              "gap": 2.1
+            },
+            {
+              "id": "storage",
+              "label": "Navegación y persistencia",
+              "current": 1.7,
+              "benchmark": 3,
+              "gap": 1.3
+            },
+            {
+              "id": "gitDocs",
+              "label": "Git y documentación",
+              "current": 0.7,
+              "benchmark": 1.8,
+              "gap": 1.1
+            },
+            {
+              "id": "html",
+              "label": "HTML y estructura",
+              "current": 2.5,
+              "benchmark": 3.4,
+              "gap": 0.9
+            },
+            {
+              "id": "validation",
+              "label": "Validación y errores",
+              "current": 2.4,
+              "benchmark": 1.6,
+              "gap": 0
+            }
+          ]
+        }
       },
-      "checkedAt": "2026-07-29T02:29:54.105Z"
+      "checkedAt": "2026-07-29T03:24:01.426Z"
     },
     "samuel-chavarriaga-avendano": {
       "studentId": "samuel-chavarriaga-avendano",
@@ -138,7 +358,7 @@
       "mirror": {
         "status": "pending"
       },
-      "checkedAt": "2026-07-29T02:29:54.105Z"
+      "checkedAt": "2026-07-29T03:24:01.426Z"
     },
     "pablo-jaramillo-palacio": {
       "studentId": "pablo-jaramillo-palacio",
@@ -171,10 +391,83 @@
         "filesCount": 9,
         "totalBytes": 3305,
         "mirroredAt": "2026-07-29T02:29:56.613Z",
-        "reused": false,
-        "error": null
+        "auditScore": {
+          "grade": 2.09,
+          "percent": 42,
+          "status": "basic",
+          "statusLabel": "Básico",
+          "provisional": true
+        },
+        "reused": true,
+        "error": null,
+        "benchmark": {
+          "leaderStudentId": "jeronimo-rodriguez-pena",
+          "leaderName": "Jerónimo Rodríguez Peña",
+          "leaderProject": "Carrito de restaurante",
+          "leaderPercent": 71,
+          "relativePercent": 59,
+          "distancePoints": 29,
+          "gaps": [
+            {
+              "id": "css",
+              "label": "CSS y presentación",
+              "current": 0,
+              "benchmark": 3.6,
+              "gap": 3.6
+            },
+            {
+              "id": "javascript",
+              "label": "JavaScript y lógica",
+              "current": 1.8,
+              "benchmark": 4.4,
+              "gap": 2.6
+            },
+            {
+              "id": "domEvents",
+              "label": "DOM, funciones y eventos",
+              "current": 1.4,
+              "benchmark": 3.8,
+              "gap": 2.4
+            },
+            {
+              "id": "integration",
+              "label": "Integración funcional",
+              "current": 3.4,
+              "benchmark": 5,
+              "gap": 1.6
+            },
+            {
+              "id": "gitDocs",
+              "label": "Git y documentación",
+              "current": 0.7,
+              "benchmark": 1.8,
+              "gap": 1.1
+            },
+            {
+              "id": "html",
+              "label": "HTML y estructura",
+              "current": 2.8,
+              "benchmark": 3.4,
+              "gap": 0.6
+            },
+            {
+              "id": "storage",
+              "label": "Navegación y persistencia",
+              "current": 4,
+              "benchmark": 3,
+              "gap": 0
+            },
+            {
+              "id": "validation",
+              "label": "Validación y errores",
+              "current": 3.2,
+              "benchmark": 1.6,
+              "gap": 0
+            }
+          ]
+        }
       },
-      "checkedAt": "2026-07-29T02:29:54.105Z"
+      "checkedAt": "2026-07-29T03:24:01.426Z"
     },
     "alejandro-rico-paramo": {
       "studentId": "alejandro-rico-paramo",
@@ -185,7 +478,7 @@
       "mirror": {
         "status": "pending"
       },
-      "checkedAt": "2026-07-29T02:29:54.105Z"
+      "checkedAt": "2026-07-29T03:24:01.426Z"
     },
     "tomas-gonzalez-giraldo": {
       "studentId": "tomas-gonzalez-giraldo",
@@ -196,7 +489,7 @@
       "mirror": {
         "status": "pending"
       },
-      "checkedAt": "2026-07-29T02:29:54.105Z"
+      "checkedAt": "2026-07-29T03:24:01.426Z"
     },
     "alejandro-rincon-torres": {
       "studentId": "alejandro-rincon-torres",
@@ -207,7 +500,7 @@
       "mirror": {
         "status": "pending"
       },
-      "checkedAt": "2026-07-29T02:29:54.105Z"
+      "checkedAt": "2026-07-29T03:24:01.426Z"
     }
   }
 }

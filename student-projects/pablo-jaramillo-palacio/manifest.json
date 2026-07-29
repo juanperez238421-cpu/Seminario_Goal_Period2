@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "studentId": "pablo-jaramillo-palacio",
   "studentName": "Pablo Jaramillo Palacio",
   "group": "11-B",
@@ -24,5 +24,263 @@
   ],
   "filesCount": 9,
   "totalBytes": 3305,
+  "audit": {
+    "schemaVersion": 1,
+    "generatedAt": "2026-07-29T03:24:02.527Z",
+    "studentId": "pablo-jaramillo-palacio",
+    "repository": "pablitojarita2008-oss/pablitoSeminario",
+    "commitSha": "5b8125d0959565b10e438ae662e0686efdaee372",
+    "methodology": "Análisis estático automatizado basado en evidencias observables del repositorio. No sustituye la ejecución ni la sustentación oral.",
+    "rubric": [
+      {
+        "id": "html",
+        "label": "HTML y estructura",
+        "weight": 15
+      },
+      {
+        "id": "javascript",
+        "label": "JavaScript y lógica",
+        "weight": 20
+      },
+      {
+        "id": "domEvents",
+        "label": "DOM, funciones y eventos",
+        "weight": 15
+      },
+      {
+        "id": "css",
+        "label": "CSS y presentación",
+        "weight": 15
+      },
+      {
+        "id": "storage",
+        "label": "Navegación y persistencia",
+        "weight": 10
+      },
+      {
+        "id": "validation",
+        "label": "Validación y errores",
+        "weight": 10
+      },
+      {
+        "id": "integration",
+        "label": "Integración funcional",
+        "weight": 10
+      },
+      {
+        "id": "gitDocs",
+        "label": "Git y documentación",
+        "weight": 5
+      }
+    ],
+    "score": {
+      "grade": 2.09,
+      "percent": 42,
+      "status": "basic",
+      "statusLabel": "Básico",
+      "provisional": true
+    },
+    "criteria": [
+      {
+        "id": "html",
+        "label": "HTML y estructura",
+        "weight": 15,
+        "score": 2.8,
+        "percent": 56,
+        "evidence": [
+          "4 página(s) HTML detectadas",
+          "2 página(s) con contenido visible",
+          "Controles asociados con etiquetas"
+        ],
+        "missing": [
+          "Agregar main, section, header, nav o footer para organizar la interfaz",
+          "Agregar suficientes controles para completar un flujo real"
+        ],
+        "risk": [
+          "2 página(s) HTML prácticamente vacías"
+        ]
+      },
+      {
+        "id": "javascript",
+        "label": "JavaScript y lógica",
+        "weight": 20,
+        "score": 1.8,
+        "percent": 36,
+        "evidence": [
+          "4 archivo(s) JavaScript",
+          "6 decisiones condicionales",
+          "Procesamiento y cálculos detectados",
+          "Sin errores sintácticos detectados"
+        ],
+        "missing": [
+          "Separar la lógica en funciones reutilizables",
+          "Modelar los datos con arreglos u objetos",
+          "Migrar entradas de prompt() a formularios y eventos del DOM"
+        ],
+        "risk": [
+          "Dependencia de prompt() en 7 puntos"
+        ]
+      },
+      {
+        "id": "domEvents",
+        "label": "DOM, funciones y eventos",
+        "weight": 15,
+        "score": 1.4,
+        "percent": 28,
+        "evidence": [
+          "2 consultas al DOM"
+        ],
+        "missing": [
+          "Mostrar resultados dentro de la página",
+          "Agregar eventos para botones, formularios y campos"
+        ],
+        "risk": []
+      },
+      {
+        "id": "css",
+        "label": "CSS y presentación",
+        "weight": 15,
+        "score": 0,
+        "percent": 0,
+        "evidence": [],
+        "missing": [
+          "Crear y conectar una hoja CSS",
+          "Usar Flexbox o Grid para la distribución",
+          "Agregar comportamiento responsive",
+          "Definir variables CSS para colores y espaciado",
+          "Diseñar estados hover, focus, disabled y error"
+        ],
+        "risk": [
+          "El proyecto no presenta una capa visual propia"
+        ]
+      },
+      {
+        "id": "storage",
+        "label": "Navegación y persistencia",
+        "weight": 10,
+        "score": 4,
+        "percent": 80,
+        "evidence": [
+          "Persistencia con localStorage o sessionStorage",
+          "Navegación programática entre páginas",
+          "Proyecto multipágina"
+        ],
+        "missing": [
+          "Usar JSON.stringify y JSON.parse para objetos o arreglos"
+        ],
+        "risk": []
+      },
+      {
+        "id": "validation",
+        "label": "Validación y errores",
+        "weight": 10,
+        "score": 3.2,
+        "percent": 64,
+        "evidence": [
+          "5 comprobaciones de entrada",
+          "Retroalimentación para el usuario"
+        ],
+        "missing": [
+          "Agregar manejo de errores y estados de fallo"
+        ],
+        "risk": [
+          "Las entradas por prompt() no están completamente validadas"
+        ]
+      },
+      {
+        "id": "integration",
+        "label": "Integración funcional",
+        "weight": 10,
+        "score": 3.4,
+        "percent": 68,
+        "evidence": [
+          "Existe una página de entrada visible",
+          "HTML conectado con JavaScript",
+          "Referencias locales resueltas por análisis estático"
+        ],
+        "missing": [
+          "Completar un flujo de entrada, proceso y salida"
+        ],
+        "risk": [
+          "Hay páginas que abren sin interfaz útil"
+        ]
+      },
+      {
+        "id": "gitDocs",
+        "label": "Git y documentación",
+        "weight": 5,
+        "score": 0.7,
+        "percent": 14,
+        "evidence": [
+          "Archivos organizados en carpetas"
+        ],
+        "missing": [
+          "Crear README con propósito, autores, ejecución y estado",
+          "Usar commits pequeños con mensajes feat:, fix:, style: o docs:"
+        ],
+        "risk": [
+          "Mensaje de commit genérico: Add files via upload"
+        ]
+      }
+    ],
+    "indicators": {
+      "filesCount": 9,
+      "totalBytes": 3305,
+      "htmlFiles": 4,
+      "cssFiles": 0,
+      "jsFiles": 4,
+      "nonEmptyPages": 2,
+      "emptyPages": 2,
+      "functions": 1,
+      "conditions": 6,
+      "loops": 0,
+      "domQueries": 2,
+      "domWrites": 1,
+      "events": 2,
+      "storageUses": 2,
+      "validationChecks": 5,
+      "promptUses": 7,
+      "syntaxErrors": [],
+      "brokenReferences": [],
+      "cssRules": 0,
+      "mediaQueries": 0,
+      "cssVariables": 0
+    },
+    "feedback": {
+      "strengths": [
+        "Navegación y persistencia: Persistencia con localStorage o sessionStorage",
+        "Navegación y persistencia: Navegación programática entre páginas",
+        "Navegación y persistencia: Proyecto multipágina",
+        "Integración funcional: Existe una página de entrada visible",
+        "Integración funcional: HTML conectado con JavaScript",
+        "Integración funcional: Referencias locales resueltas por análisis estático"
+      ],
+      "missing": [
+        "CSS y presentación: Crear y conectar una hoja CSS",
+        "CSS y presentación: Usar Flexbox o Grid para la distribución",
+        "CSS y presentación: Agregar comportamiento responsive",
+        "CSS y presentación: Definir variables CSS para colores y espaciado",
+        "CSS y presentación: Diseñar estados hover, focus, disabled y error",
+        "Git y documentación: Crear README con propósito, autores, ejecución y estado",
+        "Git y documentación: Usar commits pequeños con mensajes feat:, fix:, style: o docs:",
+        "DOM, funciones y eventos: Mostrar resultados dentro de la página"
+      ],
+      "risks": [
+        "HTML y estructura: 2 página(s) HTML prácticamente vacías",
+        "JavaScript y lógica: Dependencia de prompt() en 7 puntos",
+        "CSS y presentación: El proyecto no presenta una capa visual propia",
+        "Validación y errores: Las entradas por prompt() no están completamente validadas",
+        "Integración funcional: Hay páginas que abren sin interfaz útil",
+        "Git y documentación: Mensaje de commit genérico: Add files via upload"
+      ],
+      "nextActions": [
+        "Crear y conectar una hoja CSS",
+        "Usar Flexbox o Grid para la distribución",
+        "Crear README con propósito, autores, ejecución y estado",
+        "Usar commits pequeños con mensajes feat:, fix:, style: o docs:",
+        "Mostrar resultados dentro de la página"
+      ]
+    }
+  },
   "status": "ready"
 }

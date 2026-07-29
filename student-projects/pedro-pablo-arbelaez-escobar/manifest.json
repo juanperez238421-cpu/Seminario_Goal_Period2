@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "studentId": "pedro-pablo-arbelaez-escobar",
   "studentName": "Pedro Pablo Arbeláez Escobar",
   "group": "11-B",
@@ -15,12 +15,12 @@
   },
   "mirroredAt": "2026-07-29T02:29:56.034Z",
   "localRoot": "student-projects/pedro-pablo-arbelaez-escobar/current/",
-  "defaultEntry": "13-05-26_ATM/index.html",
+  "defaultEntry": "09-04-26/Practica 2 Paginas/Primera.html",
   "htmlFiles": [
+    "09-04-26/Practica 2 Paginas/Primera.html",
     "13-05-26_ATM/index.html",
     "13-05-26_Concierto/index.html",
     "29-04-26_Reps/index.html",
-    "09-04-26/Practica 2 Paginas/Primera.html",
     "09-04-26/Practica 2 Paginas/segunda.html",
     "18-02-26/candies store/indexCandies.html",
     "11-03-26/En 4 te llega/indexEn4tellega.html",
@@ -30,5 +30,269 @@
   ],
   "filesCount": 20,
   "totalBytes": 7429,
+  "audit": {
+    "schemaVersion": 1,
+    "generatedAt": "2026-07-29T03:24:02.309Z",
+    "studentId": "pedro-pablo-arbelaez-escobar",
+    "repository": "Pedropae07/practice_seminario",
+    "commitSha": "2b4300f11504c6f3de6cb59f53ecb5c949ddc539",
+    "methodology": "Análisis estático automatizado basado en evidencias observables del repositorio. No sustituye la ejecución ni la sustentación oral.",
+    "rubric": [
+      {
+        "id": "html",
+        "label": "HTML y estructura",
+        "weight": 15
+      },
+      {
+        "id": "javascript",
+        "label": "JavaScript y lógica",
+        "weight": 20
+      },
+      {
+        "id": "domEvents",
+        "label": "DOM, funciones y eventos",
+        "weight": 15
+      },
+      {
+        "id": "css",
+        "label": "CSS y presentación",
+        "weight": 15
+      },
+      {
+        "id": "storage",
+        "label": "Navegación y persistencia",
+        "weight": 10
+      },
+      {
+        "id": "validation",
+        "label": "Validación y errores",
+        "weight": 10
+      },
+      {
+        "id": "integration",
+        "label": "Integración funcional",
+        "weight": 10
+      },
+      {
+        "id": "gitDocs",
+        "label": "Git y documentación",
+        "weight": 5
+      }
+    ],
+    "score": {
+      "grade": 1.4,
+      "percent": 28,
+      "status": "starting",
+      "statusLabel": "Inicial",
+      "provisional": true
+    },
+    "criteria": [
+      {
+        "id": "html",
+        "label": "HTML y estructura",
+        "weight": 15,
+        "score": 2.5,
+        "percent": 50,
+        "evidence": [
+          "10 página(s) HTML detectadas",
+          "2 página(s) con contenido visible",
+          "Controles asociados con etiquetas"
+        ],
+        "missing": [
+          "Agregar main, section, header, nav o footer para organizar la interfaz",
+          "Agregar suficientes controles para completar un flujo real"
+        ],
+        "risk": [
+          "8 página(s) HTML prácticamente vacías"
+        ]
+      },
+      {
+        "id": "javascript",
+        "label": "JavaScript y lógica",
+        "weight": 20,
+        "score": 0.9,
+        "percent": 18,
+        "evidence": [
+          "10 archivo(s) JavaScript",
+          "12 decisiones condicionales",
+          "Uso de ciclos",
+          "Procesamiento y cálculos detectados"
+        ],
+        "missing": [
+          "Separar la lógica en funciones reutilizables",
+          "Modelar los datos con arreglos u objetos",
+          "Migrar entradas de prompt() a formularios y eventos del DOM"
+        ],
+        "risk": [
+          "1 archivo(s) con error sintáctico",
+          "Dependencia de prompt() en 12 puntos"
+        ]
+      },
+      {
+        "id": "domEvents",
+        "label": "DOM, funciones y eventos",
+        "weight": 15,
+        "score": 0.7,
+        "percent": 14,
+        "evidence": [],
+        "missing": [
+          "Mostrar resultados dentro de la página",
+          "Agregar eventos para botones, formularios y campos"
+        ],
+        "risk": []
+      },
+      {
+        "id": "css",
+        "label": "CSS y presentación",
+        "weight": 15,
+        "score": 0,
+        "percent": 0,
+        "evidence": [],
+        "missing": [
+          "Crear y conectar una hoja CSS",
+          "Usar Flexbox o Grid para la distribución",
+          "Agregar comportamiento responsive",
+          "Definir variables CSS para colores y espaciado",
+          "Diseñar estados hover, focus, disabled y error"
+        ],
+        "risk": [
+          "El proyecto no presenta una capa visual propia"
+        ]
+      },
+      {
+        "id": "storage",
+        "label": "Navegación y persistencia",
+        "weight": 10,
+        "score": 1.7,
+        "percent": 34,
+        "evidence": [
+          "Proyecto multipágina"
+        ],
+        "missing": [
+          "Completar lectura y escritura de datos persistentes",
+          "Usar JSON.stringify y JSON.parse para objetos o arreglos"
+        ],
+        "risk": []
+      },
+      {
+        "id": "validation",
+        "label": "Validación y errores",
+        "weight": 10,
+        "score": 2.4,
+        "percent": 48,
+        "evidence": [
+          "8 comprobaciones de entrada",
+          "Retroalimentación para el usuario"
+        ],
+        "missing": [
+          "Agregar manejo de errores y estados de fallo"
+        ],
+        "risk": [
+          "Los errores sintácticos bloquean la ejecución antes de validar datos",
+          "Las entradas por prompt() no están completamente validadas"
+        ]
+      },
+      {
+        "id": "integration",
+        "label": "Integración funcional",
+        "weight": 10,
+        "score": 2.9,
+        "percent": 58,
+        "evidence": [
+          "Existe una página de entrada visible",
+          "HTML conectado con JavaScript",
+          "Referencias locales resueltas por análisis estático"
+        ],
+        "missing": [
+          "Completar un flujo de entrada, proceso y salida"
+        ],
+        "risk": [
+          "Hay páginas que abren sin interfaz útil"
+        ]
+      },
+      {
+        "id": "gitDocs",
+        "label": "Git y documentación",
+        "weight": 5,
+        "score": 0.7,
+        "percent": 14,
+        "evidence": [
+          "Archivos organizados en carpetas"
+        ],
+        "missing": [
+          "Crear README con propósito, autores, ejecución y estado",
+          "Usar commits pequeños con mensajes feat:, fix:, style: o docs:"
+        ],
+        "risk": [
+          "Mensaje de commit genérico: Finally"
+        ]
+      }
+    ],
+    "indicators": {
+      "filesCount": 20,
+      "totalBytes": 7429,
+      "htmlFiles": 10,
+      "cssFiles": 0,
+      "jsFiles": 10,
+      "nonEmptyPages": 2,
+      "emptyPages": 8,
+      "functions": 1,
+      "conditions": 12,
+      "loops": 3,
+      "domQueries": 1,
+      "domWrites": 0,
+      "events": 2,
+      "storageUses": 1,
+      "validationChecks": 8,
+      "promptUses": 12,
+      "syntaxErrors": [
+        {
+          "file": "09-04-26/Practica 2 Paginas/primera.js",
+          "message": "Unexpected token '['"
+        }
+      ],
+      "brokenReferences": [],
+      "cssRules": 0,
+      "mediaQueries": 0,
+      "cssVariables": 0
+    },
+    "feedback": {
+      "strengths": [
+        "Integración funcional: Existe una página de entrada visible",
+        "Integración funcional: HTML conectado con JavaScript",
+        "Integración funcional: Referencias locales resueltas por análisis estático",
+        "HTML y estructura: 10 página(s) HTML detectadas",
+        "HTML y estructura: 2 página(s) con contenido visible",
+        "HTML y estructura: Controles asociados con etiquetas"
+      ],
+      "missing": [
+        "CSS y presentación: Crear y conectar una hoja CSS",
+        "CSS y presentación: Usar Flexbox o Grid para la distribución",
+        "CSS y presentación: Agregar comportamiento responsive",
+        "CSS y presentación: Definir variables CSS para colores y espaciado",
+        "CSS y presentación: Diseñar estados hover, focus, disabled y error",
+        "DOM, funciones y eventos: Mostrar resultados dentro de la página",
+        "DOM, funciones y eventos: Agregar eventos para botones, formularios y campos",
+        "Git y documentación: Crear README con propósito, autores, ejecución y estado"
+      ],
+      "risks": [
+        "HTML y estructura: 8 página(s) HTML prácticamente vacías",
+        "JavaScript y lógica: 1 archivo(s) con error sintáctico",
+        "JavaScript y lógica: Dependencia de prompt() en 12 puntos",
+        "CSS y presentación: El proyecto no presenta una capa visual propia",
+        "Validación y errores: Los errores sintácticos bloquean la ejecución antes de validar datos",
+        "Validación y errores: Las entradas por prompt() no están completamente validadas",
+        "Integración funcional: Hay páginas que abren sin interfaz útil",
+        "Git y documentación: Mensaje de commit genérico: Finally"
+      ],
+      "nextActions": [
+        "Crear y conectar una hoja CSS",
+        "Usar Flexbox o Grid para la distribución",
+        "Mostrar resultados dentro de la página",
+        "Agregar eventos para botones, formularios y campos",
+        "Crear README con propósito, autores, ejecución y estado"
+      ]
+    }
+  },
   "status": "ready"
 }
