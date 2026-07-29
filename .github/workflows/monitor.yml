@@ -1,9 +1,15 @@
-name: Monitor student repositories
+name: Monitor and mirror student repositories
 
 on:
   schedule:
     - cron: "0 */12 * * *"
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "data/students.json"
+      - "scripts/monitor-repos.mjs"
+      - ".github/workflows/monitor.yml"
 
 permissions:
   contents: write
@@ -17,21 +23,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Consult public repositories
+
+      - name: Consult and copy public student repositories
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run monitor
-      - name: Commit monitoring snapshot
+
+      - name: Commit monitoring data and local project mirrors
         run: |
-          if git diff --quiet -- data/monitor; then
-            echo "No monitoring changes to commit."
+          CHANGES="$(git status --porcelain -- data/monitor student-projects)"
+          if [ -z "$CHANGES" ]; then
+            echo "No monitoring or local project changes to commit."
             exit 0
           fi
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/monitor
-          git commit -m "chore(monitor): update student repository snapshot"
+          git add data/monitor student-projects
+          git commit -m "chore(monitor): refresh local student project mirrors"
           git push
