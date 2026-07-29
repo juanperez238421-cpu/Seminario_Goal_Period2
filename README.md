@@ -6,7 +6,10 @@ Página maestra docente para **Seminario de Programación, grado 11**, Instituto
 
 - Repositorio: `juanperez238421-cpu/Seminario_Goal_Period2`
 - Página maestra: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/`
+- Análisis individual completo: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/individual-analysis.html`
+- Entrevista puntual: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/session.html`
 - Revisión de copias locales: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/project-review.html`
+- Portafolio y parejas: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/portfolio.html`
 - Automatizaciones: pestaña **Actions** del repositorio.
 
 ## Funciones principales
@@ -25,7 +28,49 @@ Página maestra docente para **Seminario de Programación, grado 11**, Instituto
 - Índice de todos los archivos HTML disponibles por estudiante.
 - Ejecución aislada del estado exacto copiado desde el SHA monitoreado.
 - Historial de revisiones y transferencia de evidencias a la ficha maestra.
+- Análisis individual con estado actual, conceptos demostrados, faltantes, riesgos, proyecto esperado y siguiente commit.
+- Soporte para proyectos individuales o parejas de máximo dos integrantes.
 - Despliegue automático en GitHub Pages.
+
+## Análisis individual completo
+
+`individual-analysis.html` concentra la información necesaria para sentarse con cada estudiante antes de abrir el editor.
+
+Para cada estudiante muestra:
+
+- modalidad individual o pareja;
+- integrantes y roles;
+- proyecto y repositorio;
+- último SHA copiado;
+- diagnóstico técnico provisional;
+- distancia frente al proyecto de referencia;
+- indicadores reales de HTML, JavaScript, CSS, DOM, eventos y validaciones;
+- estado por criterio;
+- conceptos ya demostrados;
+- conceptos que faltan;
+- elementos incompletos y riesgos;
+- páginas HTML encontradas;
+- resultado final esperado;
+- preguntas para comprobar comprensión;
+- secuencia de prueba frente al docente;
+- un único acuerdo para el siguiente commit;
+- mensaje de commit recomendado.
+
+El flujo docente recomendado es:
+
+```text
+Abrir análisis individual
+→ seleccionar estudiante
+→ leer comentario inicial
+→ revisar fortalezas y faltantes
+→ abrir entrevista puntual
+→ ejecutar actividad principal
+→ pedir explicación y modificación en vivo
+→ registrar un único acuerdo
+→ comparar el siguiente SHA
+```
+
+Los estudiantes sin repositorio no reciben automáticamente una nota de cero. La página muestra una ruta inicial para confirmar equipo, crear estructura, demostrar una interacción y publicar el primer commit.
 
 ## Copias centrales de los proyectos
 
@@ -57,7 +102,8 @@ El manifiesto registra:
 - cantidad de archivos;
 - tamaño total;
 - lista completa de páginas HTML;
-- página de entrada recomendada.
+- página de entrada recomendada;
+- auditoría técnica provisional.
 
 Solo se conserva la copia actual. Cuando aparece un nuevo commit, la automatización reemplaza `current/` y deja el nuevo SHA en el manifiesto y en el historial central.
 
@@ -155,7 +201,7 @@ La nota se considera provisional hasta verificar ejecución, explicación, modif
 
 ## Privacidad
 
-Las calificaciones, observaciones, sesiones de revisión y asistencia permanecen en el navegador del docente mediante `localStorage`. Exporta el respaldo JSON al terminar cada jornada.
+Las calificaciones, observaciones, sesiones de revisión, parejas y asistencia permanecen en el navegador del docente mediante `localStorage`. Exporta el respaldo JSON al terminar cada jornada.
 
 Los proyectos copiados conservan únicamente el contenido público que ya existe en los repositorios estudiantiles vinculados.
 
@@ -186,6 +232,8 @@ Abrir:
 
 ```text
 http://localhost:8000
+http://localhost:8000/individual-analysis.html
+http://localhost:8000/session.html
 http://localhost:8000/project-review.html
 ```
 
@@ -195,6 +243,7 @@ Requiere Node.js 20 o superior:
 
 ```bash
 npm test
+npm run check
 ```
 
 ## Activar GitHub Pages
