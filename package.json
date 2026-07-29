@@ -1,14 +1,14 @@
 {
   "name": "seminario-goal-period2",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "private": true,
   "type": "module",
-  "description": "Pagina maestra docente para seguimiento, equipos, entrevistas, ejecucion, auditoria y analisis individual de proyectos de Seminario de Programacion, grado 11.",
+  "description": "Pagina maestra docente con ruta comun de proyectos, equipos, entrevistas, ejecucion y seguimiento de Seminario de Programacion, grado 11.",
   "scripts": {
     "start": "python -m http.server 8000",
     "test": "node --test tests/*.test.js",
     "monitor": "node scripts/monitor-repos-v2.mjs",
-    "check": "node --check js/app.js && node --check js/core.js && node --check js/portfolio.js && node --check js/portfolio-session-link.js && node --check js/session.js && node --check js/session-guide-link.js && node --check js/session-priority.js && node --check js/interview-score.js && node --check js/session-score-panel.js && node --check js/individual-analysis-core.js && node --check js/individual-analysis.js && node --check js/project-review-local.js && node --check js/project-review-bootstrap.js && node --check scripts/project-audit.mjs && node --check scripts/monitor-repos-v2.mjs && python3 -m py_compile scripts/generate-pdf-guides.py scripts/generate-session-guides.py"
+    "check": "node --check js/app.js && node --check js/core.js && node --check js/portfolio.js && node --check js/portfolio-session-link.js && node --check js/session.js && node --check js/session-guide-link.js && node --check js/session-priority.js && node --check js/interview-score.js && node --check js/session-score-panel.js && node --check js/individual-analysis-core.js && node --check js/individual-analysis.js && node --check js/common-path-core.js && node --check js/common-path.js && node --check js/project-review-local.js && node --check js/project-review-bootstrap.js && node --check scripts/project-audit.mjs && node --check scripts/monitor-repos-v2.mjs && python3 -m py_compile scripts/generate-pdf-guides.py scripts/generate-session-guides.py"
   },
   "engines": {
     "node": ">=20"
