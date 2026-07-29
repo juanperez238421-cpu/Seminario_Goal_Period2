@@ -6,7 +6,7 @@ Página maestra docente para **Seminario de Programación, grado 11**, Instituto
 
 - Repositorio: `juanperez238421-cpu/Seminario_Goal_Period2`
 - Página maestra: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/`
-- Revisión en vivo de proyectos: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/project-review.html`
+- Revisión de copias locales: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/project-review.html`
 - Automatizaciones: pestaña **Actions** del repositorio.
 
 ## Funciones principales
@@ -20,54 +20,105 @@ Página maestra docente para **Seminario de Programación, grado 11**, Instituto
 - Exportación de asistencia en CSV.
 - Persistencia privada con `localStorage`.
 - Exportación e importación de respaldo JSON.
-- Monitoreo manual de commits desde la interfaz.
-- Monitoreo central cada 12 horas con GitHub Actions.
-- Historial de commits nuevos y errores de consulta.
-- Ejecución aislada de proyectos web públicos desde el último commit monitoreado.
-- Detección automática de todas las páginas HTML de cada repositorio.
-- Registro de sesiones de revisión y transferencia de evidencias a la ficha maestra.
+- Monitoreo central de commits cada 12 horas.
+- Copia automática de cada repositorio vinculado dentro de este repositorio maestro.
+- Índice de todos los archivos HTML disponibles por estudiante.
+- Ejecución aislada del estado exacto copiado desde el SHA monitoreado.
+- Historial de revisiones y transferencia de evidencias a la ficha maestra.
 - Despliegue automático en GitHub Pages.
 
-## Revisión en vivo de proyectos
+## Copias centrales de los proyectos
 
-`project-review.html` está diseñado para sentarse con cada estudiante y revisar el estado real de su trabajo.
+El workflow `.github/workflows/monitor.yml` consulta cada repositorio público vinculado y guarda su estado actual dentro de:
+
+```text
+student-projects/<student-id>/current/
+```
+
+Cada estudiante con repositorio confirmado o provisional tiene además:
+
+```text
+student-projects/<student-id>/manifest.json
+```
+
+El índice general está en:
+
+```text
+student-projects/index.json
+```
+
+El manifiesto registra:
+
+- estudiante y grupo;
+- repositorio original;
+- SHA exacto copiado;
+- mensaje, autor y fecha del commit;
+- fecha de la copia;
+- cantidad de archivos;
+- tamaño total;
+- lista completa de páginas HTML;
+- página de entrada recomendada.
+
+Solo se conserva la copia actual. Cuando aparece un nuevo commit, la automatización reemplaza `current/` y deja el nuevo SHA en el manifiesto y en el historial central.
+
+## Estado actual de las copias
+
+Actualmente están copiados y listos para ejecutar:
+
+- Juan Pablo Arango Giraldo — `jp0705git/SeminarioProgramacion2`.
+- Jerónimo Rodríguez Peña — `jrod917/Carrito`.
+- Pedro Pablo Arbeláez Escobar — `Pedropae07/practice_seminario`.
+- Pablo Jaramillo Palacio — `pablitojarita2008-oss/pablitoSeminario`.
+
+Permanecen pendientes hasta registrar su usuario y repositorio:
+
+- Jerónimo Mazo López.
+- Samuel Chavarriaga Avendaño.
+- Alejandro Rico Páramo.
+- Tomás González Giraldo.
+- Alejandro Rincón Torres.
+
+## Revisión frente al estudiante
+
+`project-review.html` permite revisar el proyecto sin depender de que el estudiante haya configurado GitHub Pages.
 
 El flujo es:
 
 ```text
 Seleccionar estudiante
-→ consultar último commit
-→ detectar páginas HTML
-→ escoger página de entrada
-→ ejecutar copia exacta del SHA
+→ leer student-projects/index.json
+→ cargar la copia central del SHA
+→ escoger cualquiera de las páginas HTML
+→ ejecutar el proyecto en vista aislada
 → probar el flujo con el estudiante
-→ registrar resultado y bloqueadores
-→ transferir evidencias a la ficha maestra
+→ registrar resultado, bloqueador y explicación
+→ enviar evidencia a la ficha maestra
 ```
-
-La vista previa utiliza una copia estática del repositorio público alojada por CDN y se ejecuta dentro de un `iframe` aislado. El código del estudiante no puede modificar la página maestra ni el repositorio.
 
 La página permite:
 
-- ejecutar el último commit exacto registrado;
-- escoger entre varias prácticas HTML de un mismo repositorio;
-- usar una URL publicada en GitHub Pages cuando exista;
-- abrir el repositorio, el commit o el proyecto en pantalla completa;
+- abrir la copia del proyecto almacenada en este repositorio;
+- revisar varias prácticas HTML del mismo estudiante;
+- abrir el repositorio y el commit originales;
+- abrir el proyecto en pantalla completa;
+- usar opcionalmente una URL publicada;
 - registrar si funciona, funciona parcialmente, falla o está bloqueado;
 - conservar el archivo de entrada utilizado;
-- registrar explicación, modificación en vivo, bloqueador y observaciones;
+- registrar explicación, modificación en vivo y observaciones;
 - mantener historial por estudiante;
-- enviar las evidencias de ejecución a la evaluación principal.
+- enviar evidencias a la evaluación principal.
 
-### Alcance técnico
+### Seguridad y alcance
 
-La ejecución automática funciona para proyectos públicos basados en HTML, CSS y JavaScript. Proyectos que dependan de Python, Java, Node.js con servidor, bases de datos o servicios privados deben ejecutarse en el computador del estudiante.
+La vista integrada usa un `iframe` aislado. La copia del estudiante no puede modificar el repositorio maestro.
+
+La ejecución automática cubre proyectos públicos de HTML, CSS y JavaScript. Python, Java, Node.js con servidor, bases de datos y servicios privados deben ejecutarse en el computador del estudiante.
+
+Para probar persistencia, navegación compleja o APIs del navegador que el aislamiento limite, usa **Abrir proyecto en pantalla completa**.
 
 ## Rutas de aprendizaje
 
 ### Consolidación funcional
-
-Para estudiantes que necesitan completar una aplicación integrada:
 
 1. HTML estructurado.
 2. JavaScript conectado.
@@ -78,8 +129,6 @@ Para estudiantes que necesitan completar una aplicación integrada:
 7. README y commits descriptivos.
 
 ### Especialización CSS
-
-Para el proyecto de referencia con mayor integración:
 
 1. Variables y arquitectura CSS.
 2. Jerarquía visual.
@@ -102,34 +151,30 @@ Para el proyecto de referencia con mayor integración:
 | Integración del flujo completo | 10 % |
 | Commits y documentación | 5 % |
 
-La nota calculada debe considerarse **provisional** hasta verificar que el estudiante:
-
-- ejecuta la aplicación;
-- explica su código;
-- realiza una modificación en vivo;
-- presenta autoría verificable.
+La nota se considera provisional hasta verificar ejecución, explicación, modificación en vivo y autoría.
 
 ## Privacidad
 
-Las calificaciones, observaciones, sesiones de revisión y asistencia no se publican en el repositorio. Permanecen en el navegador del docente mediante `localStorage`. Utiliza **Exportar respaldo JSON** al terminar cada jornada.
+Las calificaciones, observaciones, sesiones de revisión y asistencia permanecen en el navegador del docente mediante `localStorage`. Exporta el respaldo JSON al terminar cada jornada.
 
-El archivo `data/students.json` contiene únicamente el listado académico, proyectos, repositorios y metas generales que requiere la automatización.
+Los proyectos copiados conservan únicamente el contenido público que ya existe en los repositorios estudiantiles vinculados.
 
-## Monitoreo cada 12 horas
-
-El workflow `.github/workflows/monitor.yml` ejecuta:
+## Automatización cada 12 horas
 
 ```text
 Leer data/students.json
-→ consultar el último commit público
-→ comparar SHA
-→ actualizar data/monitor/latest.json
-→ agregar eventos a data/monitor/history.json
-→ generar data/monitor/summary.md
-→ hacer commit automático si existen cambios
+→ consultar último commit
+→ descargar exactamente ese SHA
+→ eliminar metadatos .git y enlaces simbólicos
+→ validar límite de 50 MB y 5.000 archivos
+→ copiar el proyecto a student-projects/<id>/current/
+→ generar manifest.json e index.json
+→ actualizar data/monitor/
+→ hacer commit automático
+→ desplegar nuevamente GitHub Pages
 ```
 
-Los horarios del cron son `00:00` y `12:00 UTC`, equivalentes aproximadamente a `19:00` y `07:00` en Colombia.
+El cron se ejecuta aproximadamente a las `07:00` y `19:00` de Colombia. También puede iniciarse manualmente desde **Actions → Monitor and mirror student repositories**.
 
 ## Ejecutar localmente
 
@@ -141,11 +186,6 @@ Abrir:
 
 ```text
 http://localhost:8000
-```
-
-Laboratorio de revisión:
-
-```text
 http://localhost:8000/project-review.html
 ```
 
@@ -159,10 +199,8 @@ npm test
 
 ## Activar GitHub Pages
 
-En el repositorio:
-
 ```text
 Settings → Pages → Build and deployment → Source → GitHub Actions
 ```
 
-Luego ejecutar el workflow **Deploy GitHub Pages** o hacer un nuevo commit en `main`.
+Después ejecuta **Deploy GitHub Pages** o realiza un nuevo commit en `main`.
