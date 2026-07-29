@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "studentId": "pablo-jaramillo-palacio",
+  "studentName": "Pablo Jaramillo Palacio",
+  "group": "11-B",
+  "project": "Registro de actividades",
+  "repository": "pablitojarita2008-oss/pablitoSeminario",
+  "commit": {
+    "sha": "5b8125d0959565b10e438ae662e0686efdaee372",
+    "shortSha": "5b8125d",
+    "message": "Add files via upload",
+    "author": "pablitojarita2008-oss",
+    "date": "2026-07-08T19:45:38Z",
+    "url": "https://github.com/pablitojarita2008-oss/pablitoSeminario/commit/5b8125d0959565b10e438ae662e0686efdaee372"
+  },
+  "mirroredAt": "2026-07-29T02:29:56.613Z",
+  "localRoot": "student-projects/pablo-jaramillo-palacio/current/",
+  "defaultEntry": "mi formulario/0/.rt/primera.html",
+  "htmlFiles": [
+    "mi formulario/0/.rt/primera.html",
+    "mi formulario/0/.rt/segunda.html",
+    "indexCond.html",
+    "banco/indexbanco.html"
+  ],
+  "filesCount": 9,
+  "totalBytes": 3305,
+  "status": "ready"
+}

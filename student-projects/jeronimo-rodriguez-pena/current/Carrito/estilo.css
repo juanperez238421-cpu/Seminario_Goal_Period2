@@ -1,0 +1,169 @@
+h1 {
+    font-family: 'Poppins', sans-serif; /* Tipografía moderna y amigable */
+    font-size: 3rem;                    /* Tamaño llamativo */
+    color: #ffffff;                     /* Color apetitoso (tonos rojizos/naranjas) */
+    text-align: center;                 /* Centrar en la pantalla */
+    font-weight: 700;                   /* Negrita para destacar */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2); /* Efecto sutil de profundidad */
+    margin: 40px 0 20px 0;              /* Espaciado para resaltar el título */
+    line-height: 1.2;                   /* Buena legibilidad */
+    transition: color 0.3s ease;        /* Efecto suave al cambiar color */
+}
+
+
+/* Lenguaje: CSS */
+
+/* Estilo general para el contenedor details */
+details {
+    background-color: #0a6fd300; /* Fondo claro */
+    border: 5px solid #ad5804;   /* Borde simple */
+    border-radius: 8px;       /* Esquinas redondeadas */
+    padding: 10px 15px;
+    margin: 15px 0;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 600px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilo para el summary (título de details) */
+details summary {
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    list-style: none; /* Quitar el icono por defecto */
+    position: relative;
+    padding-left: 25px;
+    color: #ffffff;
+}
+
+/* Icono personalizado usando pseudo-elemento */
+details summary::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+/* Rotar el icono cuando details esté abierto */
+details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+/* Estilo del contenido dentro de details */
+details div {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    line-height: 1.5;
+}
+
+/* Animación para abrir y cerrar (opcional) */
+details div {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+details[open] div {
+    max-height: 500px; /* Ajustar según contenido */
+}
+
+/* Fondo general de la página */
+body {
+    /* Degradado diagonal suave */
+    background: linear-gradient(160deg, #beaf9d, rgb(198, 159, 121));
+    
+    /* O, si prefieres una imagen */
+    /* background: url('ruta-de-tu-imagen.jpg') no-repeat center center; */
+    /* background-size: cover; */
+
+    /* Estilo general */
+    min-height: 100vh;       /* Asegura que ocupe toda la altura */
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Para suavizar el contenido sobre el fondo */
+    display: flex;             /* Activa Flexbox */
+    justify-content: center;   /* Centra horizontalmente */
+
+}
+
+label {
+    color: rgb(255, 255, 255);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 700;                   /* Negrita para destacar */
+    text-align: center;
+    display: flex;             /* Activa Flexbox */
+    justify-content: center;   /* Centra horizontalmente */
+    
+}
+
+input {
+    width: 25%;               /* Ocupa todo el ancho del contenedor */
+    padding: 12px 5px;        /* Espaciado interno */
+    margin: 4px 0;             /* Espaciado externo entre inputs */
+    box-sizing: border-box;    /* Incluye padding y border en el ancho */
+    border: 2px solid #ccc;    /* Borde inicial gris */
+    border-radius: 8px;        /* Bordes redondeados */
+    font-size: 16px;           /* Tamaño de la fuente */
+    transition: 0.3s;          /* Transición suave para efectos */
+    outline: none;             /* Evita el borde predeterminado al enfocar */
+}
+input:focus {
+    border-color: #b7cc00;     /* Cambia el color del borde al azul */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3); /* Sombra suave */
+    transition: 0.3s;          /* Transición suave para efectos */
+}
+
+input:hover {
+    border-color: #b36800;     /* Cambia ligeramente el color del borde */
+}
+input::placeholder {
+    color: #999;               /* Color gris suave para el placeholder */
+    font-style: italic;        /* Texto en cursiva */
+}
+
+
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #d6690a;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+  display: flex;             /* Activa Flexbox */
+    justify-content: center;   /* Centra horizontalmente */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #990000;
+}
+button:active {
+    background-color: #8f0505;
+    transform: scale(0.86);    /* Efecto visual de hundimiento */
+}
+
+/* boton deshabilitado */
+
+/* Efecto hover */
+
+
+/* Estilo cuando está deshabilitado */
+button:disabled {
+    background-color: #cccccc; /* Gris */
+    color: #666666;           /* Texto gris oscuro */
+    cursor: not-allowed;      /* Cursor de prohibido */
+    opacity: 0.7;             /* Un poco transparente */
+}
+

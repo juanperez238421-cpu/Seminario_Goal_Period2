@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-29T02:29:54.105Z",
+  "projects": {
+    "juan-pablo-arango-giraldo": {
+      "studentId": "juan-pablo-arango-giraldo",
+      "name": "Juan Pablo Arango Giraldo",
+      "group": "11-A",
+      "project": "Sistema de pedidos Delivery",
+      "repository": "jp0705git/SeminarioProgramacion2",
+      "status": "ready",
+      "commit": {
+        "sha": "0245023324037e02b318d4aaa014caf5725f8552",
+        "shortSha": "0245023",
+        "message": "Add files via upload",
+        "author": "jp0705git",
+        "date": "2026-07-08T19:40:47Z",
+        "url": "https://github.com/jp0705git/SeminarioProgramacion2/commit/0245023324037e02b318d4aaa014caf5725f8552"
+      },
+      "manifestPath": "student-projects/juan-pablo-arango-giraldo/manifest.json",
+      "localRoot": "student-projects/juan-pablo-arango-giraldo/current/",
+      "defaultEntry": "index.html",
+      "htmlFiles": [
+        "index.html",
+        "delivery.html",
+        "Formulario.html",
+        "gym.html",
+        "print.html",
+        "grades.html"
+      ],
+      "filesCount": 12,
+      "totalBytes": 7865,
+      "mirroredAt": "2026-07-29T02:29:54.950Z",
+      "error": null
+    },
+    "jeronimo-mazo-lopez": {
+      "studentId": "jeronimo-mazo-lopez",
+      "name": "Jerónimo Mazo López",
+      "group": "11-A",
+      "repository": "",
+      "status": "pending"
+    },
+    "jeronimo-rodriguez-pena": {
+      "studentId": "jeronimo-rodriguez-pena",
+      "name": "Jerónimo Rodríguez Peña",
+      "group": "11-A",
+      "project": "Carrito de restaurante",
+      "repository": "jrod917/Carrito",
+      "status": "ready",
+      "commit": {
+        "sha": "aa78f2883714e0883e33810707c07305503417e5",
+        "shortSha": "aa78f28",
+        "message": "Add files via upload",
+        "author": "jrod917",
+        "date": "2026-07-08T19:42:17Z",
+        "url": "https://github.com/jrod917/Carrito/commit/aa78f2883714e0883e33810707c07305503417e5"
+      },
+      "manifestPath": "student-projects/jeronimo-rodriguez-pena/manifest.json",
+      "localRoot": "student-projects/jeronimo-rodriguez-pena/current/",
+      "defaultEntry": "Carrito/indexCarrito.html",
+      "htmlFiles": [
+        "Carrito/indexCarrito.html",
+        "Carrito/indexRecibo.html"
+      ],
+      "filesCount": 7,
+      "totalBytes": 12167,
+      "mirroredAt": "2026-07-29T02:29:55.513Z",
+      "error": null
+    },
+    "pedro-pablo-arbelaez-escobar": {
+      "studentId": "pedro-pablo-arbelaez-escobar",
+      "name": "Pedro Pablo Arbeláez Escobar",
+      "group": "11-B",
+      "project": "Cajero automático didáctico",
+      "repository": "Pedropae07/practice_seminario",
+      "status": "ready",
+      "commit": {
+        "sha": "2b4300f11504c6f3de6cb59f53ecb5c949ddc539",
+        "shortSha": "2b4300f",
+        "message": "Finally",
+        "author": "Pedropae07",
+        "date": "2026-05-13T19:58:32Z",
+        "url": "https://github.com/Pedropae07/practice_seminario/commit/2b4300f11504c6f3de6cb59f53ecb5c949ddc539"
+      },
+      "manifestPath": "student-projects/pedro-pablo-arbelaez-escobar/manifest.json",
+      "localRoot": "student-projects/pedro-pablo-arbelaez-escobar/current/",
+      "defaultEntry": "13-05-26_ATM/index.html",
+      "htmlFiles": [
+        "13-05-26_ATM/index.html",
+        "13-05-26_Concierto/index.html",
+        "29-04-26_Reps/index.html",
+        "09-04-26/Practica 2 Paginas/Primera.html",
+        "09-04-26/Practica 2 Paginas/segunda.html",
+        "18-02-26/candies store/indexCandies.html",
+        "11-03-26/En 4 te llega/indexEn4tellega.html",
+        "04-03-26/Credenciales/indexCredenciales.html",
+        "25-02-26/The pixa deliweri/indexThePixaDeliweri.html",
+        "18-03-26/Log-in y registro cuenta bancaria/indexCuentaBancaria.html"
+      ],
+      "filesCount": 20,
+      "totalBytes": 7429,
+      "mirroredAt": "2026-07-29T02:29:56.034Z",
+      "error": null
+    },
+    "samuel-chavarriaga-avendano": {
+      "studentId": "samuel-chavarriaga-avendano",
+      "name": "Samuel Chavarriaga Avendaño",
+      "group": "11-B",
+      "repository": "",
+      "status": "pending"
+    },
+    "pablo-jaramillo-palacio": {
+      "studentId": "pablo-jaramillo-palacio",
+      "name": "Pablo Jaramillo Palacio",
+      "group": "11-B",
+      "project": "Registro de actividades",
+      "repository": "pablitojarita2008-oss/pablitoSeminario",
+      "status": "ready",
+      "commit": {
+        "sha": "5b8125d0959565b10e438ae662e0686efdaee372",
+        "shortSha": "5b8125d",
+        "message": "Add files via upload",
+        "author": "pablitojarita2008-oss",
+        "date": "2026-07-08T19:45:38Z",
+        "url": "https://github.com/pablitojarita2008-oss/pablitoSeminario/commit/5b8125d0959565b10e438ae662e0686efdaee372"
+      },
+      "manifestPath": "student-projects/pablo-jaramillo-palacio/manifest.json",
+      "localRoot": "student-projects/pablo-jaramillo-palacio/current/",
+      "defaultEntry": "mi formulario/0/.rt/primera.html",
+      "htmlFiles": [
+        "mi formulario/0/.rt/primera.html",
+        "mi formulario/0/.rt/segunda.html",
+        "indexCond.html",
+        "banco/indexbanco.html"
+      ],
+      "filesCount": 9,
+      "totalBytes": 3305,
+      "mirroredAt": "2026-07-29T02:29:56.613Z",
+      "error": null
+    },
+    "alejandro-rico-paramo": {
+      "studentId": "alejandro-rico-paramo",
+      "name": "Alejandro Rico Páramo",
+      "group": "11-B",
+      "repository": "",
+      "status": "pending"
+    },
+    "tomas-gonzalez-giraldo": {
+      "studentId": "tomas-gonzalez-giraldo",
+      "name": "Tomás González Giraldo",
+      "group": "11-C",
+      "repository": "",
+      "status": "pending"
+    },
+    "alejandro-rincon-torres": {
+      "studentId": "alejandro-rincon-torres",
+      "name": "Alejandro Rincón Torres",
+      "group": "11-C",
+      "repository": "",
+      "status": "pending"
+    }
+  }
+}

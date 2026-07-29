@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="scriptCarrito.js" defer></script>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Carrito</h1> <p></p>
+    <div>
+
+        <details>
+            <summary>Comida</summary>
+            <label for="edtHamburguesa">Hamburguesa</label> <input type="number" id="edtHamburguesa"> <button onclick="btnHamburguesa()">Agregar</button>
+            <label for="edtPizzaP">Pizza pequeña</label> <input type="number" id="edtPizzaP"> <button onclick="btnPizzaP()">Agregar</button>
+            <label for="edtPizzaM">Pizza Mediana</label> <input type="number" id="edtPizzaM"> <button onclick="btnPizzaM()">Agregar</button>
+            <label for="edtPizzaG">Pizza grande</label> <input type="number" id="edtPizzaG"> <button onclick="btnPizzaG()">Agregar</button>
+            <label for="edtPollo">Pollo</label> <input type="number" id="edtPollo"> <button onclick="btnPollo()">Agregar</button>
+        </details>
+
+        <details>
+            <summary>Bebidas</summary>
+            <label for="edtGaseosaP">Gaseosa Personal</label> <input type="number" id="edtGaseosaP"> <button onclick="btnGaseosaP()">Agregar</button>
+            <label for="edtGaseosaM">Gaseosa 1.5L</label> <input type="number" id="edtGaseosaM"> <button onclick="btnGaseosaM()">Agregar</button>
+            <label for="edtGaseosaG">Gaseosa 3L</label> <input type="number" id="edtGaseosaG"> <button onclick="btnGaseosaG()">Agregar</button>
+        </details>
+
+        <details>
+            <summary>Extras</summary>
+        </details>
+
+        <button id="btnFinalizar" onclick="finalizar()">Finalizar</button>
+        
+    </div>
+    
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "studentId": "juan-pablo-arango-giraldo",
+  "studentName": "Juan Pablo Arango Giraldo",
+  "group": "11-A",
+  "project": "Sistema de pedidos Delivery",
+  "repository": "jp0705git/SeminarioProgramacion2",
+  "commit": {
+    "sha": "0245023324037e02b318d4aaa014caf5725f8552",
+    "shortSha": "0245023",
+    "message": "Add files via upload",
+    "author": "jp0705git",
+    "date": "2026-07-08T19:40:47Z",
+    "url": "https://github.com/jp0705git/SeminarioProgramacion2/commit/0245023324037e02b318d4aaa014caf5725f8552"
+  },
+  "mirroredAt": "2026-07-29T02:29:54.950Z",
+  "localRoot": "student-projects/juan-pablo-arango-giraldo/current/",
+  "defaultEntry": "index.html",
+  "htmlFiles": [
+    "index.html",
+    "delivery.html",
+    "Formulario.html",
+    "gym.html",
+    "print.html",
+    "grades.html"
+  ],
+  "filesCount": 12,
+  "totalBytes": 7865,
+  "status": "ready"
+}

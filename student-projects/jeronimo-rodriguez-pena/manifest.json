@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "studentId": "jeronimo-rodriguez-pena",
+  "studentName": "Jerónimo Rodríguez Peña",
+  "group": "11-A",
+  "project": "Carrito de restaurante",
+  "repository": "jrod917/Carrito",
+  "commit": {
+    "sha": "aa78f2883714e0883e33810707c07305503417e5",
+    "shortSha": "aa78f28",
+    "message": "Add files via upload",
+    "author": "jrod917",
+    "date": "2026-07-08T19:42:17Z",
+    "url": "https://github.com/jrod917/Carrito/commit/aa78f2883714e0883e33810707c07305503417e5"
+  },
+  "mirroredAt": "2026-07-29T02:29:55.513Z",
+  "localRoot": "student-projects/jeronimo-rodriguez-pena/current/",
+  "defaultEntry": "Carrito/indexCarrito.html",
+  "htmlFiles": [
+    "Carrito/indexCarrito.html",
+    "Carrito/indexRecibo.html"
+  ],
+  "filesCount": 7,
+  "totalBytes": 12167,
+  "status": "ready"
+}

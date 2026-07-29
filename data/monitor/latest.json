@@ -1,7 +1,8 @@
 {
-  "generatedAt": "2026-07-29T01:06:49Z",
+  "generatedAt": "2026-07-29T02:29:54.105Z",
   "repositoriesChecked": 4,
   "updatesDetected": 0,
+  "mirrorsReady": 4,
   "students": {
     "juan-pablo-arango-giraldo": {
       "studentId": "juan-pablo-arango-giraldo",
@@ -10,8 +11,8 @@
       "repository": "jp0705git/SeminarioProgramacion2",
       "status": "ok",
       "changed": false,
-      "firstObservation": true,
-      "previousSha": null,
+      "firstObservation": false,
+      "previousSha": "0245023324037e02b318d4aaa014caf5725f8552",
       "latestCommit": {
         "sha": "0245023324037e02b318d4aaa014caf5725f8552",
         "shortSha": "0245023",
@@ -20,7 +21,26 @@
         "date": "2026-07-08T19:40:47Z",
         "url": "https://github.com/jp0705git/SeminarioProgramacion2/commit/0245023324037e02b318d4aaa014caf5725f8552"
       },
-      "checkedAt": "2026-07-29T01:06:49Z"
+      "mirror": {
+        "status": "ready",
+        "manifestPath": "student-projects/juan-pablo-arango-giraldo/manifest.json",
+        "localRoot": "student-projects/juan-pablo-arango-giraldo/current/",
+        "htmlFiles": [
+          "index.html",
+          "delivery.html",
+          "Formulario.html",
+          "gym.html",
+          "print.html",
+          "grades.html"
+        ],
+        "defaultEntry": "index.html",
+        "filesCount": 12,
+        "totalBytes": 7865,
+        "mirroredAt": "2026-07-29T02:29:54.950Z",
+        "reused": false,
+        "error": null
+      },
+      "checkedAt": "2026-07-29T02:29:54.105Z"
     },
     "jeronimo-mazo-lopez": {
       "studentId": "jeronimo-mazo-lopez",
@@ -28,7 +48,10 @@
       "group": "11-A",
       "repository": "",
       "status": "pending",
-      "checkedAt": "2026-07-29T01:06:49Z"
+      "mirror": {
+        "status": "pending"
+      },
+      "checkedAt": "2026-07-29T02:29:54.105Z"
     },
     "jeronimo-rodriguez-pena": {
       "studentId": "jeronimo-rodriguez-pena",
@@ -37,8 +60,8 @@
       "repository": "jrod917/Carrito",
       "status": "ok",
       "changed": false,
-      "firstObservation": true,
-      "previousSha": null,
+      "firstObservation": false,
+      "previousSha": "aa78f2883714e0883e33810707c07305503417e5",
       "latestCommit": {
         "sha": "aa78f2883714e0883e33810707c07305503417e5",
         "shortSha": "aa78f28",
@@ -47,7 +70,22 @@
         "date": "2026-07-08T19:42:17Z",
         "url": "https://github.com/jrod917/Carrito/commit/aa78f2883714e0883e33810707c07305503417e5"
       },
-      "checkedAt": "2026-07-29T01:06:49Z"
+      "mirror": {
+        "status": "ready",
+        "manifestPath": "student-projects/jeronimo-rodriguez-pena/manifest.json",
+        "localRoot": "student-projects/jeronimo-rodriguez-pena/current/",
+        "htmlFiles": [
+          "Carrito/indexCarrito.html",
+          "Carrito/indexRecibo.html"
+        ],
+        "defaultEntry": "Carrito/indexCarrito.html",
+        "filesCount": 7,
+        "totalBytes": 12167,
+        "mirroredAt": "2026-07-29T02:29:55.513Z",
+        "reused": false,
+        "error": null
+      },
+      "checkedAt": "2026-07-29T02:29:54.105Z"
     },
     "pedro-pablo-arbelaez-escobar": {
       "studentId": "pedro-pablo-arbelaez-escobar",
@@ -56,8 +94,8 @@
       "repository": "Pedropae07/practice_seminario",
       "status": "ok",
       "changed": false,
-      "firstObservation": true,
-      "previousSha": null,
+      "firstObservation": false,
+      "previousSha": "2b4300f11504c6f3de6cb59f53ecb5c949ddc539",
       "latestCommit": {
         "sha": "2b4300f11504c6f3de6cb59f53ecb5c949ddc539",
         "shortSha": "2b4300f",
@@ -66,7 +104,30 @@
         "date": "2026-05-13T19:58:32Z",
         "url": "https://github.com/Pedropae07/practice_seminario/commit/2b4300f11504c6f3de6cb59f53ecb5c949ddc539"
       },
-      "checkedAt": "2026-07-29T01:06:49Z"
+      "mirror": {
+        "status": "ready",
+        "manifestPath": "student-projects/pedro-pablo-arbelaez-escobar/manifest.json",
+        "localRoot": "student-projects/pedro-pablo-arbelaez-escobar/current/",
+        "htmlFiles": [
+          "13-05-26_ATM/index.html",
+          "13-05-26_Concierto/index.html",
+          "29-04-26_Reps/index.html",
+          "09-04-26/Practica 2 Paginas/Primera.html",
+          "09-04-26/Practica 2 Paginas/segunda.html",
+          "18-02-26/candies store/indexCandies.html",
+          "11-03-26/En 4 te llega/indexEn4tellega.html",
+          "04-03-26/Credenciales/indexCredenciales.html",
+          "25-02-26/The pixa deliweri/indexThePixaDeliweri.html",
+          "18-03-26/Log-in y registro cuenta bancaria/indexCuentaBancaria.html"
+        ],
+        "defaultEntry": "13-05-26_ATM/index.html",
+        "filesCount": 20,
+        "totalBytes": 7429,
+        "mirroredAt": "2026-07-29T02:29:56.034Z",
+        "reused": false,
+        "error": null
+      },
+      "checkedAt": "2026-07-29T02:29:54.105Z"
     },
     "samuel-chavarriaga-avendano": {
       "studentId": "samuel-chavarriaga-avendano",
@@ -74,7 +135,10 @@
       "group": "11-B",
       "repository": "",
       "status": "pending",
-      "checkedAt": "2026-07-29T01:06:49Z"
+      "mirror": {
+        "status": "pending"
+      },
+      "checkedAt": "2026-07-29T02:29:54.105Z"
     },
     "pablo-jaramillo-palacio": {
       "studentId": "pablo-jaramillo-palacio",
@@ -83,8 +147,8 @@
       "repository": "pablitojarita2008-oss/pablitoSeminario",
       "status": "ok",
       "changed": false,
-      "firstObservation": true,
-      "previousSha": null,
+      "firstObservation": false,
+      "previousSha": "5b8125d0959565b10e438ae662e0686efdaee372",
       "latestCommit": {
         "sha": "5b8125d0959565b10e438ae662e0686efdaee372",
         "shortSha": "5b8125d",
@@ -93,7 +157,24 @@
         "date": "2026-07-08T19:45:38Z",
         "url": "https://github.com/pablitojarita2008-oss/pablitoSeminario/commit/5b8125d0959565b10e438ae662e0686efdaee372"
       },
-      "checkedAt": "2026-07-29T01:06:49Z"
+      "mirror": {
+        "status": "ready",
+        "manifestPath": "student-projects/pablo-jaramillo-palacio/manifest.json",
+        "localRoot": "student-projects/pablo-jaramillo-palacio/current/",
+        "htmlFiles": [
+          "mi formulario/0/.rt/primera.html",
+          "mi formulario/0/.rt/segunda.html",
+          "indexCond.html",
+          "banco/indexbanco.html"
+        ],
+        "defaultEntry": "mi formulario/0/.rt/primera.html",
+        "filesCount": 9,
+        "totalBytes": 3305,
+        "mirroredAt": "2026-07-29T02:29:56.613Z",
+        "reused": false,
+        "error": null
+      },
+      "checkedAt": "2026-07-29T02:29:54.105Z"
     },
     "alejandro-rico-paramo": {
       "studentId": "alejandro-rico-paramo",
@@ -101,7 +182,10 @@
       "group": "11-B",
       "repository": "",
       "status": "pending",
-      "checkedAt": "2026-07-29T01:06:49Z"
+      "mirror": {
+        "status": "pending"
+      },
+      "checkedAt": "2026-07-29T02:29:54.105Z"
     },
     "tomas-gonzalez-giraldo": {
       "studentId": "tomas-gonzalez-giraldo",
@@ -109,7 +193,10 @@
       "group": "11-C",
       "repository": "",
       "status": "pending",
-      "checkedAt": "2026-07-29T01:06:49Z"
+      "mirror": {
+        "status": "pending"
+      },
+      "checkedAt": "2026-07-29T02:29:54.105Z"
     },
     "alejandro-rincon-torres": {
       "studentId": "alejandro-rincon-torres",
@@ -117,7 +204,10 @@
       "group": "11-C",
       "repository": "",
       "status": "pending",
-      "checkedAt": "2026-07-29T01:06:49Z"
+      "mirror": {
+        "status": "pending"
+      },
+      "checkedAt": "2026-07-29T02:29:54.105Z"
     }
   }
 }
