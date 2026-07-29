@@ -63,9 +63,13 @@ jobs:
 
           session = Path("session.html")
           session_html = session.read_text(encoding="utf-8")
+          score_style = '<link rel="stylesheet" href="css/session-score.css">'
+          if score_style not in session_html:
+              session_html = session_html.replace("</head>", f"  {score_style}\n</head>")
           session_scripts = [
               '<script type="module" src="js/session-guide-link.js"></script>',
               '<script type="module" src="js/session-priority.js"></script>',
+              '<script type="module" src="js/session-score-panel.js"></script>',
           ]
           for script in session_scripts:
               if script not in session_html:
