@@ -1,0 +1,111 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage[margin=1.85cm,headheight=14pt]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs,tabularx,array,longtable}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{microtype}
+\definecolor{navy}{HTML}{173F67}
+\definecolor{blue}{HTML}{276FA8}
+\definecolor{soft}{HTML}{F3F6F9}
+\definecolor{line}{HTML}{D5DFE8}
+\hypersetup{colorlinks=true,linkcolor=navy,urlcolor=blue}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Seminario de Programación - Periodo 2}
+\rhead{\small Instituto Jorge Robledo}
+\cfoot{\small \thepage}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlist[itemize]{leftmargin=5mm,itemsep=2pt,topsep=3pt}
+\setlist[enumerate]{leftmargin=6mm,itemsep=3pt,topsep=3pt}
+\newcommand{\ruleline}{\par\noindent\color{line}\rule{\linewidth}{0.6pt}\color{black}\par}
+\newcommand{\statusbox}[2]{\noindent\fcolorbox{line}{soft}{\parbox{0.94\linewidth}{\textbf{#1}\\#2}}}
+\newcommand{\scorebox}[2]{\fcolorbox{line}{soft}{\parbox{0.43\linewidth}{\centering\textcolor{navy}{\Large\textbf{#1}}\\[-1mm]\small #2}}}
+\lstset{basicstyle=\ttfamily\small,backgroundcolor=\color{soft},frame=single,rulecolor=\color{line},breaklines=true,columns=fullflexible,showstringspaces=false}
+\begin{document}
+\begin{center}
+{\color{navy}\Large\bfseries Guía individual de avance}\\[2mm]
+{\small Samuel Chavarriaga Avendaño - 11-B}
+\end{center}
+\ruleline
+
+\begin{center}
+\scorebox{No evaluable}{Resultado técnico provisional}\hfill
+\scorebox{Sin porcentaje}{Avance frente a la rúbrica}
+\end{center}
+\statusbox{Proyecto principal}{Formulario multipágina con persistencia}
+\statusbox{Repositorio y versión}{Pendiente de vincular - commit Sin SHA}
+\statusbox{Nivel actual}{Sin evidencia verificable}
+
+\section*{1. Lectura del estado actual}
+La referencia actual es Carrito de restaurante de Jerónimo Rodríguez Peña, con 3.55/5.00 (71\%). La valoración automática analiza evidencia observable y debe confirmarse mediante ejecución, explicación y modificación en vivo.
+\statusbox{Estado de evaluación}{No existe repositorio vinculado. No se asigna una nota técnica automática porque no hay código, commit ni ejecución verificables.}
+\section*{2. Evidencias favorables}
+\emph{Sin evidencia disponible.}
+\section*{3. Riesgos o bloqueadores}
+\begin{itemize}
+\item No hay código verificable para analizar.
+\end{itemize}
+
+
+\newpage
+\section*{4. Qué falta para alcanzar el nivel de referencia}
+\begin{itemize}
+\item Repositorio y commit inicial verificables.
+\item Página HTML visible y organizada.
+\item JavaScript con funciones, eventos y resultados en el DOM.
+\item Validación, flujo completo, CSS, README y commits descriptivos.
+\end{itemize}
+
+\section*{5. Plan de trabajo para hoy}
+\begin{enumerate}
+\item Confirmar si trabajará individualmente o en pareja y registrar el repositorio compartido.
+\item Crear dos páginas conectadas: formulario y resumen.
+\item Validar entradas antes de continuar.
+\item Guardar un objeto con JSON en localStorage y recuperarlo.
+\item Agregar botón editar o volver y CSS responsive.
+\item Dejar commits propios o una distribución de roles verificable.
+\end{enumerate}
+\section*{6. Distribución sugerida si trabaja en pareja}
+\begin{itemize}
+\item Integrante A: interfaz HTML y CSS.
+\item Integrante B: JavaScript, DOM y persistencia.
+\item Ambos: validaciones, pruebas, README y sustentación.
+\end{itemize}
+
+\statusbox{Regla de trabajo grupal}{El repositorio y el puntaje técnico pueden ser comunes, pero cada integrante debe aparecer en el README, tener un rol concreto, explicar su aporte y realizar un commit identificable o una modificación en vivo.}
+
+\newpage
+\section*{7. Evidencias que deben quedar subidas}
+\begin{enumerate}
+\item Código actualizado y ejecutable desde una página HTML principal.
+\item README con propósito, integrantes, roles, instrucciones y estado actual.
+\item Al menos tres commits descriptivos; evitar mensajes como ``final'', ``cambios'' o ``Add files via upload''.
+\item Demostración del flujo principal y prueba de un caso de error.
+\item Lista de lo terminado y de lo pendiente para la próxima clase.
+\end{enumerate}
+\section*{8. Verificación con el docente}
+\begin{enumerate}
+\item Abrir el commit actual y ejecutar la página principal.
+\item Explicar entrada, procesamiento, estado y salida.
+\item Identificar el bloqueador más importante.
+\item Realizar una corrección pequeña en vivo.
+\item Crear un commit descriptivo y volver a ejecutar.
+\end{enumerate}
+\section*{9. Ejemplos de commits válidos}
+\begin{lstlisting}
+feat: agrega formulario y resultados visibles
+fix: valida cantidades y evita valores negativos
+style: organiza la interfaz con grid responsive
+docs: documenta integrantes, roles y ejecucion
+\end{lstlisting}
+\vfill
+{\small\textit{Generado con el estado observado en la copia central. La valoración técnica no sustituye la sustentación individual.}}
+\end{document}

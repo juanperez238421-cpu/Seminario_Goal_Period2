@@ -1,7 +1,8 @@
 {
-  "generatedAt": "2026-07-29T06:08:00-05:00",
+  "generatedAt": "2026-07-29T11:35:18.324508+00:00",
   "teacherGuide": "guides/pdf/guia_docente_preclase_2026_07_29.pdf",
   "referenceGuide": "guides/pdf/guia_proyecto_referencia_desde_cero.pdf",
+  "sourceArchive": "guides/seminario_guias_2026_07_29.zip",
   "students": [
     {
       "id": "juan-pablo-arango-giraldo",
@@ -93,6 +94,5 @@
       "percent": null,
       "pdf": "guides/pdf/guia_alejandro_rincon_torres.pdf"
     }
-  ],
-  "sourceArchive": "guides/seminario_guias_2026_07_29.zip"
+  ]
 }

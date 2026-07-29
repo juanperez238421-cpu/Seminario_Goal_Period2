@@ -1,0 +1,97 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage[margin=1.85cm,headheight=14pt]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs,tabularx,array,longtable}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{microtype}
+\definecolor{navy}{HTML}{173F67}
+\definecolor{blue}{HTML}{276FA8}
+\definecolor{soft}{HTML}{F3F6F9}
+\definecolor{line}{HTML}{D5DFE8}
+\hypersetup{colorlinks=true,linkcolor=navy,urlcolor=blue}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Seminario de Programación - Periodo 2}
+\rhead{\small Instituto Jorge Robledo}
+\cfoot{\small \thepage}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlist[itemize]{leftmargin=5mm,itemsep=2pt,topsep=3pt}
+\setlist[enumerate]{leftmargin=6mm,itemsep=3pt,topsep=3pt}
+\newcommand{\ruleline}{\par\noindent\color{line}\rule{\linewidth}{0.6pt}\color{black}\par}
+\newcommand{\statusbox}[2]{\noindent\fcolorbox{line}{soft}{\parbox{0.94\linewidth}{\textbf{#1}\\#2}}}
+\newcommand{\scorebox}[2]{\fcolorbox{line}{soft}{\parbox{0.43\linewidth}{\centering\textcolor{navy}{\Large\textbf{#1}}\\[-1mm]\small #2}}}
+\lstset{basicstyle=\ttfamily\small,backgroundcolor=\color{soft},frame=single,rulecolor=\color{line},breaklines=true,columns=fullflexible,showstringspaces=false}
+\begin{document}
+\begin{center}
+{\color{navy}\Large\bfseries Guía docente previa a la clase}\\[2mm]
+{\small Seminario de Programación - 29 de julio de 2026}
+\end{center}
+\ruleline
+
+\section*{Objetivo de la sesión}
+Revisar el estado real de cada proyecto ya subido, confirmar equipos o parejas, ejecutar el último SHA, acordar una meta verificable y dejar un commit nuevo con evidencia individual.
+\section*{Estado antes de la clase}
+\scriptsize
+\begin{longtable}{p{3.0cm}p{2.6cm}p{1.5cm}p{1.5cm}p{5.2cm}}
+\toprule
+\textbf{Estudiante} & \textbf{Proyecto} & \textbf{Repo} & \textbf{Estado} & \textbf{Primera prioridad}\\
+\midrule
+Juan Pablo Arango Giraldo & Sistema de pedidos Delivery & Vinculado & 2.11/5 & Crear y conectar una hoja CSS \\
+Jerónimo Mazo López & Sistema de registro estudiantil & Pendiente & No evaluable & Vincular repositorio y subir versión mínima. \\
+Jerónimo Rodríguez Peña & Carrito de restaurante & Vinculado & 3.55/5 & Implementar validaciones explícitas de entrada \\
+Pedro Pablo Arbeláez Escobar & Cajero automático didáctico & Vinculado & 1.40/5 & Crear y conectar una hoja CSS \\
+Samuel Chavarriaga Avendaño & Formulario multipágina con persistencia & Pendiente & No evaluable & Vincular repositorio y subir versión mínima. \\
+Pablo Jaramillo Palacio & Registro de actividades & Vinculado & 2.09/5 & Crear y conectar una hoja CSS \\
+Alejandro Rico Páramo & Gestor de tareas académicas & Pendiente & No evaluable & Vincular repositorio y subir versión mínima. \\
+Tomás González Giraldo & Sistema de inventario escolar & Pendiente & No evaluable & Vincular repositorio y subir versión mínima. \\
+Alejandro Rincón Torres & Calculadora y panel de notas & Pendiente & No evaluable & Vincular repositorio y subir versión mínima. \\
+\bottomrule
+\end{longtable}
+\normalsize
+\section*{Orden recomendado}
+\begin{enumerate}
+\item Proyectos con error sintáctico o que no ejecutan.
+\item Proyectos con repositorio pero baja integración visible.
+\item Proyectos compartidos: confirmar integrantes, roles y autoría.
+\item Proyecto de referencia: cerrar faltantes y profundizar CSS.
+\item Estudiantes sin repositorio: vincular cuenta, pareja y versión mínima.
+\end{enumerate}
+
+\newpage
+\section*{Protocolo por estudiante o pareja (10-12 minutos)}
+\begin{enumerate}
+\item Confirmar nombres, grupo, proyecto, repositorio y modalidad individual o grupal.
+\item Ejecutar la página principal del último SHA copiado.
+\item Verificar flujo principal, error visible y persistencia si aplica.
+\item Pedir explicación: entrada, función, estado, DOM y salida.
+\item Seleccionar una meta concreta para hoy.
+\item Realizar una modificación en vivo y un commit descriptivo.
+\item Registrar resultado, bloqueador, integrantes y siguiente paso.
+\end{enumerate}
+\section*{Reglas para parejas}
+\begin{itemize}
+\item Máximo dos estudiantes por proyecto durante este periodo.
+\item Un repositorio compartido puede representar a ambos.
+\item README obligatorio con integrantes y roles.
+\item La nota técnica del repositorio puede ser común; explicación, autoría y modificación en vivo son individuales.
+\item Cada integrante debe aportar commits propios o demostrar claramente su parte.
+\end{itemize}
+\section*{Referencia técnica actual}
+Carrito de restaurante de Jerónimo Rodríguez Peña: 3.55/5.00 y 71\%. Se usa como comparación por la mayor evidencia técnica, no porque el proyecto esté terminado.
+\section*{Producto mínimo al terminar la clase}
+\begin{itemize}
+\item Equipo o modalidad individual confirmada.
+\item Repositorio vinculado y página principal ejecutada.
+\item Meta concreta registrada.
+\item Cambio verificable y commit nuevo.
+\item Guía individual entregada o compartida.
+\end{itemize}
+\end{document}

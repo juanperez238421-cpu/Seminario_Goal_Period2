@@ -1,0 +1,131 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage[margin=1.85cm,headheight=14pt]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs,tabularx,array,longtable}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{microtype}
+\definecolor{navy}{HTML}{173F67}
+\definecolor{blue}{HTML}{276FA8}
+\definecolor{soft}{HTML}{F3F6F9}
+\definecolor{line}{HTML}{D5DFE8}
+\hypersetup{colorlinks=true,linkcolor=navy,urlcolor=blue}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Seminario de Programación - Periodo 2}
+\rhead{\small Instituto Jorge Robledo}
+\cfoot{\small \thepage}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlist[itemize]{leftmargin=5mm,itemsep=2pt,topsep=3pt}
+\setlist[enumerate]{leftmargin=6mm,itemsep=3pt,topsep=3pt}
+\newcommand{\ruleline}{\par\noindent\color{line}\rule{\linewidth}{0.6pt}\color{black}\par}
+\newcommand{\statusbox}[2]{\noindent\fcolorbox{line}{soft}{\parbox{0.94\linewidth}{\textbf{#1}\\#2}}}
+\newcommand{\scorebox}[2]{\fcolorbox{line}{soft}{\parbox{0.43\linewidth}{\centering\textcolor{navy}{\Large\textbf{#1}}\\[-1mm]\small #2}}}
+\lstset{basicstyle=\ttfamily\small,backgroundcolor=\color{soft},frame=single,rulecolor=\color{line},breaklines=true,columns=fullflexible,showstringspaces=false}
+\begin{document}
+\begin{center}
+{\color{navy}\Large\bfseries Guía individual de avance}\\[2mm]
+{\small Jerónimo Rodríguez Peña - 11-A}
+\end{center}
+\ruleline
+
+\begin{center}
+\scorebox{3.55/5.00}{Resultado técnico provisional}\hfill
+\scorebox{71\%}{Avance frente a la rúbrica}
+\end{center}
+\statusbox{Proyecto principal}{Carrito de restaurante}
+\statusbox{Repositorio y versión}{jrod917/Carrito - commit aa78f28}
+\statusbox{Nivel actual}{Competente}
+
+\section*{1. Lectura del estado actual}
+La referencia actual es Carrito de restaurante de Jerónimo Rodríguez Peña, con 3.55/5.00 (71\%). La valoración automática analiza evidencia observable y debe confirmarse mediante ejecución, explicación y modificación en vivo.
+\begin{table}[h]
+\centering\small
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X c c c c}
+\toprule
+\textbf{Criterio} & \textbf{Peso} & \textbf{Actual} & \textbf{Ref.} & \textbf{Brecha}\\
+\midrule
+HTML y estructura & 15\% & 3.4 & 3.4 & 0.0 \\
+JavaScript y lógica & 20\% & 4.4 & 4.4 & 0.0 \\
+DOM, funciones y eventos & 15\% & 3.8 & 3.8 & 0.0 \\
+CSS y presentación & 15\% & 3.6 & 3.6 & 0.0 \\
+Navegación y persistencia & 10\% & 3.0 & 3.0 & 0.0 \\
+Validación y errores & 10\% & 1.6 & 1.6 & 0.0 \\
+Integración funcional & 10\% & 5.0 & 5.0 & 0.0 \\
+Git y documentación & 5\% & 1.8 & 1.8 & 0.0 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section*{2. Evidencias favorables}
+\begin{itemize}
+\item Integración funcional: Existe una página de entrada visible
+\item Integración funcional: HTML conectado con JavaScript
+\item Integración funcional: HTML conectado con CSS
+\item Integración funcional: Referencias locales resueltas por análisis estático
+\item Integración funcional: Flujo de procesamiento conectado con una salida
+\item JavaScript y lógica: 2 archivo(s) JavaScript
+\end{itemize}
+
+\section*{3. Riesgos o bloqueadores}
+\begin{itemize}
+\item HTML y estructura: 1 página(s) HTML prácticamente vacías
+\item Integración funcional: Hay páginas que abren sin interfaz útil
+\item Git y documentación: Mensaje de commit genérico: Add files via upload
+\end{itemize}
+
+
+\newpage
+\section*{4. Qué falta para alcanzar el nivel de referencia}
+\emph{Sin evidencia disponible.}
+\section*{5. Plan de trabajo para hoy}
+\begin{enumerate}
+\item Implementar validaciones explícitas de entrada
+\item Agregar manejo de errores y estados de fallo
+\item Ampliar el README con instrucciones y decisiones técnicas
+\item Usar commits pequeños con mensajes feat:, fix:, style: o docs:
+\item Completar lectura y escritura de datos persistentes
+\end{enumerate}
+\section*{6. Distribución sugerida si trabaja en pareja}
+\begin{itemize}
+\item Integrante A: cierre de carrito, total y recibo.
+\item Integrante B: variables CSS, responsive, accesibilidad y componentes.
+\item Ambos: validación, persistencia, README y pruebas.
+\end{itemize}
+
+\statusbox{Regla de trabajo grupal}{El repositorio y el puntaje técnico pueden ser comunes, pero cada integrante debe aparecer en el README, tener un rol concreto, explicar su aporte y realizar un commit identificable o una modificación en vivo.}
+
+\newpage
+\section*{7. Evidencias que deben quedar subidas}
+\begin{enumerate}
+\item Código actualizado y ejecutable desde una página HTML principal.
+\item README con propósito, integrantes, roles, instrucciones y estado actual.
+\item Al menos tres commits descriptivos; evitar mensajes como ``final'', ``cambios'' o ``Add files via upload''.
+\item Demostración del flujo principal y prueba de un caso de error.
+\item Lista de lo terminado y de lo pendiente para la próxima clase.
+\end{enumerate}
+\section*{8. Verificación con el docente}
+\begin{enumerate}
+\item Abrir el commit actual y ejecutar la página principal.
+\item Explicar entrada, procesamiento, estado y salida.
+\item Identificar el bloqueador más importante.
+\item Realizar una corrección pequeña en vivo.
+\item Crear un commit descriptivo y volver a ejecutar.
+\end{enumerate}
+\section*{9. Ejemplos de commits válidos}
+\begin{lstlisting}
+feat: agrega formulario y resultados visibles
+fix: valida cantidades y evita valores negativos
+style: organiza la interfaz con grid responsive
+docs: documenta integrantes, roles y ejecucion
+\end{lstlisting}
+\vfill
+{\small\textit{Generado con el estado observado en la copia central. La valoración técnica no sustituye la sustentación individual.}}
+\end{document}

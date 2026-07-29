@@ -1,0 +1,177 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage[margin=1.85cm,headheight=14pt]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs,tabularx,array,longtable}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{microtype}
+\definecolor{navy}{HTML}{173F67}
+\definecolor{blue}{HTML}{276FA8}
+\definecolor{soft}{HTML}{F3F6F9}
+\definecolor{line}{HTML}{D5DFE8}
+\hypersetup{colorlinks=true,linkcolor=navy,urlcolor=blue}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Seminario de Programación - Periodo 2}
+\rhead{\small Instituto Jorge Robledo}
+\cfoot{\small \thepage}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlist[itemize]{leftmargin=5mm,itemsep=2pt,topsep=3pt}
+\setlist[enumerate]{leftmargin=6mm,itemsep=3pt,topsep=3pt}
+\newcommand{\ruleline}{\par\noindent\color{line}\rule{\linewidth}{0.6pt}\color{black}\par}
+\newcommand{\statusbox}[2]{\noindent\fcolorbox{line}{soft}{\parbox{0.94\linewidth}{\textbf{#1}\\#2}}}
+\newcommand{\scorebox}[2]{\fcolorbox{line}{soft}{\parbox{0.43\linewidth}{\centering\textcolor{navy}{\Large\textbf{#1}}\\[-1mm]\small #2}}}
+\lstset{basicstyle=\ttfamily\small,backgroundcolor=\color{soft},frame=single,rulecolor=\color{line},breaklines=true,columns=fullflexible,showstringspaces=false}
+\begin{document}
+\begin{center}
+{\color{navy}\Large\bfseries Proyecto de referencia desde cero}\\[2mm]
+{\small Carrito web completo con HTML, CSS, JavaScript, DOM y localStorage}
+\end{center}
+\ruleline
+
+\section*{Propósito}
+Construir una aplicación que permita seleccionar productos, validar cantidades, calcular subtotales y total, guardar el pedido y mostrar un recibo. Este estándar se adapta a otras temáticas; no obliga a copiar el carrito.
+\section*{Estructura mínima}
+\begin{lstlisting}
+mi-proyecto/
+  index.html
+  recibo.html
+  css/styles.css
+  js/products.js
+  js/cart.js
+  js/app.js
+  js/receipt.js
+  README.md
+\end{lstlisting}
+\section*{Criterios}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X X}
+\toprule
+\textbf{Elemento} & \textbf{Evidencia esperada}\\\midrule
+HTML & header, main, section, formularios, labels y salida visible\\
+JavaScript & objetos, arreglos, funciones, condiciones y cálculos\\
+DOM y eventos & addEventListener, renderizado y mensajes\\
+CSS & variables, Grid/Flexbox, responsive y estados\\
+Persistencia & JSON.stringify/JSON.parse con localStorage\\
+Validación & entradas válidas y errores visibles\\
+Integración & entrada -> proceso -> estado -> salida\\
+Git & README y commits pequeños\\
+\bottomrule
+\end{tabularx}
+
+\newpage
+\section*{1. Modelo de datos}
+\begin{lstlisting}
+export const products = [
+  { id: "hamburguesa", name: "Hamburguesa", price: 15000 },
+  { id: "pizza", name: "Pizza personal", price: 18000 },
+  { id: "gaseosa", name: "Gaseosa", price: 5000 }
+];
+\end{lstlisting}
+\section*{2. HTML principal}
+\begin{lstlisting}
+<header><h1>Carrito de restaurante</h1></header>
+<main>
+  <section><h2>Productos</h2><div id="product-list"></div></section>
+  <section>
+    <h2>Pedido</h2>
+    <div id="cart-list"></div>
+    <p>Total: <strong id="cart-total">$0</strong></p>
+    <p id="form-message" role="status"></p>
+    <button id="checkout-button" type="button">Finalizar</button>
+  </section>
+</main>
+\end{lstlisting}
+\section*{3. Funciones}
+\begin{lstlisting}
+const cart = [];
+function addToCart(productId, quantity) {
+  const amount = Number(quantity);
+  if (!Number.isInteger(amount) || amount <= 0) {
+    throw new Error("La cantidad debe ser un entero positivo");
+  }
+  const product = products.find(item => item.id === productId);
+  if (!product) throw new Error("Producto no encontrado");
+  const existing = cart.find(item => item.id === productId);
+  if (existing) existing.quantity += amount;
+  else cart.push({ ...product, quantity: amount });
+}
+function calculateTotal() {
+  return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+}
+\end{lstlisting}
+
+\newpage
+\section*{4. DOM y eventos}
+\begin{lstlisting}
+function renderCart() {
+  cartList.innerHTML = "";
+  for (const item of cart) {
+    const row = document.createElement("article");
+    row.textContent = `${item.name} - ${item.quantity * item.price}`;
+    cartList.append(row);
+  }
+  totalOutput.textContent = `$${calculateTotal()}`;
+}
+productList.addEventListener("click", event => {
+  const button = event.target.closest("[data-add-product]");
+  if (!button) return;
+  try { addToCart(button.dataset.addProduct, 1); renderCart(); }
+  catch (error) { message.textContent = error.message; }
+});
+\end{lstlisting}
+\section*{5. Persistencia y recibo}
+\begin{lstlisting}
+localStorage.setItem("restaurant-cart", JSON.stringify(cart));
+window.location.href = "recibo.html";
+
+const saved = JSON.parse(localStorage.getItem("restaurant-cart") || "[]");
+\end{lstlisting}
+\section*{6. CSS}
+\begin{lstlisting}
+:root { --ink:#172033; --surface:#fff; --canvas:#f3f6f9;
+  --primary:#1f5f96; --line:#d6e0e8; --radius:12px; }
+.product-grid { display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1rem; }
+button:focus-visible { outline:3px solid #78aeda; }
+button:disabled { opacity:.55; cursor:not-allowed; }
+@media (max-width:650px) { main { padding:.75rem; } }
+\end{lstlisting}
+
+\newpage
+\section*{7. README y commits}
+\begin{lstlisting}
+# Nombre del proyecto
+## Integrantes y roles
+## Objetivo
+## Como ejecutar
+## Flujo principal
+## Validaciones
+## Estado actual y pendientes
+\end{lstlisting}
+\begin{lstlisting}
+feat: renderiza catalogo de productos
+feat: agrega productos y calcula total
+fix: valida cantidades enteras positivas
+feat: guarda datos y genera recibo
+style: crea componentes y responsive
+docs: documenta integrantes y ejecucion
+\end{lstlisting}
+\section*{8. Pruebas}
+\begin{enumerate}
+\item Abrir sin errores 404.
+\item Probar entrada válida y errores.
+\item Confirmar cálculos y actualización del DOM.
+\item Recargar y verificar persistencia.
+\item Revisar móvil, teclado, foco visible y mensajes.
+\item Confirmar integrantes, roles y autoría.
+\end{enumerate}
+\section*{Meta del referente}
+Jerónimo Rodríguez Peña debe cerrar persistencia y recibo, añadir validaciones explícitas, responsive, variables CSS y documentación. Ser referente significa avanzar hacia un flujo completo y explicable, no conservar el mismo puntaje.
+\end{document}
