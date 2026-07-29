@@ -17,7 +17,15 @@
       "track": "core",
       "goal": "Convertir Delivery en una interfaz HTML con eventos, validaciones y resultados visibles sin depender de prompt().",
       "goalStatus": "in-progress",
-      "milestones": { "html": true, "javascript": true, "dom": true, "processing": true, "storage": true }
+      "milestones": { "html": true, "javascript": true, "dom": true, "processing": true, "storage": true },
+      "commonPath": {
+        "primaryProjectId": "operations",
+        "variants": {
+          "registration": "Registro de cliente y dirección",
+          "operations": "Sistema de pedidos Delivery",
+          "integration": "Resumen y comprobante del pedido"
+        }
+      }
     },
     {
       "id": "jeronimo-mazo-lopez",
@@ -30,7 +38,15 @@
       "project": "Sistema de registro estudiantil",
       "track": "core",
       "goal": "Crear un formulario con datos múltiples, validación, resumen con DOM y persistencia local.",
-      "goalStatus": "not-started"
+      "goalStatus": "not-started",
+      "commonPath": {
+        "primaryProjectId": "registration",
+        "variants": {
+          "registration": "Sistema de registro estudiantil",
+          "operations": "Gestor de actividades del estudiante",
+          "integration": "Panel de registros y resumen"
+        }
+      }
     },
     {
       "id": "jeronimo-rodriguez-pena",
@@ -42,9 +58,18 @@
       "repositoryStatus": "provisional",
       "project": "Carrito de restaurante",
       "track": "css",
-      "goal": "Finalizar el recibo y mejorar la interfaz con variables CSS, responsive, estados visuales y componentes reutilizables.",
+      "goal": "Finalizar el recibo y aplicar una capa CSS consistente a los tres proyectos de la ruta común.",
       "goalStatus": "in-progress",
-      "milestones": { "html": true, "css": true, "javascript": true, "events": true, "dom": true, "processing": true, "integration": true }
+      "milestones": { "html": true, "css": true, "javascript": true, "events": true, "dom": true, "processing": true, "integration": true },
+      "commonPath": {
+        "primaryProjectId": "operations",
+        "variants": {
+          "registration": "Registro de cliente del restaurante",
+          "operations": "Carrito de restaurante",
+          "integration": "Recibo y resumen del pedido"
+        },
+        "advancedTrack": "css-all-projects"
+      }
     },
     {
       "id": "pedro-pablo-arbelaez-escobar",
@@ -58,7 +83,15 @@
       "track": "core",
       "goal": "Corregir autenticación y completar ingreso, consulta de saldo y retiro con validación.",
       "goalStatus": "in-progress",
-      "milestones": { "html": true, "javascript": true }
+      "milestones": { "html": true, "javascript": true },
+      "commonPath": {
+        "primaryProjectId": "operations",
+        "variants": {
+          "registration": "Registro y acceso de usuario bancario",
+          "operations": "Cajero automático didáctico",
+          "integration": "Comprobante e historial de transacciones"
+        }
+      }
     },
     {
       "id": "samuel-chavarriaga-avendano",
@@ -71,7 +104,15 @@
       "project": "Formulario multipágina con persistencia",
       "track": "core",
       "goal": "Construir dos páginas conectadas, validar entradas y conservar la información con localStorage.",
-      "goalStatus": "not-started"
+      "goalStatus": "not-started",
+      "commonPath": {
+        "primaryProjectId": "registration",
+        "variants": {
+          "registration": "Formulario multipágina de usuario",
+          "operations": "Gestor de solicitudes",
+          "integration": "Resumen editable con persistencia"
+        }
+      }
     },
     {
       "id": "pablo-jaramillo-palacio",
@@ -85,7 +126,15 @@
       "track": "core",
       "goal": "Ampliar el formulario, agregar validaciones y dejar evidencia individual mediante commits propios.",
       "goalStatus": "in-progress",
-      "milestones": { "html": true, "javascript": true, "events": true, "dom": true, "storage": true }
+      "milestones": { "html": true, "javascript": true, "events": true, "dom": true, "storage": true },
+      "commonPath": {
+        "primaryProjectId": "registration",
+        "variants": {
+          "registration": "Registro de actividades",
+          "operations": "Gestor de actividades y estados",
+          "integration": "Resumen y edición de registros"
+        }
+      }
     },
     {
       "id": "alejandro-rico-paramo",
@@ -98,7 +147,15 @@
       "project": "Gestor de tareas académicas",
       "track": "core",
       "goal": "Crear, completar, filtrar y eliminar tareas usando objetos, DOM y localStorage.",
-      "goalStatus": "not-started"
+      "goalStatus": "not-started",
+      "commonPath": {
+        "primaryProjectId": "operations",
+        "variants": {
+          "registration": "Registro de estudiante y materia",
+          "operations": "Gestor de tareas académicas",
+          "integration": "Panel persistente de tareas"
+        }
+      }
     },
     {
       "id": "tomas-gonzalez-giraldo",
@@ -111,7 +168,15 @@
       "project": "Sistema de inventario escolar",
       "track": "core",
       "goal": "Registrar productos, cantidades y movimientos con validación y actualización dinámica del DOM.",
-      "goalStatus": "not-started"
+      "goalStatus": "not-started",
+      "commonPath": {
+        "primaryProjectId": "operations",
+        "variants": {
+          "registration": "Registro de productos escolares",
+          "operations": "Sistema de inventario escolar",
+          "integration": "Historial y reporte de movimientos"
+        }
+      }
     },
     {
       "id": "alejandro-rincon-torres",
@@ -124,7 +189,15 @@
       "project": "Calculadora y panel de notas",
       "track": "core",
       "goal": "Calcular promedios, validar notas y presentar resultados en una tabla dinámica.",
-      "goalStatus": "not-started"
+      "goalStatus": "not-started",
+      "commonPath": {
+        "primaryProjectId": "operations",
+        "variants": {
+          "registration": "Registro de estudiante y asignatura",
+          "operations": "Calculadora y panel de notas",
+          "integration": "Reporte persistente de resultados"
+        }
+      }
     }
   ]
 }
