@@ -41,6 +41,9 @@ jobs:
             texlive-fonts-recommended \
             zip
 
+      - name: Remove previous generated archive
+        run: rm -f guides/seminario_guias_2026_07_29.zip
+
       - name: Generate LaTeX sources PDFs and archive
         run: python scripts/generate-pdf-guides.py
 
