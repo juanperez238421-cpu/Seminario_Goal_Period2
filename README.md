@@ -4,87 +4,162 @@ Página maestra docente para **Seminario de Programación, grado 11**, Instituto
 
 ## Enlaces
 
-- Repositorio: `juanperez238421-cpu/Seminario_Goal_Period2`
 - Página maestra: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/`
-- Análisis individual completo: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/individual-analysis.html`
+- Ruta común de proyectos: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/individual-analysis.html`
 - Entrevista puntual: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/session.html`
-- Revisión de copias locales: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/project-review.html`
+- Ejecución de copias locales: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/project-review.html`
 - Portafolio y parejas: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/portfolio.html`
-- Automatizaciones: pestaña **Actions** del repositorio.
 
-## Funciones principales
+## Enfoque pedagógico simplificado
 
-- Registro completo de estudiantes de 11-A, 11-B y 11-C.
-- Proyecto, ruta de trabajo, meta, estado y fecha objetivo por estudiante.
-- Rúbrica ponderada de 0,0 a 5,0.
-- Evidencias de ejecución, explicación, modificación en vivo y autoría.
-- Once competencias verificables.
-- Asistencia por fecha, grupo y estado.
-- Exportación de asistencia en CSV.
-- Persistencia privada con `localStorage`.
-- Exportación e importación de respaldo JSON.
-- Monitoreo central de commits cada 12 horas.
-- Copia automática de cada repositorio vinculado dentro de este repositorio maestro.
-- Índice de todos los archivos HTML disponibles por estudiante.
-- Ejecución aislada del estado exacto copiado desde el SHA monitoreado.
-- Historial de revisiones y transferencia de evidencias a la ficha maestra.
-- Análisis individual con estado actual, conceptos demostrados, faltantes, riesgos, proyecto esperado y siguiente commit.
-- Soporte para proyectos individuales o parejas de máximo dos integrantes.
-- Despliegue automático en GitHub Pages.
+Todos los estudiantes trabajan una misma temática:
 
-## Análisis individual completo
+> **Aplicaciones web de gestión**
 
-`individual-analysis.html` concentra la información necesaria para sentarse con cada estudiante antes de abrir el editor.
+Los contextos pueden variar —registro, carrito, Delivery, cajero, inventario, tareas o notas—, pero la ruta, los conceptos y los criterios son comunes.
 
-Para cada estudiante muestra:
+La aplicación ya no exige interpretar ocho criterios técnicos durante cada conversación. Para la entrevista se utilizan tres proyectos y cinco criterios simples.
 
-- modalidad individual o pareja;
-- integrantes y roles;
-- proyecto y repositorio;
-- último SHA copiado;
-- diagnóstico técnico provisional;
-- distancia frente al proyecto de referencia;
-- indicadores reales de HTML, JavaScript, CSS, DOM, eventos y validaciones;
-- estado por criterio;
-- conceptos ya demostrados;
-- conceptos que faltan;
-- elementos incompletos y riesgos;
-- páginas HTML encontradas;
-- resultado final esperado;
-- preguntas para comprobar comprensión;
-- secuencia de prueba frente al docente;
-- un único acuerdo para el siguiente commit;
-- mensaje de commit recomendado.
+## Tres proyectos para todos
 
-El flujo docente recomendado es:
+### Proyecto 1 · Registro interactivo
+
+Debe incluir:
+
+- formulario con varios campos;
+- `label` e `input`;
+- evento `submit` o `click`;
+- objeto de datos;
+- validación;
+- resumen visible mediante DOM.
+
+Variantes válidas: registro estudiantil, registro de actividades, formulario de usuario o inscripción.
+
+### Proyecto 2 · Gestión de operaciones
+
+Debe incluir:
+
+- entrada de datos;
+- funciones;
+- condicionales;
+- arreglos u objetos;
+- eventos;
+- resultado dinámico;
+- casos válidos e inválidos.
+
+Variantes válidas: carrito, Delivery, cajero automático, gestor de tareas, inventario o calculadora de notas.
+
+### Proyecto 3 · Aplicación integrada
+
+Debe incluir:
+
+- flujo completo de entrada, proceso y salida;
+- `localStorage`;
+- `JSON.stringify()` y `JSON.parse()`;
+- recuperación de información;
+- recibo, resumen, historial o reporte;
+- CSS responsive;
+- README y commits descriptivos.
+
+La definición completa está en `data/common-project-path.json` y en `docs/RUTA_COMUN_PROYECTOS.md`.
+
+## Cinco criterios comunes
+
+Cada proyecto se revisa con cinco criterios de 20 %:
+
+| Criterio | Evidencia mínima |
+|---|---|
+| Interfaz | La página abre y presenta controles comprensibles. |
+| Funcionamiento | Los eventos ejecutan la lógica y muestran resultados. |
+| Datos y validación | Controla entradas y usa objetos, arreglos o persistencia. |
+| Presentación CSS | Tiene estilos propios, distribución y adaptación básica. |
+| Explicación y Git | El estudiante explica, modifica y deja un commit descriptivo. |
+
+Estados de proyecto:
+
+| Avance | Estado |
+|---:|---|
+| 0 % | Sin iniciar |
+| 20–40 % | En construcción |
+| 60–80 % | Funcional parcial |
+| 100 % | Completo |
+
+El porcentaje de la ruta común es el promedio de los tres proyectos. No reemplaza la nota técnica histórica ni la valoración docente.
+
+## Ruta del estudiante avanzado
+
+El estudiante con mayor desarrollo técnico sigue completando los tres proyectos. Su profundización consiste en aplicar CSS a todos:
+
+- variables CSS;
+- Flexbox o Grid;
+- responsive;
+- estados `hover`, `focus`, `disabled` y error;
+- componentes reutilizables;
+- jerarquía visual consistente.
+
+## Proyectos en pareja
+
+`individual-analysis.html` permite vincular dos estudiantes y elegir cuáles proyectos comparten.
+
+Se sincronizan para la pareja:
+
+- interfaz;
+- funcionamiento;
+- datos y validación;
+- CSS;
+- variante y repositorio del proyecto compartido.
+
+Permanece individual:
+
+- explicación;
+- autoría;
+- modificación en vivo;
+- evidencia Git.
+
+El criterio **Explicación y Git** nunca se copia automáticamente entre integrantes.
+
+## Procedimiento para sentarse con cada estudiante
 
 ```text
-Abrir análisis individual
-→ seleccionar estudiante
-→ leer comentario inicial
-→ revisar fortalezas y faltantes
-→ abrir entrevista puntual
-→ ejecutar actividad principal
-→ pedir explicación y modificación en vivo
-→ registrar un único acuerdo
-→ comparar el siguiente SHA
+Seleccionar estudiante
+→ confirmar proyecto individual o pareja
+→ abrir el repositorio
+→ identificar Proyecto 1, 2 o 3
+→ ejecutar un caso válido
+→ ejecutar un caso inválido
+→ marcar únicamente la evidencia comprobada
+→ seleccionar un solo proyecto actual
+→ asignar el primer criterio pendiente
+→ pedir una modificación en vivo
+→ exigir un commit descriptivo
 ```
 
-Los estudiantes sin repositorio no reciben automáticamente una nota de cero. La página muestra una ruta inicial para confirmar equipo, crear estructura, demostrar una interacción y publicar el primer commit.
+La página genera automáticamente:
 
-## Copias centrales de los proyectos
+- comentario breve para iniciar;
+- porcentaje de la ruta común;
+- estado de cada proyecto;
+- siguiente proyecto;
+- primer criterio pendiente;
+- commit recomendado;
+- ruta especial de CSS para el estudiante de referencia.
 
-El workflow `.github/workflows/monitor.yml` consulta cada repositorio público vinculado y guarda su estado actual dentro de:
+## Copias centrales de los repositorios
+
+El workflow `.github/workflows/monitor.yml` consulta cada repositorio público vinculado y guarda su estado actual en:
 
 ```text
 student-projects/<student-id>/current/
 ```
 
-Cada estudiante con repositorio confirmado o provisional tiene además:
+Cada copia incluye un `manifest.json` con:
 
-```text
-student-projects/<student-id>/manifest.json
-```
+- repositorio original;
+- SHA exacto;
+- autor, mensaje y fecha del commit;
+- archivos HTML;
+- página de entrada;
+- auditoría técnica provisional.
 
 El índice general está en:
 
@@ -92,31 +167,16 @@ El índice general está en:
 student-projects/index.json
 ```
 
-El manifiesto registra:
-
-- estudiante y grupo;
-- repositorio original;
-- SHA exacto copiado;
-- mensaje, autor y fecha del commit;
-- fecha de la copia;
-- cantidad de archivos;
-- tamaño total;
-- lista completa de páginas HTML;
-- página de entrada recomendada;
-- auditoría técnica provisional.
-
-Solo se conserva la copia actual. Cuando aparece un nuevo commit, la automatización reemplaza `current/` y deja el nuevo SHA en el manifiesto y en el historial central.
-
 ## Estado actual de las copias
 
-Actualmente están copiados y listos para ejecutar:
+Con repositorio copiado y auditable:
 
 - Juan Pablo Arango Giraldo — `jp0705git/SeminarioProgramacion2`.
 - Jerónimo Rodríguez Peña — `jrod917/Carrito`.
 - Pedro Pablo Arbeláez Escobar — `Pedropae07/practice_seminario`.
 - Pablo Jaramillo Palacio — `pablitojarita2008-oss/pablitoSeminario`.
 
-Permanecen pendientes hasta registrar su usuario y repositorio:
+Pendientes de vincular:
 
 - Jerónimo Mazo López.
 - Samuel Chavarriaga Avendaño.
@@ -124,103 +184,50 @@ Permanecen pendientes hasta registrar su usuario y repositorio:
 - Tomás González Giraldo.
 - Alejandro Rincón Torres.
 
-## Revisión frente al estudiante
+Los estudiantes pendientes no reciben automáticamente una nota de cero. Primero deben vincular un repositorio o una pareja y dejar una página ejecutable.
 
-`project-review.html` permite revisar el proyecto sin depender de que el estudiante haya configurado GitHub Pages.
+## Ejecución frente al estudiante
 
-El flujo es:
+`project-review.html` permite:
+
+- abrir la copia del SHA monitoreado;
+- seleccionar cualquier página HTML;
+- ejecutar el proyecto dentro de un `iframe` aislado;
+- abrirlo en pantalla completa;
+- probar navegación y persistencia;
+- registrar funcionamiento, explicación y bloqueadores.
+
+Los proyectos con Python, Java, Node.js con servidor, bases de datos o servicios privados deben ejecutarse en el computador del estudiante.
+
+## Persistencia privada
+
+La información docente permanece en el navegador mediante `localStorage`.
+
+Claves principales:
 
 ```text
-Seleccionar estudiante
-→ leer student-projects/index.json
-→ cargar la copia central del SHA
-→ escoger cualquiera de las páginas HTML
-→ ejecutar el proyecto en vista aislada
-→ probar el flujo con el estudiante
-→ registrar resultado, bloqueador y explicación
-→ enviar evidencia a la ficha maestra
+seminario-goal-p2-students-v1
+seminario-goal-p2-teams-v1
+seminario-goal-p2-common-path-v1
 ```
 
-La página permite:
+Las notas, parejas, observaciones y avances manuales no se publican automáticamente en GitHub.
 
-- abrir la copia del proyecto almacenada en este repositorio;
-- revisar varias prácticas HTML del mismo estudiante;
-- abrir el repositorio y el commit originales;
-- abrir el proyecto en pantalla completa;
-- usar opcionalmente una URL publicada;
-- registrar si funciona, funciona parcialmente, falla o está bloqueado;
-- conservar el archivo de entrada utilizado;
-- registrar explicación, modificación en vivo y observaciones;
-- mantener historial por estudiante;
-- enviar evidencias a la evaluación principal.
+## Automatización
 
-### Seguridad y alcance
-
-La vista integrada usa un `iframe` aislado. La copia del estudiante no puede modificar el repositorio maestro.
-
-La ejecución automática cubre proyectos públicos de HTML, CSS y JavaScript. Python, Java, Node.js con servidor, bases de datos y servicios privados deben ejecutarse en el computador del estudiante.
-
-Para probar persistencia, navegación compleja o APIs del navegador que el aislamiento limite, usa **Abrir proyecto en pantalla completa**.
-
-## Rutas de aprendizaje
-
-### Consolidación funcional
-
-1. HTML estructurado.
-2. JavaScript conectado.
-3. Eventos y DOM.
-4. Validación.
-5. Navegación o `localStorage`.
-6. Flujo completo.
-7. README y commits descriptivos.
-
-### Especialización CSS
-
-1. Variables y arquitectura CSS.
-2. Jerarquía visual.
-3. Grid y Flexbox.
-4. Responsive.
-5. Estados interactivos.
-6. Accesibilidad y contraste.
-7. Componentes reutilizables.
-
-## Rúbrica
-
-| Criterio | Peso |
-|---|---:|
-| HTML y estructura semántica | 15 % |
-| JavaScript y lógica | 20 % |
-| DOM, funciones y eventos | 15 % |
-| CSS y presentación | 15 % |
-| Navegación y localStorage | 10 % |
-| Validación y manejo de errores | 10 % |
-| Integración del flujo completo | 10 % |
-| Commits y documentación | 5 % |
-
-La nota se considera provisional hasta verificar ejecución, explicación, modificación en vivo y autoría.
-
-## Privacidad
-
-Las calificaciones, observaciones, sesiones de revisión, parejas y asistencia permanecen en el navegador del docente mediante `localStorage`. Exporta el respaldo JSON al terminar cada jornada.
-
-Los proyectos copiados conservan únicamente el contenido público que ya existe en los repositorios estudiantiles vinculados.
-
-## Automatización cada 12 horas
+Aproximadamente a las `07:00` y `19:00` de Colombia:
 
 ```text
-Leer data/students.json
+leer data/students.json
 → consultar último commit
-→ descargar exactamente ese SHA
-→ eliminar metadatos .git y enlaces simbólicos
-→ validar límite de 50 MB y 5.000 archivos
-→ copiar el proyecto a student-projects/<id>/current/
-→ generar manifest.json e index.json
-→ actualizar data/monitor/
-→ hacer commit automático
-→ desplegar nuevamente GitHub Pages
+→ copiar exactamente ese SHA
+→ eliminar metadatos .git
+→ generar manifiestos y auditorías
+→ actualizar student-projects/index.json
+→ desplegar GitHub Pages
 ```
 
-El cron se ejecuta aproximadamente a las `07:00` y `19:00` de Colombia. También puede iniciarse manualmente desde **Actions → Monitor and mirror student repositories**.
+También puede iniciarse manualmente desde **Actions → Monitor and mirror student repositories**.
 
 ## Ejecutar localmente
 
@@ -242,14 +249,14 @@ http://localhost:8000/project-review.html
 Requiere Node.js 20 o superior:
 
 ```bash
-npm test
 npm run check
+npm test
 ```
 
-## Activar GitHub Pages
+## GitHub Pages
 
 ```text
 Settings → Pages → Build and deployment → Source → GitHub Actions
 ```
 
-Después ejecuta **Deploy GitHub Pages** o realiza un nuevo commit en `main`.
+Luego ejecutar **Deploy GitHub Pages** o realizar un nuevo commit en `main`.
