@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Página maestra docente para registrar asistencia, metas, competencias, calificaciones y commits de Seminario de Programación, grado 11.">
+  <meta name="theme-color" content="#163b65">
+  <title>Seminario Goal · Periodo 2</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Saltar al contenido</a>
+
+  <header class="topbar">
+    <div class="brand-block">
+      <span class="brand-mark" aria-hidden="true">SG</span>
+      <div>
+        <p class="eyebrow">Instituto Jorge Robledo · Grado 11</p>
+        <h1>Seminario Goal</h1>
+        <p class="subtitle">Seguimiento profesional del segundo periodo</p>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <span class="sync-pill" id="syncStatus">Cargando monitoreo…</span>
+      <button class="button secondary" id="refreshMonitorButton" type="button">Actualizar datos</button>
+      <button class="button primary" id="syncGithubButton" type="button">Consultar GitHub ahora</button>
+    </div>
+  </header>
+
+  <nav class="section-nav" aria-label="Secciones de la página maestra">
+    <button class="nav-tab is-active" type="button" data-section="overview">Resumen</button>
+    <button class="nav-tab" type="button" data-section="students">Estudiantes</button>
+    <button class="nav-tab" type="button" data-section="attendance">Asistencia</button>
+    <button class="nav-tab" type="button" data-section="activity">Actividad GitHub</button>
+    <button class="nav-tab" type="button" data-section="data">Respaldo</button>
+  </nav>
+
+  <main id="mainContent" class="page-shell">
+    <section class="page-section is-active" id="section-overview" data-page-section="overview" aria-labelledby="overviewTitle">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Control general</p>
+          <h2 id="overviewTitle">Estado del curso</h2>
+          <p>Los commits se monitorean automáticamente cada 12 horas. Las notas, observaciones y asistencia permanecen privadas en este navegador.</p>
+        </div>
+        <div class="heading-meta">
+          <strong id="lastMonitorRun">Sin ejecución registrada</strong>
+          <small>Próxima revisión automática: cada 12 horas</small>
+        </div>
+      </div>
+
+      <div class="metric-grid">
+        <article class="metric-card">
+          <span>Estudiantes</span>
+          <strong id="metricStudents">9</strong>
+          <small>11-A, 11-B y 11-C</small>
+        </article>
+        <article class="metric-card">
+          <span>Repositorios vinculados</span>
+          <strong id="metricRepositories">0/9</strong>
+          <small>confirmados o provisionales</small>
+        </article>
+        <article class="metric-card attention">
+          <span>Commits por revisar</span>
+          <strong id="metricNewCommits">0</strong>
+          <small>frente al último SHA validado</small>
+        </article>
+        <article class="metric-card">
+          <span>Promedio registrado</span>
+          <strong id="metricAverage">—</strong>
+          <small>escala de 0,0 a 5,0</small>
+        </article>
+        <article class="metric-card">
+          <span>Metas completadas</span>
+          <strong id="metricProgress">0%</strong>
+          <small>avance técnico agregado</small>
+        </article>
+        <article class="metric-card">
+          <span>Asistencia de la fecha</span>
+          <strong id="metricAttendance">0/9</strong>
+          <small id="metricAttendanceDate">sin fecha seleccionada</small>
+        </article>
+      </div>
+
+      <div class="overview-grid">
+        <article class="panel route-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Rutas diferenciadas</p>
+              <h3>Metas del periodo</h3>
+            </div>
+          </div>
+          <div class="route-list">
+            <div class="route-card core-route">
+              <span class="route-number">Ruta 1</span>
+              <h4>Consolidación funcional</h4>
+              <p>Para estudiantes con ejercicios aislados o proyectos incompletos.</p>
+              <ol>
+                <li>Integrar HTML, JavaScript, eventos y DOM.</li>
+                <li>Agregar validación, navegación y persistencia.</li>
+                <li>Completar un flujo funcional de inicio a fin.</li>
+                <li>Documentar y entregar commits verificables.</li>
+              </ol>
+            </div>
+            <div class="route-card css-route">
+              <span class="route-number">Ruta 2 · referencia</span>
+              <h4>Especialización CSS</h4>
+              <p>Para el proyecto con mayor integración funcional actual.</p>
+              <ol>
+                <li>Variables, arquitectura y componentes CSS.</li>
+                <li>Grid, Flexbox y diseño responsive.</li>
+                <li>Estados hover, focus, error y disabled.</li>
+                <li>Accesibilidad, contraste y consistencia visual.</li>
+              </ol>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel priority-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Atención docente</p>
+              <h3>Prioridades actuales</h3>
+            </div>
+          </div>
+          <div id="priorityList" class="priority-list"></div>
+        </article>
+      </div>
+
+      <article class="panel group-progress-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Comparación por grupo</p>
+            <h3>Avance de 11-A, 11-B y 11-C</h3>
+          </div>
+        </div>
+        <div id="groupProgressGrid" class="group-progress-grid"></div>
+      </article>
+    </section>
+
+    <section class="page-section" id="section-students" data-page-section="students" aria-labelledby="studentsTitle" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Seguimiento individual</p>
+          <h2 id="studentsTitle">Estudiantes, proyectos y metas</h2>
+          <p>Selecciona un estudiante para registrar avances, evaluar competencias y validar el último commit.</p>
+        </div>
+        <button class="button secondary" id="openRosterEditorButton" type="button">Editar vínculos</button>
+      </div>
+
+      <section class="toolbar" aria-label="Filtros de estudiantes">
+        <label class="field grow">
+          <span>Buscar</span>
+          <input id="studentSearch" type="search" placeholder="Nombre, proyecto, GitHub o repositorio" autocomplete="off">
+        </label>
+        <label class="field">
+          <span>Grupo</span>
+          <select id="studentGroupFilter">
+            <option value="all">Todos</option>
+            <option value="11-A">11-A</option>
+            <option value="11-B">11-B</option>
+            <option value="11-C">11-C</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Ruta</span>
+          <select id="trackFilter">
+            <option value="all">Todas</option>
+            <option value="core">Consolidación funcional</option>
+            <option value="css">Especialización CSS</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Estado</span>
+          <select id="studentStatusFilter">
+            <option value="all">Todos</option>
+            <option value="new-commit">Commit nuevo</option>
+            <option value="starting">Inicio</option>
+            <option value="developing">En desarrollo</option>
+            <option value="advanced">Avanzado</option>
+            <option value="complete">Completo</option>
+            <option value="paused">En pausa</option>
+          </select>
+        </label>
+      </section>
+
+      <div id="studentGrid" class="student-grid" aria-live="polite"></div>
+      <p id="emptyStudentState" class="empty-state" hidden>No hay estudiantes que coincidan con los filtros.</p>
+    </section>
+
+    <section class="page-section" id="section-attendance" data-page-section="attendance" aria-labelledby="attendanceTitle" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Registro de clase</p>
+          <h2 id="attendanceTitle">Asistencia</h2>
+          <p>Guarda la asistencia en este dispositivo y exporta una copia al finalizar la clase.</p>
+        </div>
+        <div class="attendance-actions">
+          <label class="field compact-field">
+            <span>Fecha</span>
+            <input id="attendanceDate" type="date">
+          </label>
+          <button class="button secondary" id="markVisiblePresentButton" type="button">Marcar visibles presentes</button>
+          <button class="button secondary" id="exportAttendanceCsvButton" type="button">Exportar CSV</button>
+        </div>
+      </div>
+
+      <section class="toolbar attendance-toolbar" aria-label="Filtros de asistencia">
+        <label class="field">
+          <span>Grupo</span>
+          <select id="attendanceGroupFilter">
+            <option value="all">Todos</option>
+            <option value="11-A">11-A</option>
+            <option value="11-B">11-B</option>
+            <option value="11-C">11-C</option>
+          </select>
+        </label>
+        <div class="attendance-legend" aria-label="Estados de asistencia">
+          <span><i class="legend-dot present"></i>Presente</span>
+          <span><i class="legend-dot late"></i>Tarde</span>
+          <span><i class="legend-dot absent"></i>Ausente</span>
+          <span><i class="legend-dot excused"></i>Excusa</span>
+        </div>
+      </section>
+
+      <div class="table-wrap">
+        <table class="attendance-table">
+          <thead>
+            <tr>
+              <th scope="col">N.º</th>
+              <th scope="col">Estudiante</th>
+              <th scope="col">Grupo</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Observación</th>
+            </tr>
+          </thead>
+          <tbody id="attendanceTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="page-section" id="section-activity" data-page-section="activity" aria-labelledby="activityTitle" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Monitoreo automático</p>
+          <h2 id="activityTitle">Actividad de repositorios</h2>
+          <p>La automatización central se ejecuta cada 12 horas y conserva los últimos commits detectados.</p>
+        </div>
+        <a class="button secondary" href="https://github.com/juanperez238421-cpu/Seminario_Goal_Period2/actions" target="_blank" rel="noopener noreferrer">Abrir GitHub Actions</a>
+      </div>
+
+      <div id="activityGrid" class="activity-grid"></div>
+      <article class="panel history-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Historial</p>
+            <h3>Eventos recientes</h3>
+          </div>
+        </div>
+        <div id="historyList" class="history-list"></div>
+      </article>
+    </section>
+
+    <section class="page-section" id="section-data" data-page-section="data" aria-labelledby="dataTitle" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Respaldo y privacidad</p>
+          <h2 id="dataTitle">Administración de datos</h2>
+          <p>Las calificaciones, observaciones y asistencia no se publican en GitHub. Se guardan únicamente en el navegador del docente.</p>
+        </div>
+      </div>
+
+      <div class="data-grid">
+        <article class="panel data-card">
+          <h3>Copia de seguridad completa</h3>
+          <p>Descarga estudiantes, evaluaciones, metas, asistencia y SHA revisados.</p>
+          <button class="button primary" id="exportBackupButton" type="button">Exportar respaldo JSON</button>
+        </article>
+        <article class="panel data-card">
+          <h3>Restaurar respaldo</h3>
+          <p>Importa un archivo generado por esta misma aplicación.</p>
+          <label class="button secondary file-button">
+            Importar JSON
+            <input id="importBackupInput" type="file" accept="application/json" hidden>
+          </label>
+        </article>
+        <article class="panel data-card">
+          <h3>Lista de repositorios</h3>
+          <p>Descarga la configuración actual para actualizar <code>data/students.json</code>.</p>
+          <button class="button secondary" id="exportRosterButton" type="button">Exportar lista</button>
+        </article>
+        <article class="panel data-card danger-card">
+          <h3>Restablecer datos locales</h3>
+          <p>Elimina las modificaciones privadas y vuelve a la configuración inicial del repositorio.</p>
+          <button class="button danger" id="resetLocalDataButton" type="button">Restablecer aplicación</button>
+        </article>
+      </div>
+
+      <article class="panel privacy-panel">
+        <h3>Alcance técnico</h3>
+        <p><strong>Automático:</strong> consulta de commits públicos y actualización del historial central cada 12 horas mediante GitHub Actions.</p>
+        <p><strong>Privado:</strong> notas, observaciones de entrevista, asistencia y valoraciones de competencias permanecen en <code>localStorage</code>. Para trasladarlas a otro equipo debes exportar e importar el respaldo.</p>
+      </article>
+    </section>
+  </main>
+
+  <dialog id="studentDialog" class="student-dialog">
+    <form id="studentForm" method="dialog">
+      <div class="dialog-header">
+        <div>
+          <p class="section-kicker">Ficha individual</p>
+          <h2 id="dialogStudentName">Estudiante</h2>
+          <p id="dialogStudentMeta"></p>
+        </div>
+        <button class="icon-button" id="closeStudentDialogButton" type="button" aria-label="Cerrar">×</button>
+      </div>
+
+      <div class="dialog-layout">
+        <section class="dialog-main-column">
+          <fieldset>
+            <legend>Proyecto y repositorio</legend>
+            <div class="form-grid two-columns">
+              <label class="field">
+                <span>Proyecto principal</span>
+                <input id="studentProjectInput" name="project" type="text" maxlength="160" required>
+              </label>
+              <label class="field">
+                <span>Ruta de trabajo</span>
+                <select id="studentTrackInput" name="track">
+                  <option value="core">Consolidación funcional</option>
+                  <option value="css">Especialización CSS</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Usuario de GitHub</span>
+                <input id="studentGithubInput" name="github" type="text" maxlength="80" placeholder="usuario">
+              </label>
+              <label class="field">
+                <span>Repositorio</span>
+                <input id="studentRepositoryInput" name="repository" type="text" maxlength="180" placeholder="usuario/proyecto">
+              </label>
+              <label class="field">
+                <span>Estado del vínculo</span>
+                <select id="repositoryStatusInput" name="repositoryStatus">
+                  <option value="pending">Pendiente</option>
+                  <option value="provisional">Provisional</option>
+                  <option value="confirmed">Confirmado</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Estado académico</span>
+                <select id="academicStatusInput" name="academicStatus">
+                  <option value="active">Activo</option>
+                  <option value="paused">En pausa</option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Meta inmediata</legend>
+            <div class="form-grid two-columns">
+              <label class="field span-two">
+                <span>Siguiente meta verificable</span>
+                <textarea id="studentGoalInput" name="goal" rows="3" maxlength="500"></textarea>
+              </label>
+              <label class="field">
+                <span>Fecha objetivo</span>
+                <input id="studentGoalDateInput" name="goalDate" type="date">
+              </label>
+              <label class="field">
+                <span>Estado de la meta</span>
+                <select id="studentGoalStatusInput" name="goalStatus">
+                  <option value="not-started">No iniciada</option>
+                  <option value="in-progress">En progreso</option>
+                  <option value="blocked">Bloqueada</option>
+                  <option value="complete">Completada</option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Competencias y evidencias</legend>
+            <p class="field-help">Marca únicamente aquello que el estudiante demostró en el repositorio o durante la entrevista.</p>
+            <div id="milestoneFields" class="milestone-grid"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Rúbrica ponderada</legend>
+            <p class="field-help">Asigna cada criterio en escala de 0,0 a 5,0. La nota se calcula con los pesos definidos para Seminario.</p>
+            <div id="rubricFields" class="rubric-grid"></div>
+            <div class="grade-preview">
+              <span>Nota calculada</span>
+              <strong id="gradePreview">Pendiente</strong>
+              <small id="gradeVerificationState">Completa todos los criterios.</small>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Observaciones docentes</legend>
+            <label class="field">
+              <span>Entrevista, explicación, modificación en vivo y recomendaciones</span>
+              <textarea id="studentNotesInput" name="notes" rows="6" maxlength="1800"></textarea>
+            </label>
+          </fieldset>
+        </section>
+
+        <aside class="dialog-side-column">
+          <section class="commit-review-card">
+            <p class="section-kicker">Último commit</p>
+            <strong id="dialogCommitSha">Sin sincronizar</strong>
+            <p id="dialogCommitMessage">No hay información del repositorio.</p>
+            <small id="dialogCommitMeta"></small>
+            <a id="dialogCommitLink" class="button secondary full" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir commit</a>
+            <button id="markCommitReviewedButton" class="button primary full" type="button">Marcar como revisado</button>
+          </section>
+
+          <section class="evidence-card">
+            <p class="section-kicker">Validación individual</p>
+            <label class="evidence-check"><input id="evidenceRuns" type="checkbox"> <span>La aplicación ejecuta</span></label>
+            <label class="evidence-check"><input id="evidenceExplains" type="checkbox"> <span>Explica su código</span></label>
+            <label class="evidence-check"><input id="evidenceLiveChange" type="checkbox"> <span>Realiza modificación en vivo</span></label>
+            <label class="evidence-check"><input id="evidenceAuthorship" type="checkbox"> <span>Autoría verificable</span></label>
+          </section>
+
+          <section class="dialog-actions-card">
+            <button class="button primary full" id="saveStudentButton" type="submit">Guardar ficha</button>
+            <button class="button secondary full" id="syncSelectedStudentButton" type="button">Consultar repositorio</button>
+            <button class="button ghost full" id="cancelStudentButton" type="button">Cancelar</button>
+          </section>
+        </aside>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="rosterDialog" class="roster-dialog">
+    <form id="rosterForm" method="dialog">
+      <div class="dialog-header">
+        <div>
+          <p class="section-kicker">Configuración local</p>
+          <h2>Vínculos de repositorios</h2>
+          <p>Edita usuario, repositorio y proyecto. Los cambios se guardan en este navegador.</p>
+        </div>
+        <button class="icon-button" id="closeRosterDialogButton" type="button" aria-label="Cerrar">×</button>
+      </div>
+      <div id="rosterEditorList" class="roster-editor-list"></div>
+      <div class="dialog-footer-actions">
+        <button class="button primary" type="submit">Guardar vínculos</button>
+        <button class="button secondary" id="cancelRosterButton" type="button">Cancelar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="site-footer">
+    <p><strong>Seminario Goal · Periodo 2.</strong> Instituto Jorge Robledo — seguimiento docente de proyectos, competencias y repositorios.</p>
+    <p id="localSaveStatus">Datos locales listos.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
