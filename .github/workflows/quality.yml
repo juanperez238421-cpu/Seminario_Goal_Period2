@@ -19,11 +19,6 @@ jobs:
         with:
           node-version: 20
       - name: Check JavaScript syntax
-        run: |
-          node --check js/app.js
-          node --check js/core.js
-          node --check js/project-review.js
-          node --check js/project-review-local.js
-          node --check scripts/monitor-repos.mjs
+        run: npm run check
       - name: Run unit tests
         run: npm test
