@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Laboratorio docente para ejecutar y revisar los proyectos web de los estudiantes de Seminario de Programación.">
+  <meta name="description" content="Laboratorio docente para ejecutar y revisar las copias locales de los proyectos de Seminario de Programación.">
   <meta name="theme-color" content="#102f52">
-  <title>Revisión en vivo | Seminario Goal</title>
+  <title>Revisión local | Seminario Goal</title>
   <link rel="stylesheet" href="css/project-review.css">
-  <script type="module" src="js/project-review.js"></script>
+  <script type="module" src="js/project-review-local.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#reviewWorkspace">Saltar al laboratorio</a>
@@ -17,12 +17,12 @@
       <span class="brand-mark" aria-hidden="true">PR</span>
       <div>
         <p class="eyebrow">Instituto Jorge Robledo · Seminario de Programación</p>
-        <h1>Revisión en vivo de proyectos</h1>
-        <p>Ejecuta el estado exacto del último commit, conversa con el estudiante y registra la evidencia de la sesión.</p>
+        <h1>Revisión local de proyectos</h1>
+        <p>Abre la copia completa del último SHA monitoreado, conversa con el estudiante y registra la evidencia de la sesión.</p>
       </div>
     </div>
     <div class="header-actions">
-      <span class="security-pill">Vista aislada y segura</span>
+      <span class="security-pill">Copias centrales · vista aislada</span>
       <button class="button secondary" id="refreshDataButton" type="button">Actualizar datos</button>
       <a class="button primary" href="index.html">Volver a página maestra</a>
     </div>
@@ -75,8 +75,8 @@
         <div class="panel-heading">
           <div>
             <p class="section-kicker">Proyecto actual</p>
-            <h3>Ejecutar aplicación web</h3>
-            <p>El modo commit carga una copia estática del SHA seleccionado. No modifica el repositorio del estudiante.</p>
+            <h3>Ejecutar copia central</h3>
+            <p>La página abre la copia completa almacenada en este repositorio maestro y asociada al SHA monitoreado.</p>
           </div>
           <div class="runner-state" id="runnerState" data-state="idle">
             <span class="runner-dot"></span>
@@ -86,11 +86,11 @@
 
         <div class="repository-summary">
           <div>
-            <span>Repositorio</span>
+            <span>Repositorio original</span>
             <strong id="repositoryLabel">—</strong>
           </div>
           <div>
-            <span>Commit evaluado</span>
+            <span>SHA copiado</span>
             <strong id="commitLabel">—</strong>
           </div>
           <div>
@@ -101,9 +101,9 @@
 
         <div class="runner-controls">
           <label class="field entry-field">
-            <span>Página de entrada detectada</span>
+            <span>Página HTML guardada</span>
             <select id="entryFileSelect" disabled>
-              <option value="">Detecta primero las páginas HTML</option>
+              <option value="">Copia local pendiente</option>
             </select>
           </label>
           <label class="field live-url-field">
@@ -111,7 +111,7 @@
             <input id="liveUrlInput" type="url" placeholder="https://usuario.github.io/proyecto/" autocomplete="off">
           </label>
           <div class="control-buttons">
-            <button class="button primary" id="detectAndRunButton" type="button" disabled>Detectar y ejecutar</button>
+            <button class="button primary" id="detectAndRunButton" type="button" disabled>Abrir copia local</button>
             <button class="button secondary" id="runSelectedButton" type="button" disabled>Ejecutar página</button>
             <button class="button secondary" id="runLiveUrlButton" type="button" disabled>Usar URL publicada</button>
             <button class="button ghost" id="reloadPreviewButton" type="button" disabled>Recargar</button>
@@ -124,8 +124,8 @@
             <strong id="previewSourceLabel">Ninguna</strong>
           </div>
           <div class="preview-actions">
-            <a class="text-button" id="openRepositoryLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir repositorio</a>
-            <a class="text-button" id="openCommitLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir commit</a>
+            <a class="text-button" id="openRepositoryLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir repositorio original</a>
+            <a class="text-button" id="openCommitLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir commit original</a>
             <a class="text-button" id="openPreviewLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir proyecto en pantalla completa</a>
           </div>
         </div>
@@ -134,11 +134,11 @@
           <div class="preview-placeholder" id="previewPlaceholder">
             <span class="placeholder-icon" aria-hidden="true">▶</span>
             <h3>Proyecto listo para revisar</h3>
-            <p>Selecciona un estudiante y pulsa <strong>Detectar y ejecutar</strong>. Podrás escoger cualquiera de sus páginas HTML.</p>
+            <p>Selecciona un estudiante y abre su copia central. Podrás escoger cualquiera de las páginas HTML guardadas en el repositorio maestro.</p>
           </div>
           <iframe
             id="projectFrame"
-            title="Vista previa del proyecto del estudiante"
+            title="Vista previa de la copia local del proyecto del estudiante"
             loading="eager"
             referrerpolicy="no-referrer"
             hidden
@@ -147,7 +147,7 @@
 
         <div class="runner-notice">
           <strong>Alcance:</strong>
-          <span>funciona para proyectos web públicos de HTML, CSS y JavaScript. Los programas de Python, Java, servidores o bases de datos necesitan ejecutarse en el computador del estudiante.</span>
+          <span>la automatización copia cada repositorio web vinculado dentro de <code>student-projects/</code>. Python, Java, servidores y bases de datos deben ejecutarse en el computador del estudiante.</span>
         </div>
       </section>
     </section>
@@ -215,7 +215,7 @@
   </main>
 
   <footer class="review-footer">
-    <p><strong>Seminario Goal · Periodo 2.</strong> La ejecución ocurre en un marco aislado; la evaluación sigue requiriendo explicación y modificación en vivo.</p>
+    <p><strong>Seminario Goal · Periodo 2.</strong> La ejecución usa la copia central del repositorio; la evaluación sigue requiriendo explicación y modificación en vivo.</p>
     <p id="localStatus">Datos de revisión listos.</p>
   </footer>
 
