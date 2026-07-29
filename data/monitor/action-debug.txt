@@ -1,11 +1,11 @@
-Run: 2026-07-29T11:23:57Z
+Run: 2026-07-29T12:46:38Z
 
-> seminario-goal-period2@2.1.0 check
-> node --check js/app.js && node --check js/core.js && node --check js/portfolio.js && node --check js/project-review-local.js && node --check js/project-review-bootstrap.js && node --check scripts/project-audit.mjs && node --check scripts/monitor-repos-v2.mjs
+> seminario-goal-period2@2.2.0 check
+> node --check js/app.js && node --check js/core.js && node --check js/portfolio.js && node --check js/portfolio-session-link.js && node --check js/session.js && node --check js/project-review-local.js && node --check js/project-review-bootstrap.js && node --check scripts/project-audit.mjs && node --check scripts/monitor-repos-v2.mjs
 
 check_status=0
 
-> seminario-goal-period2@2.1.0 monitor
+> seminario-goal-period2@2.2.0 monitor
 > node scripts/monitor-repos-v2.mjs
 
 Monitor finalizado: 4 repositorios, 4 copias, 4 auditorías, 0 actualizaciones.
