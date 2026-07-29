@@ -1,12 +1,15 @@
-Run: 2026-07-29T12:46:38Z
+Run: 2026-07-29T12:56:03Z
 
-> seminario-goal-period2@2.2.0 check
-> node --check js/app.js && node --check js/core.js && node --check js/portfolio.js && node --check js/portfolio-session-link.js && node --check js/session.js && node --check js/project-review-local.js && node --check js/project-review-bootstrap.js && node --check scripts/project-audit.mjs && node --check scripts/monitor-repos-v2.mjs
+> seminario-goal-period2@2.2.1 check
+> node --check js/app.js && node --check js/core.js && node --check js/portfolio.js && node --check js/portfolio-session-link.js && node --check js/session.js && node --check js/session-guide-link.js && node --check js/project-review-local.js && node --check js/project-review-bootstrap.js && node --check scripts/project-audit.mjs && node --check scripts/monitor-repos-v2.mjs && python -m py_compile scripts/generate-pdf-guides.py scripts/generate-session-guides.py
 
-check_status=0
-
-> seminario-goal-period2@2.2.0 monitor
-> node scripts/monitor-repos-v2.mjs
-
-Monitor finalizado: 4 repositorios, 4 copias, 4 auditorías, 0 actualizaciones.
-monitor_status=0
+scripts/generate-session-guides.py:336: SyntaxWarning: invalid escape sequence '\%'
+  f"El repositorio obtiene \\textbf{{{score.get('grade', 0):.2f}/5.00 ({score.get('percent', 0)}\%)}} en el diagnostico tecnico provisional. "
+scripts/generate-session-guides.py:348: SyntaxWarning: invalid escape sequence '\%'
+  f"\\textcolor{{{status_color(activity['status'])}}}{{\\textbf{{{latex_escape(activity['status'])} {activity['percent']}\%}}}} & "
+  File "scripts/generate-session-guides.py", line 382
+    doc.append(r"\small\begin{tabularx}{\textwidth}{>{\bfseries}p{3cm} X p{2.2cm}}
+               ^
+SyntaxError: unterminated string literal (detected at line 382)
+check_status=1
+monitor_status=99
