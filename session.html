@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Modo entrevista para revisar, explicar y acordar el siguiente avance de cada proyecto de Seminario de Programacion.">
+  <meta name="theme-color" content="#123b63">
+  <title>Entrevista de proyecto | Seminario Goal</title>
+  <link rel="stylesheet" href="css/session.css">
+  <script type="module" src="js/session.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Saltar al contenido</a>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">SG</span>
+      <div>
+        <p class="eyebrow">Instituto Jorge Robledo · Seminario de Programacion</p>
+        <h1>Entrevista de proyecto</h1>
+        <p>Estado puntual de cada actividad, habilidades demostradas y acuerdo verificable para el siguiente commit.</p>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <button class="button secondary" id="refreshButton" type="button">Actualizar diagnostico</button>
+      <a class="button secondary" href="portfolio.html">Proyectos y parejas</a>
+      <a class="button primary" href="index.html">Pagina maestra</a>
+    </div>
+  </header>
+
+  <main id="mainContent" class="workspace">
+    <aside class="student-panel panel" aria-labelledby="studentListTitle">
+      <div class="panel-heading">
+        <div>
+          <p class="section-kicker">Seleccion</p>
+          <h2 id="studentListTitle">Estudiantes</h2>
+        </div>
+        <span class="count-pill" id="studentCount">0</span>
+      </div>
+
+      <label class="field">
+        <span>Buscar</span>
+        <input id="studentSearch" type="search" placeholder="Nombre, grupo o proyecto" autocomplete="off">
+      </label>
+      <label class="field">
+        <span>Grupo</span>
+        <select id="groupFilter">
+          <option value="all">Todos</option>
+          <option value="11-A">11-A</option>
+          <option value="11-B">11-B</option>
+          <option value="11-C">11-C</option>
+        </select>
+      </label>
+
+      <div class="student-list" id="studentList" aria-live="polite"></div>
+      <p class="empty-state" id="studentEmpty" hidden>No hay estudiantes para estos filtros.</p>
+    </aside>
+
+    <section class="main-column">
+      <section class="student-summary panel">
+        <div class="summary-main">
+          <p class="section-kicker">Conversacion individual</p>
+          <h2 id="studentName">Selecciona un estudiante</h2>
+          <p id="studentMeta">El sistema cargara su proyecto, pareja, repositorio, actividades y guia PDF.</p>
+          <div class="member-list" id="memberList"></div>
+        </div>
+        <div class="summary-score">
+          <span>Puntaje tecnico</span>
+          <strong id="technicalScore">—</strong>
+          <small id="technicalPercent">Sin auditoria</small>
+          <div class="summary-badges" id="summaryBadges"></div>
+        </div>
+      </section>
+
+      <section class="conversation-card panel">
+        <div>
+          <p class="section-kicker">Como iniciar</p>
+          <h2>Mensaje puntual para el estudiante</h2>
+        </div>
+        <blockquote id="openingMessage">Selecciona un estudiante para generar el comentario inicial.</blockquote>
+        <div class="conversation-actions">
+          <button class="button primary" id="copyOpeningButton" type="button" disabled>Copiar comentario</button>
+          <a class="button secondary" id="openProjectButton" href="#" hidden>Abrir proyecto real</a>
+          <a class="button secondary" id="openRepositoryButton" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir repositorio</a>
+          <a class="button ghost" id="openGuideButton" href="#" target="_blank" rel="noopener noreferrer" hidden>Guia PDF</a>
+        </div>
+      </section>
+
+      <section class="completion-panel panel" aria-labelledby="completionTitle">
+        <div class="panel-heading split">
+          <div>
+            <p class="section-kicker">Meta final</p>
+            <h2 id="completionTitle">Modelo de actividad finalizada</h2>
+            <p id="completionDescription">Se basa en las habilidades observables del proyecto de referencia y exige funcionamiento real.</p>
+          </div>
+          <div class="reference-box">
+            <span>Referencia actual</span>
+            <strong id="referenceName">—</strong>
+            <small id="referenceProject">—</small>
+          </div>
+        </div>
+        <div class="skill-standard-grid" id="skillStandardGrid"></div>
+      </section>
+
+      <section class="activities-panel panel" aria-labelledby="activitiesTitle">
+        <div class="panel-heading split">
+          <div>
+            <p class="section-kicker">Repositorio actual</p>
+            <h2 id="activitiesTitle">Estado de cada actividad</h2>
+            <p>Selecciona una actividad para revisar lo que ya existe, lo que falta y el criterio exacto de cierre.</p>
+          </div>
+          <span class="sync-label" id="auditDate">Sin diagnostico</span>
+        </div>
+        <div class="activity-list" id="activityList"></div>
+        <p class="empty-state" id="activityEmpty">Selecciona un estudiante con repositorio auditado.</p>
+      </section>
+
+      <section class="activity-detail panel" id="activityDetail" hidden>
+        <div class="detail-heading">
+          <div>
+            <p class="section-kicker">Actividad seleccionada</p>
+            <h2 id="activityTitle">Actividad</h2>
+            <p id="activityPath"></p>
+          </div>
+          <div class="detail-score">
+            <strong id="activityPercent">0%</strong>
+            <span id="activityStatus">Inicial</span>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <article>
+            <h3>Lo que ya tiene</h3>
+            <ul id="activityEvidence"></ul>
+          </article>
+          <article>
+            <h3>Lo que falta</h3>
+            <ul id="activityMissing"></ul>
+          </article>
+          <article>
+            <h3>Que debe demostrar</h3>
+            <ul id="activityExpected"></ul>
+          </article>
+        </div>
+
+        <div class="skills-table-wrap">
+          <table class="skills-table">
+            <thead>
+              <tr>
+                <th>Habilidad</th>
+                <th>Estado</th>
+                <th>Evidencia o accion necesaria</th>
+              </tr>
+            </thead>
+            <tbody id="activitySkillsBody"></tbody>
+          </table>
+        </div>
+
+        <div class="teacher-script">
+          <div>
+            <span>Comentario docente</span>
+            <p id="teacherComment"></p>
+          </div>
+          <div>
+            <span>Pregunta para comprobar comprension</span>
+            <p id="teacherQuestion"></p>
+          </div>
+          <div>
+            <span>Modificacion en vivo sugerida</span>
+            <p id="liveTask"></p>
+          </div>
+        </div>
+
+        <div class="detail-actions">
+          <a class="button primary" id="reviewActivityButton" href="#">Ejecutar esta actividad</a>
+          <button class="button secondary" id="useAsAgreementButton" type="button">Usar como acuerdo de hoy</button>
+        </div>
+      </section>
+    </section>
+
+    <aside class="interview-panel panel" aria-labelledby="interviewTitle">
+      <div class="panel-heading">
+        <div>
+          <p class="section-kicker">Registro docente</p>
+          <h2 id="interviewTitle">Acuerdo de la sesion</h2>
+        </div>
+      </div>
+
+      <label class="field">
+        <span>Actividad revisada</span>
+        <select id="agreementActivity" disabled>
+          <option value="">Selecciona una actividad</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Resultado esperado para el siguiente commit</span>
+        <textarea id="agreementTask" rows="5" maxlength="1000" placeholder="Describe un resultado observable, no una intencion general." disabled></textarea>
+      </label>
+
+      <label class="field">
+        <span>Responsabilidad de cada integrante</span>
+        <textarea id="roleAgreement" rows="4" maxlength="800" placeholder="Ej.: A desarrolla HTML/CSS; B desarrolla JavaScript/localStorage; ambos prueban y explican." disabled></textarea>
+      </label>
+
+      <div class="verification-list">
+        <label><input id="checkRuns" type="checkbox" disabled> <span>La actividad abre y ejecuta</span></label>
+        <label><input id="checkConcept" type="checkbox" disabled> <span>El concepto aplicado es pertinente</span></label>
+        <label><input id="checkExplains" type="checkbox" disabled> <span>Explica entrada, proceso y salida</span></label>
+        <label><input id="checkRole" type="checkbox" disabled> <span>Demuestra su responsabilidad individual</span></label>
+        <label><input id="checkLiveChange" type="checkbox" disabled> <span>Realiza una modificacion en vivo</span></label>
+        <label><input id="checkCommit" type="checkbox" disabled> <span>Deja un commit descriptivo</span></label>
+      </div>
+
+      <label class="field">
+        <span>Observaciones</span>
+        <textarea id="sessionNotes" rows="6" maxlength="1600" placeholder="Errores encontrados, explicacion del estudiante y decisiones tomadas." disabled></textarea>
+      </label>
+
+      <div class="last-session">
+        <span>Ultimo registro</span>
+        <strong id="lastSessionLabel">Sin registro</strong>
+      </div>
+
+      <button class="button primary full" id="saveSessionButton" type="button" disabled>Guardar acuerdo</button>
+      <button class="button secondary full" id="copySummaryButton" type="button" disabled>Copiar resumen de la entrevista</button>
+
+      <section class="history-section">
+        <h3>Historial reciente</h3>
+        <div id="sessionHistory"></div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Regla de cierre:</strong> un proyecto puede ser compartido; el repositorio y su funcionamiento son comunes, pero explicacion, autoria y modificacion en vivo se verifican por estudiante.</p>
+    <p id="saveStatus">Datos de entrevista listos.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
