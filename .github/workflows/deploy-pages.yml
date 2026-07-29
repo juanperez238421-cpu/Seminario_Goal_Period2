@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Configure master and local project review entry points
+      - name: Configure master project portfolio and review entry points
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -31,27 +31,25 @@ jobs:
           master = Path("index.html")
           html = master.read_text(encoding="utf-8")
           marker = '<div class="topbar-actions">'
-          link = '<a class="button secondary" href="project-review.html">Revisar proyectos locales</a>'
-          old_link = '<a class="button secondary" href="project-review.html">Revisar proyectos</a>'
-          html = html.replace(old_link, link)
-          if link not in html and marker in html:
-              html = html.replace(marker, f"{marker}\n      {link}", 1)
+          links = [
+              '<a class="button secondary" href="portfolio.html">Proyectos y equipos</a>',
+              '<a class="button secondary" href="project-review.html">Revisar proyectos locales</a>',
+          ]
+          html = html.replace('<a class="button secondary" href="project-review.html">Revisar proyectos</a>', links[1])
+          for link in reversed(links):
+              if link not in html and marker in html:
+                  html = html.replace(marker, f"{marker}\n      {link}", 1)
           master.write_text(html, encoding="utf-8")
 
           review = Path("project-review.html")
           review_html = review.read_text(encoding="utf-8")
-          review_html = review_html.replace(
-              'src="js/project-review.js"',
-              'src="js/project-review-local.js"'
-          )
+          review_html = review_html.replace('src="js/project-review.js"', 'src="js/project-review-bootstrap.js"')
+          review_html = review_html.replace('src="js/project-review-local.js"', 'src="js/project-review-bootstrap.js"')
           review_html = review_html.replace(
               "El modo commit carga una copia estática del SHA seleccionado. No modifica el repositorio del estudiante.",
               "La página abre la copia completa almacenada en este repositorio maestro y asociada al SHA monitoreado."
           )
-          review_html = review_html.replace(
-              "Detectar y ejecutar",
-              "Abrir copia local"
-          )
+          review_html = review_html.replace("Detectar y ejecutar", "Abrir copia local")
           review_html = review_html.replace(
               "Selecciona un estudiante y pulsa <strong>Abrir copia local</strong>. Podrás escoger cualquiera de sus páginas HTML.",
               "Selecciona un estudiante y abre su copia central. Podrás escoger cualquiera de las páginas HTML guardadas en el repositorio maestro."
