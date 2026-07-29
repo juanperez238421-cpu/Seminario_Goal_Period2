@@ -5,7 +5,8 @@ Página maestra docente para **Seminario de Programación, grado 11**, Instituto
 ## Enlaces
 
 - Repositorio: `juanperez238421-cpu/Seminario_Goal_Period2`
-- Página publicada: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/`
+- Página maestra: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/`
+- Revisión en vivo de proyectos: `https://juanperez238421-cpu.github.io/Seminario_Goal_Period2/project-review.html`
 - Automatizaciones: pestaña **Actions** del repositorio.
 
 ## Funciones principales
@@ -22,7 +23,45 @@ Página maestra docente para **Seminario de Programación, grado 11**, Instituto
 - Monitoreo manual de commits desde la interfaz.
 - Monitoreo central cada 12 horas con GitHub Actions.
 - Historial de commits nuevos y errores de consulta.
+- Ejecución aislada de proyectos web públicos desde el último commit monitoreado.
+- Detección automática de todas las páginas HTML de cada repositorio.
+- Registro de sesiones de revisión y transferencia de evidencias a la ficha maestra.
 - Despliegue automático en GitHub Pages.
+
+## Revisión en vivo de proyectos
+
+`project-review.html` está diseñado para sentarse con cada estudiante y revisar el estado real de su trabajo.
+
+El flujo es:
+
+```text
+Seleccionar estudiante
+→ consultar último commit
+→ detectar páginas HTML
+→ escoger página de entrada
+→ ejecutar copia exacta del SHA
+→ probar el flujo con el estudiante
+→ registrar resultado y bloqueadores
+→ transferir evidencias a la ficha maestra
+```
+
+La vista previa utiliza una copia estática del repositorio público alojada por CDN y se ejecuta dentro de un `iframe` aislado. El código del estudiante no puede modificar la página maestra ni el repositorio.
+
+La página permite:
+
+- ejecutar el último commit exacto registrado;
+- escoger entre varias prácticas HTML de un mismo repositorio;
+- usar una URL publicada en GitHub Pages cuando exista;
+- abrir el repositorio, el commit o el proyecto en pantalla completa;
+- registrar si funciona, funciona parcialmente, falla o está bloqueado;
+- conservar el archivo de entrada utilizado;
+- registrar explicación, modificación en vivo, bloqueador y observaciones;
+- mantener historial por estudiante;
+- enviar las evidencias de ejecución a la evaluación principal.
+
+### Alcance técnico
+
+La ejecución automática funciona para proyectos públicos basados en HTML, CSS y JavaScript. Proyectos que dependan de Python, Java, Node.js con servidor, bases de datos o servicios privados deben ejecutarse en el computador del estudiante.
 
 ## Rutas de aprendizaje
 
@@ -72,7 +111,7 @@ La nota calculada debe considerarse **provisional** hasta verificar que el estud
 
 ## Privacidad
 
-Las calificaciones, observaciones y asistencia no se publican en el repositorio. Permanecen en el navegador del docente mediante `localStorage`. Utiliza **Exportar respaldo JSON** al terminar cada jornada.
+Las calificaciones, observaciones, sesiones de revisión y asistencia no se publican en el repositorio. Permanecen en el navegador del docente mediante `localStorage`. Utiliza **Exportar respaldo JSON** al terminar cada jornada.
 
 El archivo `data/students.json` contiene únicamente el listado académico, proyectos, repositorios y metas generales que requiere la automatización.
 
@@ -102,6 +141,12 @@ Abrir:
 
 ```text
 http://localhost:8000
+```
+
+Laboratorio de revisión:
+
+```text
+http://localhost:8000/project-review.html
 ```
 
 ## Pruebas
