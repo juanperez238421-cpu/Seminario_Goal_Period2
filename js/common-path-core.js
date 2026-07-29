@@ -60,8 +60,9 @@ function criterionPercent(audit, id) {
   return Number.isFinite(value) ? value : 0;
 }
 
-export function inferInitialChecks({ audit, projectName, projectId } = {}) {
-  if (!audit || projectId !== inferPrimaryProjectId(projectName)) return emptyChecks();
+export function inferInitialChecks({ audit, projectName, projectId, primaryProjectId } = {}) {
+  const resolvedPrimary = primaryProjectId || inferPrimaryProjectId(projectName);
+  if (!audit || projectId !== resolvedPrimary) return emptyChecks();
   const html = criterionPercent(audit, "html");
   const javascript = criterionPercent(audit, "javascript");
   const dom = criterionPercent(audit, "domEvents");
@@ -85,7 +86,11 @@ export function nextMissingCriterion(checks = {}) {
 
 export function buildStudentRoute({ student, auditProject, pathway, savedRoute = {} } = {}) {
   const projects = pathway?.projects || [];
-  const primaryProjectId = savedRoute.primaryProjectId || inferPrimaryProjectId(student?.project || "");
+  const configuredPrimary = student?.commonPath?.primaryProjectId;
+  const primaryProjectId = savedRoute.primaryProjectId
+    || configuredPrimary
+    || inferPrimaryProjectId(student?.project || "");
+  const configuredVariants = student?.commonPath?.variants || {};
   const states = {};
 
   for (const project of projects) {
@@ -96,9 +101,12 @@ export function buildStudentRoute({ student, auditProject, pathway, savedRoute =
           audit: auditProject?.audit,
           projectName: student?.project,
           projectId: project.id,
+          primaryProjectId,
         });
     states[project.id] = {
-      variant: saved?.variant || (project.id === primaryProjectId ? student?.project || project.shortName : project.allowedVariants?.[0] || project.shortName),
+      variant: saved?.variant
+        || configuredVariants[project.id]
+        || (project.id === primaryProjectId ? student?.project || project.shortName : project.allowedVariants?.[0] || project.shortName),
       repository: normalizeRepository(saved?.repository || (project.id === primaryProjectId ? student?.repository || "" : "")),
       checks,
       notes: saved?.notes || "",
