@@ -1,7 +1,7 @@
-Run: 2026-07-29T13:44:15Z
+Run: 2026-07-29T15:53:11Z
 
-> seminario-goal-period2@2.3.0 check
-> node --check js/app.js && node --check js/core.js && node --check js/portfolio.js && node --check js/portfolio-session-link.js && node --check js/session.js && node --check js/session-guide-link.js && node --check js/session-priority.js && node --check js/interview-score.js && node --check js/session-score-panel.js && node --check js/project-review-local.js && node --check js/project-review-bootstrap.js && node --check scripts/project-audit.mjs && node --check scripts/monitor-repos-v2.mjs && python3 -m py_compile scripts/generate-pdf-guides.py scripts/generate-session-guides.py
+> seminario-goal-period2@2.4.0 check
+> node --check js/app.js && node --check js/core.js && node --check js/portfolio.js && node --check js/portfolio-session-link.js && node --check js/session.js && node --check js/session-guide-link.js && node --check js/session-priority.js && node --check js/interview-score.js && node --check js/session-score-panel.js && node --check js/individual-analysis-core.js && node --check js/individual-analysis.js && node --check js/project-review-local.js && node --check js/project-review-bootstrap.js && node --check scripts/project-audit.mjs && node --check scripts/monitor-repos-v2.mjs && python3 -m py_compile scripts/generate-pdf-guides.py scripts/generate-session-guides.py
 
 scripts/generate-session-guides.py:336: SyntaxWarning: invalid escape sequence '\%'
   f"El repositorio obtiene \\textbf{{{score.get('grade', 0):.2f}/5.00 ({score.get('percent', 0)}\%)}} en el diagnostico tecnico provisional. "
