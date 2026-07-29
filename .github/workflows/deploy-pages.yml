@@ -23,24 +23,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Configure master project portfolio interview and review entry points
+      - name: Configure master project portfolio interview and analysis entry points
         run: |
           python - <<'PY'
           from pathlib import Path
+
+          analysis_link_primary = '<a class="button primary" href="individual-analysis.html">Análisis individual</a>'
+          analysis_link_secondary = '<a class="button secondary" href="individual-analysis.html">Análisis individual</a>'
 
           master = Path("index.html")
           html = master.read_text(encoding="utf-8")
           marker = '<div class="topbar-actions">'
           links = [
-              '<a class="button primary" href="session.html">Entrevista puntual</a>',
+              analysis_link_primary,
+              '<a class="button secondary" href="session.html">Entrevista puntual</a>',
               '<a class="button secondary" href="portfolio.html">Proyectos y equipos</a>',
               '<a class="button secondary" href="project-review.html">Revisar proyectos locales</a>',
           ]
-          html = html.replace('<a class="button secondary" href="project-review.html">Revisar proyectos</a>', links[2])
+          html = html.replace('<a class="button secondary" href="project-review.html">Revisar proyectos</a>', links[3])
           for link in reversed(links):
               if link not in html and marker in html:
                   html = html.replace(marker, f"{marker}\n      {link}", 1)
           master.write_text(html, encoding="utf-8")
+
+          portfolio = Path("portfolio.html")
+          portfolio_html = portfolio.read_text(encoding="utf-8")
+          portfolio_marker = '<div class="hero-actions">'
+          if analysis_link_secondary not in portfolio_html and portfolio_marker in portfolio_html:
+              portfolio_html = portfolio_html.replace(portfolio_marker, f"{portfolio_marker}\n      {analysis_link_secondary}", 1)
+          portfolio.write_text(portfolio_html, encoding="utf-8")
 
           review = Path("project-review.html")
           review_html = review.read_text(encoding="utf-8")
@@ -63,6 +74,9 @@ jobs:
 
           session = Path("session.html")
           session_html = session.read_text(encoding="utf-8")
+          session_marker = '<div class="topbar-actions">'
+          if analysis_link_secondary not in session_html and session_marker in session_html:
+              session_html = session_html.replace(session_marker, f"{session_marker}\n      {analysis_link_secondary}", 1)
           score_style = '<link rel="stylesheet" href="css/session-score.css">'
           if score_style not in session_html:
               session_html = session_html.replace("</head>", f"  {score_style}\n</head>")
