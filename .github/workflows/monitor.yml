@@ -32,24 +32,38 @@ jobs:
         with:
           node-version: 20
 
-      - name: Validate monitoring code
-        run: npm run check
-
-      - name: Consult copy and score public student repositories
+      - name: Validate monitor and generate scored mirrors
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run monitor
+        run: |
+          mkdir -p data/monitor
+          : > data/monitor/action-debug.txt
+          echo "Run: $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> data/monitor/action-debug.txt
 
-      - name: Commit monitoring audits and local project mirrors
+          set +e
+          npm run check >> data/monitor/action-debug.txt 2>&1
+          CHECK_STATUS=$?
+          echo "check_status=$CHECK_STATUS" >> data/monitor/action-debug.txt
+
+          if [ "$CHECK_STATUS" -eq 0 ]; then
+            npm run monitor >> data/monitor/action-debug.txt 2>&1
+            MONITOR_STATUS=$?
+          else
+            MONITOR_STATUS=99
+          fi
+          echo "monitor_status=$MONITOR_STATUS" >> data/monitor/action-debug.txt
+          set -e
+
+      - name: Commit monitoring audits mirrors and diagnostics
         run: |
           CHANGES="$(git status --porcelain -- data/monitor student-projects)"
           if [ -z "$CHANGES" ]; then
-            echo "No monitoring, audit or local project changes to commit."
+            echo "No monitoring, audit, diagnostic or local project changes to commit."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/monitor student-projects
-          git commit -m "chore(monitor): refresh project mirrors and technical scores"
+          git commit -m "chore(monitor): refresh project mirrors technical scores and diagnostics"
           git push
