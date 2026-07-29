@@ -1,3 +1,72 @@
 {
-  "events": []
+  "events": [
+    {
+      "id": "juan-pablo-arango-giraldo-0245023324037e02b318d4aaa014caf5725f8552",
+      "type": "baseline",
+      "studentId": "juan-pablo-arango-giraldo",
+      "name": "Juan Pablo Arango Giraldo",
+      "group": "11-A",
+      "repository": "jp0705git/SeminarioProgramacion2",
+      "detectedAt": "2026-07-29T01:06:49Z",
+      "commit": {
+        "sha": "0245023324037e02b318d4aaa014caf5725f8552",
+        "shortSha": "0245023",
+        "message": "Add files via upload",
+        "author": "jp0705git",
+        "date": "2026-07-08T19:40:47Z",
+        "url": "https://github.com/jp0705git/SeminarioProgramacion2/commit/0245023324037e02b318d4aaa014caf5725f8552"
+      }
+    },
+    {
+      "id": "jeronimo-rodriguez-pena-aa78f2883714e0883e33810707c07305503417e5",
+      "type": "baseline",
+      "studentId": "jeronimo-rodriguez-pena",
+      "name": "Jerónimo Rodríguez Peña",
+      "group": "11-A",
+      "repository": "jrod917/Carrito",
+      "detectedAt": "2026-07-29T01:06:49Z",
+      "commit": {
+        "sha": "aa78f2883714e0883e33810707c07305503417e5",
+        "shortSha": "aa78f28",
+        "message": "Add files via upload",
+        "author": "jrod917",
+        "date": "2026-07-08T19:42:17Z",
+        "url": "https://github.com/jrod917/Carrito/commit/aa78f2883714e0883e33810707c07305503417e5"
+      }
+    },
+    {
+      "id": "pablo-jaramillo-palacio-5b8125d0959565b10e438ae662e0686efdaee372",
+      "type": "baseline",
+      "studentId": "pablo-jaramillo-palacio",
+      "name": "Pablo Jaramillo Palacio",
+      "group": "11-B",
+      "repository": "pablitojarita2008-oss/pablitoSeminario",
+      "detectedAt": "2026-07-29T01:06:49Z",
+      "commit": {
+        "sha": "5b8125d0959565b10e438ae662e0686efdaee372",
+        "shortSha": "5b8125d",
+        "message": "Add files via upload",
+        "author": "pablitojarita2008-oss",
+        "date": "2026-07-08T19:45:38Z",
+        "url": "https://github.com/pablitojarita2008-oss/pablitoSeminario/commit/5b8125d0959565b10e438ae662e0686efdaee372"
+      }
+    },
+    {
+      "id": "pedro-pablo-arbelaez-escobar-2b4300f11504c6f3de6cb59f53ecb5c949ddc539",
+      "type": "baseline",
+      "studentId": "pedro-pablo-arbelaez-escobar",
+      "name": "Pedro Pablo Arbeláez Escobar",
+      "group": "11-B",
+      "repository": "Pedropae07/practice_seminario",
+      "detectedAt": "2026-07-29T01:06:49Z",
+      "commit": {
+        "sha": "2b4300f11504c6f3de6cb59f53ecb5c949ddc539",
+        "shortSha": "2b4300f",
+        "message": "Finally",
+        "author": "Pedropae07",
+        "date": "2026-05-13T19:58:32Z",
+        "url": "https://github.com/Pedropae07/practice_seminario/commit/2b4300f11504c6f3de6cb59f53ecb5c949ddc539"
+      }
+    }
+  ]
 }
