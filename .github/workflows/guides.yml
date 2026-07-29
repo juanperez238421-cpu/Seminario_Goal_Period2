@@ -6,7 +6,9 @@ on:
     branches: [main]
     paths:
       - "scripts/generate-pdf-guides.py"
+      - "scripts/generate-session-guides.py"
       - "data/students.json"
+      - "data/completion-model.json"
       - "student-projects/index.json"
       - "student-projects/**/manifest.json"
       - ".github/workflows/guides.yml"
@@ -44,8 +46,11 @@ jobs:
       - name: Remove previous generated archive
         run: rm -f guides/seminario_guias_2026_07_29.zip
 
-      - name: Generate LaTeX sources PDFs and archive
+      - name: Generate general and individual LaTeX guides
         run: python scripts/generate-pdf-guides.py
+
+      - name: Generate focused interview sheets and rebuild archive
+        run: python scripts/generate-session-guides.py
 
       - name: Commit generated guides
         run: |
@@ -58,5 +63,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add guides
-          git commit -m "docs(guides): refresh individual seminar PDF guides"
+          git commit -m "docs(guides): refresh focused interview PDF sheets"
           git push
