@@ -1,6 +1,6 @@
 {
   "name": "seminario-goal-period2",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "private": true,
   "type": "module",
   "description": "Pagina maestra docente para seguimiento, equipos, entrevistas, ejecucion y auditoria de proyectos de Seminario de Programacion, grado 11.",
