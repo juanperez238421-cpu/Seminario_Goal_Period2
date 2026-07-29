@@ -50,6 +50,9 @@ jobs:
           for link in reversed(links):
               if link not in html and marker in html:
                   html = html.replace(marker, f"{marker}\n      {link}", 1)
+          master_script = '<script type="module" src="js/common-path-master.js"></script>'
+          if master_script not in html:
+              html = html.replace("</body>", f"  {master_script}\n</body>")
           master.write_text(html, encoding="utf-8")
 
           portfolio = Path("portfolio.html")
