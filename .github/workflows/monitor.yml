@@ -1,69 +1,11 @@
-name: Monitor mirror and score student repositories
+name: Monitor mirror and score student repositories (SUSPENDED)
 
 on:
-  schedule:
-    - cron: "0 */12 * * *"
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - "data/students.json"
-      - "scripts/project-audit.mjs"
-      - "scripts/monitor-repos-v2.mjs"
-      - "package.json"
-      - ".github/workflows/monitor.yml"
-
-permissions:
-  contents: write
-
-concurrency:
-  group: seminar-repository-monitor
-  cancel-in-progress: false
 
 jobs:
-  monitor:
+  suspended:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Validate monitor and generate scored mirrors
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          mkdir -p data/monitor
-          : > data/monitor/action-debug.txt
-          echo "Run: $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> data/monitor/action-debug.txt
-
-          set +e
-          npm run check >> data/monitor/action-debug.txt 2>&1
-          CHECK_STATUS=$?
-          echo "check_status=$CHECK_STATUS" >> data/monitor/action-debug.txt
-
-          if [ "$CHECK_STATUS" -eq 0 ]; then
-            npm run monitor >> data/monitor/action-debug.txt 2>&1
-            MONITOR_STATUS=$?
-          else
-            MONITOR_STATUS=99
-          fi
-          echo "monitor_status=$MONITOR_STATUS" >> data/monitor/action-debug.txt
-          set -e
-
-      - name: Commit monitoring audits mirrors and diagnostics
-        run: |
-          CHANGES="$(git status --porcelain -- data/monitor student-projects)"
-          if [ -z "$CHANGES" ]; then
-            echo "No monitoring, audit, diagnostic or local project changes to commit."
-            exit 0
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/monitor student-projects
-          git commit -m "chore(monitor): refresh project mirrors technical scores and diagnostics"
-          git push
+      - run: echo "IJR monitoring suspended on 2026-08-04 to prevent GitHub Actions usage."
